@@ -55,7 +55,7 @@ class SignInViewController: UIViewController {
             
             guard let me = userMe,
                 let id = me.id else { return }
-            let param: Parameters = ["user_id" : "1234", "last_name": "afsdf", "first_name": "sadfaf", "email": "dasifl", "phone_number": "czvzv"]
+            let param: Parameters = ["user_id" : id, "last_name": "afsdf", "first_name": "sadfaf", "email": "dasifl", "phone_number": "czvzv"]
             print(id)
             
             let header: HTTPHeaders = ["Content-Type" : "application/json"]
