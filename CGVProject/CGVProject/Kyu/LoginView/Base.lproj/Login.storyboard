@@ -57,6 +57,9 @@
                                 <state key="normal" title="로그인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e5h-lN-4uo"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cgvLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0E0-Kl-URV">
                                 <rect key="frame" x="72.666666666666686" y="64" width="230" height="167"/>
@@ -155,6 +158,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="T29-nO-TMy"/>
+                    <connections>
+                        <outlet property="idTextfield" destination="UVc-Yy-wPB" id="1ug-he-5hQ"/>
+                        <outlet property="passwordTextfield" destination="wuB-jn-wMB" id="LME-1I-OaI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

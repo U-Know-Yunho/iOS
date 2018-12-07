@@ -21,7 +21,7 @@ class MYViewCell: UICollectionViewCell {
     }
     func configure(){
         myViewTableView.separatorColor = .clear
-    
+        
         // MARK: addSubView
         self.addSubview(myViewTableView)
         
@@ -31,7 +31,7 @@ class MYViewCell: UICollectionViewCell {
         
         // MARK: delegate, dataSource
         myViewTableView.dataSource = self
-        myViewTableView.delegate = self
+        
         // MARK: autoLayout
         autolayout()
     }
@@ -64,21 +64,10 @@ extension MYViewCell: UITableViewDataSource{
         default: break
             
         }
-        cell.selectionStyle = .none
+        
         return cell
     }
     
-}
-
-extension MYViewCell: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            if !UserManager.singleton.hasToken{
-                MainViewController.singleton.showLoginPage()
-            }
-        default:
-            break
-        }
-    }
+    
+    
 }
