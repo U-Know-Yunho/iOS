@@ -31,6 +31,7 @@ class UserManager {
         }
     }
     
+
     // API 호출 상태값을 관리할 변수
     var isCalling = false
     
@@ -77,5 +78,4 @@ class UserManager {
         
         
     }
-
 }
