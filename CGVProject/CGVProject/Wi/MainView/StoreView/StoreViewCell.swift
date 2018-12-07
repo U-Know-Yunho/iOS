@@ -9,8 +9,15 @@
 import UIKit
 
 class StoreViewCell: UICollectionViewCell {
-    let storeScollView = UIScrollView()
-    let imageView = UIImageView()
+    var label: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .center
+        label.text = "Store"
+        label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -21,23 +28,9 @@ class StoreViewCell: UICollectionViewCell {
         configure()
     }
     func configure(){
-        storeScollView.delegate = self
-        storeScollView.addSubview(imageView)
-        imageView.image = UIImage(named: "store")
-        storeScollView.contentSize = CGSize(width: self.frame.width, height: 750)
-        self.addSubview(storeScollView)
+        self.addSubview(label)
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.centerXAnchor.constraint(equalTo: storeScollView.centerXAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: storeScollView.topAnchor).isActive = true
-        storeScollView.translatesAutoresizingMaskIntoConstraints = false
-        storeScollView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
-        storeScollView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
-        storeScollView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        storeScollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
-}
-
-extension StoreViewCell: UIScrollViewDelegate{
-    
 }

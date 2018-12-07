@@ -22,6 +22,7 @@ class MovieManager {
             case .success(let data):
                 do {
                     let movies = try JSONDecoder().decode([Movie].self, from: data)
+                    
                     completion(movies)
                     
                 }catch{

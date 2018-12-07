@@ -9,8 +9,10 @@
 import UIKit
 
 class EventViewCell: UICollectionViewCell {
-    let eventScollView = UIScrollView()
-    let imageView = UIImageView()
+    let eventScollView = {
+        let scrollView = UIScrollView()
+//        scrollView.
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -21,23 +23,9 @@ class EventViewCell: UICollectionViewCell {
         configure()
     }
     func configure(){
-        eventScollView.delegate = self
-        eventScollView.addSubview(imageView)
-        imageView.image = UIImage(named: "event")
-        eventScollView.contentSize = CGSize(width: self.frame.width, height: 1600)
-        self.addSubview(eventScollView)
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.centerXAnchor.constraint(equalTo: eventScollView.centerXAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: eventScollView.topAnchor).isActive = true
-        eventScollView.translatesAutoresizingMaskIntoConstraints = false
-        eventScollView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
-        eventScollView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
-        eventScollView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        eventScollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        self.addSubview(label)
+//        
+//        label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+//        label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
-}
-
-extension EventViewCell: UIScrollViewDelegate{
-
 }
