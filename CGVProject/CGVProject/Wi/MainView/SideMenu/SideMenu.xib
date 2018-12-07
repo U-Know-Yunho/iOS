@@ -24,13 +24,13 @@
                     <rect key="frame" x="0.0" y="-80" width="349" height="747"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adsImage" translatesAutoresizingMaskIntoConstraints="NO" id="yct-lx-EHb">
-                    <rect key="frame" x="0.0" y="547" width="349" height="120"/>
+                    <rect key="frame" x="0.0" y="567" width="349" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="zkL-c8-zOo"/>
+                        <constraint firstAttribute="height" constant="100" id="zkL-c8-zOo"/>
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NEQ-od-xcD">
-                    <rect key="frame" x="0.0" y="0.0" width="349" height="547"/>
+                    <rect key="frame" x="0.0" y="0.0" width="349" height="567"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.88" colorSpace="custom" customColorSpace="displayP3"/>
                     <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.87753852739726024" colorSpace="custom" customColorSpace="displayP3"/>
                     <connections>
