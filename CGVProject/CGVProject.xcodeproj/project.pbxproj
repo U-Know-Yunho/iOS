@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0889AAE521BBA311004E2E74 /* MoviePostrModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0889AAE421BBA311004E2E74 /* MoviePostrModel.swift */; };
 		089BE96C21B52EF8004FC7FD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089BE96B21B52EF8004FC7FD /* Data.swift */; };
 		089BE96E21B52F0A004FC7FD /* DataDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089BE96D21B52F0A004FC7FD /* DataDetails.swift */; };
 		3C01F40621B7BA3000B7A17B /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01F40521B7BA3000B7A17B /* CustomImageView.swift */; };
@@ -94,6 +95,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0889AAE421BBA311004E2E74 /* MoviePostrModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePostrModel.swift; sourceTree = "<group>"; };
 		089BE96B21B52EF8004FC7FD /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		089BE96D21B52F0A004FC7FD /* DataDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetails.swift; sourceTree = "<group>"; };
 		3C01F40521B7BA3000B7A17B /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 			children = (
 				3CE8DB4C21B4C6AC00C9DD3B /* MoviePosterViewController.swift */,
 				3CE8DB4D21B4C6AC00C9DD3B /* MoviePosterCollectionViewCell.swift */,
+				0889AAE421BBA311004E2E74 /* MoviePostrModel.swift */,
 			);
 			path = MoviePoster;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				3CE8DB5F21B4C6AC00C9DD3B /* StartViewController.swift in Sources */,
 				3CE8DB5821B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift in Sources */,
 				3CC2E4D621B107DB007B9F59 /* SideMenu.swift in Sources */,
+				0889AAE521BBA311004E2E74 /* MoviePostrModel.swift in Sources */,
 				089BE96E21B52F0A004FC7FD /* DataDetails.swift in Sources */,
 				3C0464BF21AE7F89001F38BB /* MovieChartTableViewCell.swift in Sources */,
 				3CE29BCF21B250A800CEA8AE /* MainView.swift in Sources */,
