@@ -78,4 +78,42 @@ class UserManager {
         
         
     }
+    
+    // 카카오 로그인 시 카카오 ID로 토큰 받기
+    func postKakaoUserId() {
+        KOSessionTask.userMeTask { [weak self] (error, userMe) in
+            if let error = error {
+                return print(error.localizedDescription)
+            }
+            
+            guard let me = userMe,
+                let id = me.id else { return }
+            //kakao login 시 받아 올 수 있는 id를 서버에 전달하여 토큰값 생성,
+            // id만 전달하면 되지만 현재 서버 문제로 모든 파라미터를 채워서 보내야 토큰값이 생성 됨.
+            let param: Parameters = ["user_id" : id, "last_name": "afsdf", "first_name": "sadfaf", "email": "dasifl", "phone_number": "czvzv"]
+            print(id)
+            
+            let header: HTTPHeaders = ["Content-Type" : "application/json"]
+            Alamofire.request(API.AuthURL.socialSignIn, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header)
+                .validate(statusCode: 200...300)
+                .responseJSON(completionHandler: { (response) in
+                    switch response.result {
+                    case .success(let value):
+                        print("token :", value)
+                        // value에 토큰값이 들어오는데 딕셔너리로 들어오므로 딕셔너리로 타입을 바꿔준 다음에
+                        // "token" 키값으로 토큰값을 받아온 뒤 UserManager의 token 변수에 담아준다.
+                        guard let token = value as? [String: String] else { return print("token parsing error")}
+                        UserManager.singleton.token = token["token"]
+                        print("\n------------ [ success ] -------------\n")
+                        print(UserManager.singleton.hasToken)
+                        
+                    case .failure(let error):
+                        print("\n------------ [ fail ] -------------\n")
+                        print(error.localizedDescription)
+                        
+                    }
+                })
+            
+        }
+    }
 }
