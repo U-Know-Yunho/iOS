@@ -46,9 +46,9 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.titleLabel.text = movieTitle
                 cell.ageInfoAndRuningTime.text = ageAndTime
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTableViewCell", for: indexPath) as! BookingTableViewCell
+                let _ = tableView.dequeueReusableCell(withIdentifier: "BookingTableViewCell", for: indexPath) as! BookingTableViewCell
             case 2:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell
+                let _ = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell
             default :
                 let table = UITableViewCell()
                 return table
