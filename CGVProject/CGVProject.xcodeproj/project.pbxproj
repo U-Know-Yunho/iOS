@@ -44,9 +44,9 @@
 		3CD5BE0321AC493F00DAA8A6 /* StoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5BE0221AC493F00DAA8A6 /* StoreViewCell.swift */; };
 		3CD5BE0521AC495300DAA8A6 /* MYViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD5BE0421AC495300DAA8A6 /* MYViewCell.swift */; };
 		3CE29BCF21B250A800CEA8AE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE29BCE21B250A800CEA8AE /* MainView.swift */; };
-		3CE29BE121B2753500CEA8AE /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE29BDF21B2753500CEA8AE /* CustomTableViewCell.swift */; };
-		3CE29BE221B2753500CEA8AE /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE29BE021B2753500CEA8AE /* CustomTableViewCell.xib */; };
 		3CE29BE421B2793500CEA8AE /* SideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE29BE321B2793500CEA8AE /* SideMenu.xib */; };
+		3CE2C5A921BAD4BB007F6A4E /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2C5A721BAD4BB007F6A4E /* LoginTableViewCell.swift */; };
+		3CE2C5AA21BAD4BB007F6A4E /* LoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE2C5A821BAD4BB007F6A4E /* LoginTableViewCell.xib */; };
 		3CE8DB5621B4C6AC00C9DD3B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB3C21B4C6AC00C9DD3B /* PopUpViewController.swift */; };
 		3CE8DB5721B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB3E21B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift */; };
 		3CE8DB5821B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB3F21B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift */; };
@@ -133,9 +133,9 @@
 		3CD5BE0221AC493F00DAA8A6 /* StoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewCell.swift; sourceTree = "<group>"; };
 		3CD5BE0421AC495300DAA8A6 /* MYViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYViewCell.swift; sourceTree = "<group>"; };
 		3CE29BCE21B250A800CEA8AE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		3CE29BDF21B2753500CEA8AE /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		3CE29BE021B2753500CEA8AE /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		3CE29BE321B2793500CEA8AE /* SideMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenu.xib; sourceTree = "<group>"; };
+		3CE2C5A721BAD4BB007F6A4E /* LoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewCell.swift; sourceTree = "<group>"; };
+		3CE2C5A821BAD4BB007F6A4E /* LoginTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTableViewCell.xib; sourceTree = "<group>"; };
 		3CE8DB3C21B4C6AC00C9DD3B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		3CE8DB3E21B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingTheaterTableViewCell.swift; sourceTree = "<group>"; };
 		3CE8DB3F21B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingTheaterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -408,8 +408,8 @@
 			children = (
 				3CC2E4D521B107DB007B9F59 /* SideMenu.swift */,
 				3CE29BE321B2793500CEA8AE /* SideMenu.xib */,
-				3CE29BDF21B2753500CEA8AE /* CustomTableViewCell.swift */,
-				3CE29BE021B2753500CEA8AE /* CustomTableViewCell.xib */,
+				3CE2C5A721BAD4BB007F6A4E /* LoginTableViewCell.swift */,
+				3CE2C5A821BAD4BB007F6A4E /* LoginTableViewCell.xib */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -715,9 +715,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CE8DBCD21B4CCB200C9DD3B /* MovieInfoViewCell.xib in Resources */,
-				3CE29BE221B2753500CEA8AE /* CustomTableViewCell.xib in Resources */,
 				420AAFE321B808F90027EDF2 /* StillcutCollectionViewCell.xib in Resources */,
 				3CE8DBD821B4CCB200C9DD3B /* MovieInfoTableViewCell.xib in Resources */,
+				3CE2C5AA21BAD4BB007F6A4E /* LoginTableViewCell.xib in Resources */,
 				3CE8DBD321B4CCB200C9DD3B /* CastTableViewCell.xib in Resources */,
 				3CE8DBBA21B4CC7600C9DD3B /* Assets.xcassets in Resources */,
 				3CE8DBD721B4CCB200C9DD3B /* MoviePhotoCollectionViewCell.xib in Resources */,
@@ -809,7 +809,6 @@
 				3CE8DB6321B4C6AC00C9DD3B /* SeatCollectionViewCell.swift in Sources */,
 				3C09167621BA228300C538D9 /* User.swift in Sources */,
 				3CE8DB5F21B4C6AC00C9DD3B /* StartViewController.swift in Sources */,
-				3CE29BE121B2753500CEA8AE /* CustomTableViewCell.swift in Sources */,
 				3CE8DB5821B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift in Sources */,
 				3CC2E4D621B107DB007B9F59 /* SideMenu.swift in Sources */,
 				089BE96E21B52F0A004FC7FD /* DataDetails.swift in Sources */,
@@ -837,6 +836,7 @@
 				3CE8DB6121B4C6AC00C9DD3B /* MoviePosterCollectionViewCell.swift in Sources */,
 				3C09167821BA274100C538D9 /* UserManager.swift in Sources */,
 				3CE8DB6421B4C6AC00C9DD3B /* MovieInfo.swift in Sources */,
+				3CE2C5A921BAD4BB007F6A4E /* LoginTableViewCell.swift in Sources */,
 				3CE8DBD021B4CCB200C9DD3B /* CastCollectionViewCell.swift in Sources */,
 				3CD5BE0521AC495300DAA8A6 /* MYViewCell.swift in Sources */,
 				3CD5BE0321AC493F00DAA8A6 /* StoreViewCell.swift in Sources */,

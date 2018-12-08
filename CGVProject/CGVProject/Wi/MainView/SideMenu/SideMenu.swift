@@ -26,23 +26,39 @@ class SideMenu: UIView {
         contentView.frame = self.bounds
         self.addSubview(contentView)
         
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        tableView.register(UINib(nibName: "LoginTableViewCell", bundle: nil), forCellReuseIdentifier: "LoginTableViewCell")
     }
 }
 
 extension SideMenu: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell", for: indexPath)
+        case 1:
+            cell.textLabel?.text = "영화별 예매"
+            cell.backgroundColor = .clear
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.textAlignment = .center
+        case 2:
+            cell.textLabel?.text = "극장별 예매"
+            cell.backgroundColor = .clear
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.textAlignment = .center
+        case 3:
+            cell.textLabel?.text = "로그아웃"
+            cell.backgroundColor = .clear
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.textAlignment = .center
         default:
             break
         }
+        cell.selectionStyle = .none
         return cell
     }
 }
