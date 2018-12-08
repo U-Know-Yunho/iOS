@@ -34,7 +34,25 @@ class UserManager {
 
     // API 호출 상태값을 관리할 변수
     var isCalling = false
-    
+    func signOut(){
+        Alamofire.request(API.AuthURL.signOut, method: .get, encoding: JSONEncoding.default, headers: HTTPHeaders(dictionaryLiteral: ("Autorization", token ?? ""))).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                print(value)
+                KOSession.shared()?.logoutAndClose(completionHandler: { (success, error) in
+                    if let error = error {
+                        return print(error.localizedDescription)
+                    }
+                    // Logout success
+                    UserManager.singleton.token = nil
+                })
+            case .failure(let err):
+                print(err.localizedDescription)
+                
+            }
+        }
+        
+    }
     func signUp(param: Parameters) {
         
         // 인디케이터 뷰 애니메이션 시작

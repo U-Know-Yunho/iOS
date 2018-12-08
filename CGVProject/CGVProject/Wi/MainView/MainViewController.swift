@@ -45,6 +45,7 @@ class MainViewController: UIViewController{
     }
     @objc private func showSideMenu(){
         print("sideMenuBtnTap")
+        sideMenu.tableView.reloadData()
         if sideMenuTrailingConstraints?.constant == 0{
             isSidemenuOpen = false
             sideMenuTrailingConstraints?.constant = sideMenuWidth

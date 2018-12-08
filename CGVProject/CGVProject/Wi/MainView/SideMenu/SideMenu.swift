@@ -12,6 +12,12 @@ class SideMenu: UIView {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    private var buttonName: [String]{
+        if UserManager.singleton.hasToken {
+            return ["Login","영화별 예매","극장별 예매", "로그아웃"]
+        }
+        return ["Login","영화별 예매","극장별 예매"]
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,19 +33,25 @@ class SideMenu: UIView {
         self.addSubview(contentView)
         
         tableView.register(UINib(nibName: "LoginTableViewCell", bundle: nil), forCellReuseIdentifier: "LoginTableViewCell")
+        tableView.register(UINib(nibName: "NotLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "NotLoginTableViewCell")
     }
 }
 
 extension SideMenu: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return buttonName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell", for: indexPath)
+            print("Token : ", UserManager.singleton.hasToken)
+            if UserManager.singleton.hasToken {
+                cell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell", for: indexPath)
+            }else{
+                cell = tableView.dequeueReusableCell(withIdentifier: "NotLoginTableViewCell", for: indexPath)
+            }
         case 1:
             cell.textLabel?.text = "영화별 예매"
             cell.backgroundColor = .clear
@@ -62,3 +74,22 @@ extension SideMenu: UITableViewDataSource {
         return cell
     }
 }
+
+extension SideMenu: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0: break
+        case 1:
+            // 영화별 예매
+            MainViewController.singleton.showBookPage()
+        case 2:
+            // 극장별 예매 추후에 추가 
+            MainViewController.singleton.showBookPage()
+        case 3: break
+            // 로그아웃 함수호출
+        default:
+            break
+        }
+    }
+}
+

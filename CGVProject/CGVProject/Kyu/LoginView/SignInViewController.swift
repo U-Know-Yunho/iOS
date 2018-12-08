@@ -48,17 +48,7 @@ class SignInViewController: UIViewController {
 
     
     @IBAction func logoutButton(_ sender: Any) {
-        
-        KOSession.shared()?.logoutAndClose(completionHandler: { (success, error) in
-            if let error = error {
-                return print(error.localizedDescription)
-            }
-            
-            // Logout success
-            UserManager.singleton.token = nil
-        })
-        
-        
+        UserManager.singleton.signOut()
     }
     
     

@@ -32,6 +32,8 @@
 		3C4705AE21ABC39500119F53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4705AC21ABC39500119F53 /* LaunchScreen.storyboard */; };
 		3C4705B621ABC3A700119F53 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4705B521ABC3A700119F53 /* Home.storyboard */; };
 		3C4705BA21ABC5EF00119F53 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4705B921ABC5EF00119F53 /* MainViewController.swift */; };
+		3C7E7A4C21BB9AA000A61EE6 /* NotLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7E7A4A21BB9AA000A61EE6 /* NotLoginTableViewCell.swift */; };
+		3C7E7A4D21BB9AA000A61EE6 /* NotLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C7E7A4B21BB9AA000A61EE6 /* NotLoginTableViewCell.xib */; };
 		3CC2E4D121B0FA9A007B9F59 /* SettingInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC2E4CF21B0FA9A007B9F59 /* SettingInfoTableViewCell.swift */; };
 		3CC2E4D221B0FA9A007B9F59 /* SettingInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC2E4D021B0FA9A007B9F59 /* SettingInfoTableViewCell.xib */; };
 		3CC2E4D621B107DB007B9F59 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC2E4D521B107DB007B9F59 /* SideMenu.swift */; };
@@ -121,6 +123,8 @@
 		3C4705AF21ABC39500119F53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C4705B521ABC3A700119F53 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3C4705B921ABC5EF00119F53 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3C7E7A4A21BB9AA000A61EE6 /* NotLoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotLoginTableViewCell.swift; sourceTree = "<group>"; };
+		3C7E7A4B21BB9AA000A61EE6 /* NotLoginTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotLoginTableViewCell.xib; sourceTree = "<group>"; };
 		3CC2E4CF21B0FA9A007B9F59 /* SettingInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfoTableViewCell.swift; sourceTree = "<group>"; };
 		3CC2E4D021B0FA9A007B9F59 /* SettingInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingInfoTableViewCell.xib; sourceTree = "<group>"; };
 		3CC2E4D521B107DB007B9F59 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
@@ -410,6 +414,8 @@
 				3CE29BE321B2793500CEA8AE /* SideMenu.xib */,
 				3CE2C5A721BAD4BB007F6A4E /* LoginTableViewCell.swift */,
 				3CE2C5A821BAD4BB007F6A4E /* LoginTableViewCell.xib */,
+				3C7E7A4A21BB9AA000A61EE6 /* NotLoginTableViewCell.swift */,
+				3C7E7A4B21BB9AA000A61EE6 /* NotLoginTableViewCell.xib */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -718,6 +724,7 @@
 				420AAFE321B808F90027EDF2 /* StillcutCollectionViewCell.xib in Resources */,
 				3CE8DBD821B4CCB200C9DD3B /* MovieInfoTableViewCell.xib in Resources */,
 				3CE2C5AA21BAD4BB007F6A4E /* LoginTableViewCell.xib in Resources */,
+				3C7E7A4D21BB9AA000A61EE6 /* NotLoginTableViewCell.xib in Resources */,
 				3CE8DBD321B4CCB200C9DD3B /* CastTableViewCell.xib in Resources */,
 				3CE8DBBA21B4CC7600C9DD3B /* Assets.xcassets in Resources */,
 				3CE8DBD721B4CCB200C9DD3B /* MoviePhotoCollectionViewCell.xib in Resources */,
@@ -821,6 +828,7 @@
 				420AAFE221B808F90027EDF2 /* StillcutCollectionViewCell.swift in Sources */,
 				3C2BBF5C21B5622C00C5DB00 /* MovieDetail.swift in Sources */,
 				3CC2E4D121B0FA9A007B9F59 /* SettingInfoTableViewCell.swift in Sources */,
+				3C7E7A4C21BB9AA000A61EE6 /* NotLoginTableViewCell.swift in Sources */,
 				3CE8DB6221B4C6AC00C9DD3B /* SeatViewController.swift in Sources */,
 				3CD5BDFF21AC491200DAA8A6 /* HomeViewCell.swift in Sources */,
 				3C2BBF6321B5768800C5DB00 /* MovieManager.swift in Sources */,
