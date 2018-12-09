@@ -32,8 +32,33 @@ class UserManager {
     }
     
 
-    // API 호출 상태값을 관리할 변수
-    var isCalling = false
+
+    func signIn(param: Parameters) {
+        let header: HTTPHeaders = [ "Content-Type": "application/json"]
+
+        Alamofire.request(API.AuthURL.signIn, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header)
+            .validate()
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    print("Success SignIn")
+                    guard let token = value as? [String: String] else { return print("Token parsing error")}
+                    
+                    /****************************************
+                     UserManager의 hastoken/token 변수에
+                     user ID 별로 토큰을 저장시킬 수 있게 해야 할 것 같음
+                     ****************************************/
+                    
+                    UserManager.singleton.token = token["token"]
+                    MainViewController.singleton.showBookPage()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    
+                }
+        }
+
+    }
+    
     func signOut(){
         Alamofire.request(API.AuthURL.signOut, method: .get, encoding: JSONEncoding.default, headers: HTTPHeaders(dictionaryLiteral: ("Autorization", token ?? ""))).validate().responseJSON { response in
             switch response.result {
@@ -53,6 +78,10 @@ class UserManager {
         }
         
     }
+    
+    // API 호출 상태값을 관리할 변수
+    var isCalling = false
+    
     func signUp(param: Parameters) {
         
         // 인디케이터 뷰 애니메이션 시작
