@@ -23,7 +23,7 @@ class MainViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        let leftNaviButton = UIBarButtonItem(image: UIImage(named: "cgvLogo"), style: .plain, target: nil, action: nil)
+        let leftNaviButton = UIBarButtonItem(image: UIImage(named: "cgvLogo"), style: .plain, target: self, action: #selector(cgvBtnDidTap))
         self.navigationController?.navigationBar.contentMode = .left
         self.navigationItem.leftBarButtonItem = leftNaviButton
         let rightNaviButton = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showSideMenu))
@@ -33,6 +33,9 @@ class MainViewController: UIViewController{
     var isSidemenuOpen = false
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    @objc private func cgvBtnDidTap(){
+        mainView.didSelectItem(scollTo: 0)
     }
     @objc private func closeSideMenu(){
         print("tapView")

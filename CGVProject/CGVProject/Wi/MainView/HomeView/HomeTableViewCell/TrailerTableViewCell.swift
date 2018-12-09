@@ -18,9 +18,9 @@ class TrailerTableViewCell: UITableViewCell {
     @IBOutlet weak var showDetail: UIButton!
     var youtubeVideoID: String = "bLoO0FSXncg"
     
-    var model: Trailer! {
-        // 트레일러 데이터 연결작업 필요 
-    }
+//    var model: Trailer! {
+//        // 트레일러 데이터 연결작업 필요 
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
