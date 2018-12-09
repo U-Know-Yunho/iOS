@@ -8,13 +8,14 @@
 
 import Foundation
 class MovieCollectionViewCellModel {
+    var moviePk: Int
     var moviePosterImageUrl: String
     var movieName: String
     var movieRank: String
     var advanceRate: String
 
     init(_ movie: Movie) {
-        
+        moviePk = movie.pk
         moviePosterImageUrl = movie.mainImgUrl
         movieName = movie.title
         movieRank = String(movie.pk)

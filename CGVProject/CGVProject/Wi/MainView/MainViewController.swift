@@ -75,7 +75,7 @@ class MainViewController: UIViewController{
         }
         UIApplication.shared.delegate?.window!!.rootViewController?.show(loginVC, sender: nil)
     }
-    func showMovieDetailPage(){
+    func showMovieDetailPage(moviePk: Int){
         print("showMovieDetailPage")
         let MovieDetailStoryboard = UIStoryboard(name: "MovieInfoStoryboard",bundle: nil)
         guard let MovieDetailVC = MovieDetailStoryboard.instantiateViewController(withIdentifier: "MovieViewController") as?  MovieViewController else {

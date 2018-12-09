@@ -18,6 +18,10 @@ class TrailerTableViewCell: UITableViewCell {
     @IBOutlet weak var showDetail: UIButton!
     var youtubeVideoID: String = "bLoO0FSXncg"
     
+    var model: Trailer! {
+        // 트레일러 데이터 연결작업 필요 
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -45,7 +49,7 @@ class TrailerTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func showDetailBtnTap(_ sender: UIButton) {
-        MainViewController.singleton.showMovieDetailPage()
+        MainViewController.singleton.showMovieDetailPage(moviePk: 2)
     }
     
 }
