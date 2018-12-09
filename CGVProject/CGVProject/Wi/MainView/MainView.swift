@@ -48,6 +48,7 @@ class MainView: UIView, MenuBarDelegate, MenuPageDelegete {
     // MARK: delegate Functions
     func didSelectItem(scollTo index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
+        menuBar.menuColletionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
         menuPage.pageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     func didPageScroll(scrollOffsetX: CGFloat) {
