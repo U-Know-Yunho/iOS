@@ -11,4 +11,14 @@ import UIKit
 class BookingDateTableViewCell: UITableViewCell {
 
     @IBOutlet weak var bookingDateCollectionView: UICollectionView!
+    @IBOutlet weak var movieDateDetails: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        print("hahahaha")
+    }
 }

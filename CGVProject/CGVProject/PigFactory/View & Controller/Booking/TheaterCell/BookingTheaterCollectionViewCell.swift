@@ -16,6 +16,6 @@ class BookingTheaterCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         theaterTimeTable.layer.cornerRadius = theaterTimeTable.frame.height / 4
-        theaterTimeTable.layer.borderWidth = 1
+        theaterTimeTable.layer.borderWidth = 0.5
     }
 }

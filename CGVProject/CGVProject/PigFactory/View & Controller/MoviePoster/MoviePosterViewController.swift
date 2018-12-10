@@ -17,10 +17,6 @@ class MoviePosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
 
         //데이터처리 #4 - 서버로 부터 영화 포스터 정보를 받아와서 변수 movies에 저장해준다.
         //데이터처리 #6 - collectionView에 저장된 데이터를 새로고침 해준다.
@@ -28,6 +24,10 @@ class MoviePosterViewController: UIViewController {
             self.movies = movie
             self.collectionView.reloadData()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
     }
 }
 

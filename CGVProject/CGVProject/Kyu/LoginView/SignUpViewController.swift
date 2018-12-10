@@ -51,7 +51,7 @@ class SignUpViewController: UIViewController {
         ]
         
         UserManager.singleton.signUp(param: param)
-        
+        dismiss(animated: true, completion: nil)
     }
     
     

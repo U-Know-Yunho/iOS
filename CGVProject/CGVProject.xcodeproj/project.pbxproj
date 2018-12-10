@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0889AAE521BBA311004E2E74 /* MoviePostrModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0889AAE421BBA311004E2E74 /* MoviePostrModel.swift */; };
-		089BE96C21B52EF8004FC7FD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089BE96B21B52EF8004FC7FD /* Data.swift */; };
-		089BE96E21B52F0A004FC7FD /* DataDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089BE96D21B52F0A004FC7FD /* DataDetails.swift */; };
 		3C01F40621B7BA3000B7A17B /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01F40521B7BA3000B7A17B /* CustomImageView.swift */; };
 		3C0464BB21AE5DDC001F38BB /* TrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0464B921AE5DDC001F38BB /* TrailerTableViewCell.swift */; };
 		3C0464BC21AE5DDC001F38BB /* TrailerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0464BA21AE5DDC001F38BB /* TrailerTableViewCell.xib */; };
@@ -66,7 +64,6 @@
 		3CE8DB6121B4C6AC00C9DD3B /* MoviePosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB4D21B4C6AC00C9DD3B /* MoviePosterCollectionViewCell.swift */; };
 		3CE8DB6221B4C6AC00C9DD3B /* SeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB4F21B4C6AC00C9DD3B /* SeatViewController.swift */; };
 		3CE8DB6321B4C6AC00C9DD3B /* SeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB5021B4C6AC00C9DD3B /* SeatCollectionViewCell.swift */; };
-		3CE8DB6421B4C6AC00C9DD3B /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB5221B4C6AC00C9DD3B /* MovieInfo.swift */; };
 		3CE8DB6521B4C6AC00C9DD3B /* Book.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE8DB5421B4C6AC00C9DD3B /* Book.storyboard */; };
 		3CE8DB9421B4C99600C9DD3B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE8DB7D21B4C99600C9DD3B /* Login.storyboard */; };
 		3CE8DB9721B4C99600C9DD3B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB8221B4C99600C9DD3B /* SignInViewController.swift */; };
@@ -99,8 +96,6 @@
 
 /* Begin PBXFileReference section */
 		0889AAE421BBA311004E2E74 /* MoviePostrModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePostrModel.swift; sourceTree = "<group>"; };
-		089BE96B21B52EF8004FC7FD /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		089BE96D21B52F0A004FC7FD /* DataDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetails.swift; sourceTree = "<group>"; };
 		3C01F40521B7BA3000B7A17B /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		3C0464B921AE5DDC001F38BB /* TrailerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerTableViewCell.swift; sourceTree = "<group>"; };
 		3C0464BA21AE5DDC001F38BB /* TrailerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerTableViewCell.xib; sourceTree = "<group>"; };
@@ -159,7 +154,6 @@
 		3CE8DB4D21B4C6AC00C9DD3B /* MoviePosterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		3CE8DB4F21B4C6AC00C9DD3B /* SeatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatViewController.swift; sourceTree = "<group>"; };
 		3CE8DB5021B4C6AC00C9DD3B /* SeatCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatCollectionViewCell.swift; sourceTree = "<group>"; };
-		3CE8DB5221B4C6AC00C9DD3B /* MovieInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		3CE8DB5521B4C6AC00C9DD3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Book.storyboard; sourceTree = "<group>"; };
 		3CE8DB7E21B4C99600C9DD3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		3CE8DB8221B4C99600C9DD3B /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -396,7 +390,6 @@
 		3C7447E521B3BFF2002F1DA2 /* PigFactory */ = {
 			isa = PBXGroup;
 			children = (
-				3CE8DB5121B4C6AC00C9DD3B /* Module */,
 				3CE8DB5321B4C6AC00C9DD3B /* StoryBoard */,
 				3CE8DB3921B4C6AC00C9DD3B /* View & Controller */,
 			);
@@ -526,16 +519,6 @@
 				3CE8DB5021B4C6AC00C9DD3B /* SeatCollectionViewCell.swift */,
 			);
 			path = Seat;
-			sourceTree = "<group>";
-		};
-		3CE8DB5121B4C6AC00C9DD3B /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				3CE8DB5221B4C6AC00C9DD3B /* MovieInfo.swift */,
-				089BE96B21B52EF8004FC7FD /* Data.swift */,
-				089BE96D21B52F0A004FC7FD /* DataDetails.swift */,
-			);
-			path = Module;
 			sourceTree = "<group>";
 		};
 		3CE8DB5321B4C6AC00C9DD3B /* StoryBoard */ = {
@@ -832,12 +815,10 @@
 				3CE8DB5821B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift in Sources */,
 				3CC2E4D621B107DB007B9F59 /* SideMenu.swift in Sources */,
 				0889AAE521BBA311004E2E74 /* MoviePostrModel.swift in Sources */,
-				089BE96E21B52F0A004FC7FD /* DataDetails.swift in Sources */,
 				3C0464BF21AE7F89001F38BB /* MovieChartTableViewCell.swift in Sources */,
 				3CE29BCF21B250A800CEA8AE /* MainView.swift in Sources */,
 				3CE8DB5E21B4C6AC00C9DD3B /* BookingTableMovieTitleCell.swift in Sources */,
 				3C4705A421ABC39500119F53 /* AppDelegate.swift in Sources */,
-				089BE96C21B52EF8004FC7FD /* Data.swift in Sources */,
 				3C0464C821AEEE09001F38BB /* EventTableViewCell.swift in Sources */,
 				420AAFE221B808F90027EDF2 /* StillcutCollectionViewCell.swift in Sources */,
 				3C2BBF5C21B5622C00C5DB00 /* MovieDetail.swift in Sources */,
@@ -858,7 +839,6 @@
 				3CE8DBD521B4CCB200C9DD3B /* MovieDetailInfo.swift in Sources */,
 				3CE8DB6121B4C6AC00C9DD3B /* MoviePosterCollectionViewCell.swift in Sources */,
 				3C09167821BA274100C538D9 /* UserManager.swift in Sources */,
-				3CE8DB6421B4C6AC00C9DD3B /* MovieInfo.swift in Sources */,
 				3CE2C5A921BAD4BB007F6A4E /* LoginTableViewCell.swift in Sources */,
 				3CE8DBD021B4CCB200C9DD3B /* CastCollectionViewCell.swift in Sources */,
 				3CD5BE0521AC495300DAA8A6 /* MYViewCell.swift in Sources */,
@@ -1037,7 +1017,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G4MM77V7NH;
+				DEVELOPMENT_TEAM = 7TC98YVM4R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CGVProject/Kyu/LoginView/Framework",
@@ -1071,7 +1051,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G4MM77V7NH;
+				DEVELOPMENT_TEAM = 7TC98YVM4R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CGVProject/Kyu/LoginView/Framework",

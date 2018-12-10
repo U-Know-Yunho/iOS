@@ -88,6 +88,7 @@ extension SideMenu: UITableViewDelegate{
         case 3:
             // 로그아웃 함수호출
             UserManager.singleton.signOut()
+            tableView.reloadData()
         default:
             break
         }

@@ -54,7 +54,7 @@ extension SettingInfoTableViewCell: UITableViewDelegate{
             print("공지사항 클릭")
         case 4:
             print("로그아웃 클릭")
-            MainViewController.singleton.showLoginPage()
+            UserManager.singleton.signOut()
         default:
             break
         }

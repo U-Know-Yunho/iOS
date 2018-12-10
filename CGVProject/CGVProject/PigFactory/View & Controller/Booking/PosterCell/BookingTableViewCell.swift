@@ -10,6 +10,14 @@ import UIKit
 
 class BookingTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var bookingPosterCollectionView: UICollectionView!
+    @IBOutlet weak var posterCollectionView: UICollectionView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+    }
 }
+
+
+
+
