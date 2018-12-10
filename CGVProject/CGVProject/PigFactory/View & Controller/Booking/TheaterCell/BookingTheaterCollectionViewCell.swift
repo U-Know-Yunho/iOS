@@ -9,9 +9,13 @@
 import UIKit
 
 class BookingTheaterCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var timeTable: UIButton!
+    
+    @IBOutlet weak var theaterTimeTable: UIButton!
+    @IBOutlet weak var theaterSeat: UILabel!
+    
+    
     override func awakeFromNib() {
-        timeTable.layer.cornerRadius = timeTable.frame.height / 4
-        timeTable.layer.borderWidth = 1
+        theaterTimeTable.layer.cornerRadius = theaterTimeTable.frame.height / 4
+        theaterTimeTable.layer.borderWidth = 1
     }
 }
