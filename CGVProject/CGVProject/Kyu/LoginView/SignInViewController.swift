@@ -29,6 +29,8 @@ class SignInViewController: UIViewController {
         let param: Parameters = [ "username": id, "password": password]
         
         UserManager.singleton.signIn(param: param)
+        // 아이디 검사하는 부분 추가 필요
+        dismiss(animated: true, completion: nil)
         
     }
     

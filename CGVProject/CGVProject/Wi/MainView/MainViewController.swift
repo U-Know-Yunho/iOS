@@ -76,7 +76,7 @@ class MainViewController: UIViewController{
         guard let loginVC = loginStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController  else {
             return print("Loginstoryborad faild")
         }
-        UIApplication.shared.delegate?.window!!.rootViewController?.show(loginVC, sender: nil)
+        UIApplication.shared.delegate?.window!!.rootViewController?.present(loginVC, animated: true)
     }
     func showMovieDetailPage(moviePk: Int){
         print("showMovieDetailPage")

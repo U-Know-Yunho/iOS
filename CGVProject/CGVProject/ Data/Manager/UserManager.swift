@@ -24,7 +24,7 @@ class UserManager {
     }
     
     var token: String? {
-        get { return hasToken ? _token! : nil }
+        get { return hasToken ? "token \(_token!)" : nil }
         set {
             _token = newValue
             UserDefaults.standard.set(newValue, forKey: "token")
@@ -44,13 +44,8 @@ class UserManager {
                     print("Success SignIn")
                     guard let token = value as? [String: String] else { return print("Token parsing error")}
                     
-                    /****************************************
-                     UserManager의 hastoken/token 변수에
-                     user ID 별로 토큰을 저장시킬 수 있게 해야 할 것 같음
-                     ****************************************/
-                    
                     UserManager.singleton.token = token["token"]
-                    MainViewController.singleton.showBookPage()
+                    print(token["token"])
                 case .failure(let error):
                     print(error.localizedDescription)
                     
@@ -60,9 +55,9 @@ class UserManager {
     }
     
     func signOut(){
-        let header: HTTPHeaders = ["Autorization" : token ?? ""]
-
-        Alamofire.request(API.AuthURL.signOut, method: .get, encoding: JSONEncoding.default, headers: header).validate().responseJSON { response in
+        let header: HTTPHeaders = [ "Authorization" : token ?? ""]
+    
+        Alamofire.request(API.AuthURL.signOut, method: .get ,encoding: JSONEncoding.default ,headers: header).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 print(value)
@@ -77,10 +72,9 @@ class UserManager {
             case .failure(let err):
                 print("Token err: ", header)
                 print(err.localizedDescription)
-                
+
             }
         }
-        
     }
     
     // API 호출 상태값을 관리할 변수
@@ -119,7 +113,6 @@ class UserManager {
                 switch response.result {
                 case .success(let user):
                     print("가입완료 Login :", user)
-                    MainViewController.singleton.showBookPage()
                 case .failure(let error):
                     self.isCalling = false
                     print("가입 실패: ",error.localizedDescription)
