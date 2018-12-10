@@ -85,8 +85,9 @@ extension SideMenu: UITableViewDelegate{
         case 2:
             // 극장별 예매 추후에 추가 
             MainViewController.singleton.showBookPage()
-        case 3: break
+        case 3:
             // 로그아웃 함수호출
+            UserManager.singleton.signOut()
         default:
             break
         }
