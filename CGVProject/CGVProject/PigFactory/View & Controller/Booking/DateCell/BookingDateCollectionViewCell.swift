@@ -12,6 +12,7 @@ class BookingDateCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var movieDay: UILabel!
     @IBOutlet weak var movieDate: UILabel!
+    
 }
 
 

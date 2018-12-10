@@ -3,6 +3,8 @@ import UIKit
 
 class BookingViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     //예매창 - 영화 타이틀 셀 - 데이터
     var movieTitle = "보헤미안랩소디"
     var movieInfo = "12세이상관람가 = 2시간 14분"
@@ -13,9 +15,10 @@ class BookingViewController: UIViewController {
     //예매창 - 날짜 콜렉션 셀 - 데이터
     var movieDay = "월"
     var movieDate = "10"
+    var movieDateDetails = "2018년 12월 10일 월요일-오늘"
     
     //예매창 - 영화관 콜렉션 셀 - 데이터
-    var theaterTimeTable = "13:00 ~ 15:00"
+    var theaterTimeTable = ["13:00 ~ 15:00", "00:00 ~ 1:00"]
     var theaterName = "CGV 서울"
     var theaterSeat = "112/255"
     var theaterSection = "12관"
@@ -43,7 +46,7 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 3
         } else {
-            return 2
+            return 3
         }
     }
 
@@ -62,10 +65,17 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTableMovieTitleCell", for: indexPath) as! BookingTableMovieTitleCell
                 cell.movieTitle.text = movieTitle
                 cell.movieInfo.text = movieInfo
+                return cell
             case 1:
-                let _ = tableView.dequeueReusableCell(withIdentifier: "BookingTableViewCell", for: indexPath) as! BookingTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTableViewCell", for: indexPath) as! BookingTableViewCell
+                
+                cell.bookingPosterCollectionView.scrollToItem(at: [0, 4], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+                cell.bookingPosterCollectionView.selectItem(at: [0, 4], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+                
             case 2:
-                let _ = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell
+                cell.movieDateDetails.text = movieDateDetails
+                return cell
             default :
                 let table = UITableViewCell()
                 return table
@@ -131,13 +141,24 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingTheaterCollectionViewCell", for: indexPath) as! BookingTheaterCollectionViewCell
-            cell.theaterTimeTable.setTitle(theaterTimeTable, for: .normal)
+            cell.theaterTimeTable.setTitle(theaterTimeTable[0], for: .normal)
             cell.theaterSeat.text = theaterSeat
             return cell
         default:
             let a = UICollectionViewCell()
             return a
         }
-
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView.tag {
+        case 0:
+            collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+            theaterTimeTable.reverse()
+            tableView.reloadData()
+        default:
+            print(0)
+        }
+    }
+
 }

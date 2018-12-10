@@ -15,5 +15,9 @@ class BookingTheaterTableViewCell: UITableViewCell {
     @IBOutlet weak var theaterName: UILabel!
     @IBOutlet weak var theaterSection: UILabel!
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        timeTableCollectionCell.reloadData()
+    }
+    
 }
 

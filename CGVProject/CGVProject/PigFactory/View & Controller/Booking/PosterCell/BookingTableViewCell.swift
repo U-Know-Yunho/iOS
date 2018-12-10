@@ -13,3 +13,6 @@ class BookingTableViewCell: UITableViewCell {
     @IBOutlet weak var bookingPosterCollectionView: UICollectionView!
     
 }
+
+
+
