@@ -5,6 +5,7 @@ class BookingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    
     //예매창 - 영화 타이틀 셀 - 데이터
     var movieTitle = "보헤미안랩소디"
     var movieInfo = "12세이상관람가 = 2시간 14분"
@@ -23,6 +24,9 @@ class BookingViewController: UIViewController {
     var theaterSeat = "112/255"
     var theaterSection = "12관"
 
+
+
+
     
     
     
@@ -31,6 +35,8 @@ class BookingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
     }
 }
 
@@ -69,8 +75,8 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTableViewCell", for: indexPath) as! BookingTableViewCell
                 
-                cell.bookingPosterCollectionView.scrollToItem(at: [0, 4], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
-                cell.bookingPosterCollectionView.selectItem(at: [0, 4], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+                cell.posterCollectionView.scrollToItem(at: [0, 4], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+                cell.posterCollectionView.selectItem(at: [0, 4], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
                 
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell

@@ -275,7 +275,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="bookingPosterCollectionView" destination="KF6-tP-fJh" id="sL6-q1-dMa"/>
+                                            <outlet property="posterCollectionView" destination="KF6-tP-fJh" id="aYm-QO-Ibe"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookingDateTableViewCell" rowHeight="85" id="EjX-l9-1t7" customClass="BookingDateTableViewCell" customModule="CGVProject" customModuleProvider="target">
