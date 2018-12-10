@@ -14,7 +14,7 @@ class DescriptionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        descriptionLabel.numberOfLines = 0
     }
 
     

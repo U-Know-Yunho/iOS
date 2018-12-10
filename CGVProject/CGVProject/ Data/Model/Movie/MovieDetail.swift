@@ -23,7 +23,6 @@ struct MovieDetail: Decodable{
     let mainImgUrl: String?
     let stillcuts: [Stillcut]?
     
-    
     struct Cast: Decodable{
         let actor: String?
     }
