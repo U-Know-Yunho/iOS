@@ -489,8 +489,8 @@
 		3CE8DB4321B4C6AC00C9DD3B /* PosterCell */ = {
 			isa = PBXGroup;
 			children = (
-				3CE8DB4421B4C6AC00C9DD3B /* BookingPosterCollectionViewCell.swift */,
 				3CE8DB4521B4C6AC00C9DD3B /* BookingTableViewCell.swift */,
+				3CE8DB4421B4C6AC00C9DD3B /* BookingPosterCollectionViewCell.swift */,
 			);
 			path = PosterCell;
 			sourceTree = "<group>";

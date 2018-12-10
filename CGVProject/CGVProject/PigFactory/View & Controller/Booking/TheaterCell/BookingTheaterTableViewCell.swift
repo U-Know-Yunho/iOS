@@ -12,21 +12,8 @@ class BookingTheaterTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timeTableCollectionCell: UICollectionView!
     
-    var timeTable = ""
+    @IBOutlet weak var theaterName: UILabel!
+    @IBOutlet weak var theaterSection: UILabel!
     
-    override func awakeFromNib() {
-    }
 }
 
-extension BookingTheaterTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingTheaterCollectionViewCell", for: indexPath) as! BookingTheaterCollectionViewCell
-        cell.timeTable.setTitle(timeTable, for: .normal)
-        
-        return cell
-    }
-}

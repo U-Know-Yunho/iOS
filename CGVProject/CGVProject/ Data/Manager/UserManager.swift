@@ -24,7 +24,7 @@ class UserManager {
     }
     
     var token: String? {
-        get { return hasToken ? "Token \(_token!)" : nil }
+        get { return hasToken ? _token! : nil }
         set {
             _token = newValue
             UserDefaults.standard.set(newValue, forKey: "token")
@@ -60,18 +60,22 @@ class UserManager {
     }
     
     func signOut(){
-        Alamofire.request(API.AuthURL.signOut, method: .get, encoding: JSONEncoding.default, headers: HTTPHeaders(dictionaryLiteral: ("Autorization", token ?? ""))).validate().responseJSON { response in
+        let header: HTTPHeaders = ["Autorization" : token ?? ""]
+
+        Alamofire.request(API.AuthURL.signOut, method: .get, encoding: JSONEncoding.default, headers: header).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 print(value)
                 KOSession.shared()?.logoutAndClose(completionHandler: { (success, error) in
                     if let error = error {
-                        return print(error.localizedDescription)
+                        return print("KakaoError: ",error.localizedDescription)
                     }
                     // Logout success
-                    UserManager.singleton.token = nil
+                    print("KaKaoLogout success")
                 })
+                UserManager.singleton.token = nil
             case .failure(let err):
+                print("Token err: ", header)
                 print(err.localizedDescription)
                 
             }
@@ -118,7 +122,7 @@ class UserManager {
                     MainViewController.singleton.showBookPage()
                 case .failure(let error):
                     self.isCalling = false
-                    print(error.localizedDescription)
+                    print("가입 실패: ",error.localizedDescription)
                 }
         }
         

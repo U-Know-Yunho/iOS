@@ -216,8 +216,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ageInfoAndRuningTime" destination="JXi-xo-1VI" id="Jej-Yx-U5L"/>
-                                            <outlet property="titleLabel" destination="QED-pb-liK" id="8ki-Q9-eho"/>
+                                            <outlet property="movieInfo" destination="JXi-xo-1VI" id="nOh-ja-GW4"/>
+                                            <outlet property="movieTitle" destination="QED-pb-liK" id="LWo-fS-Yqm"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookingTableViewCell" rowHeight="170" id="YdN-hv-wGz" customClass="BookingTableViewCell" customModule="CGVProject" customModuleProvider="target">
@@ -262,8 +262,8 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="YdN-hv-wGz" id="fla-fy-TLp"/>
-                                                        <outlet property="delegate" destination="YdN-hv-wGz" id="xA7-jl-6hJ"/>
+                                                        <outlet property="dataSource" destination="qhH-EY-nh3" id="8gV-2d-kW5"/>
+                                                        <outlet property="delegate" destination="qhH-EY-nh3" id="4bK-wp-Grz"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -285,7 +285,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IPU-7W-4MN">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IPU-7W-4MN">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                                     <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="0.0" id="YJ5-T5-yHe">
@@ -319,11 +319,15 @@
                                                                 </subviews>
                                                             </view>
                                                             <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <connections>
+                                                                <outlet property="movieDate" destination="zjd-Ue-9TT" id="Gbd-Lv-HV1"/>
+                                                                <outlet property="movieDay" destination="xeK-Bb-JIe" id="Jgn-Ep-nza"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="EjX-l9-1t7" id="1bF-k2-rjq"/>
-                                                        <outlet property="delegate" destination="EjX-l9-1t7" id="S6d-bF-X0G"/>
+                                                        <outlet property="dataSource" destination="qhH-EY-nh3" id="scc-SU-I4A"/>
+                                                        <outlet property="delegate" destination="qhH-EY-nh3" id="JgY-K8-ejE"/>
                                                     </connections>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="year month day week - day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2b-nm-zs1">
@@ -358,7 +362,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eGA-Rt-vYK">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eGA-Rt-vYK">
                                                     <rect key="frame" x="0.0" y="42" width="375" height="68"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="0.0" id="5Q3-LI-oJ3">
@@ -387,8 +391,8 @@
                                                                             <segue destination="hjl-BJ-KCm" kind="presentation" id="Vel-gK-Igx"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seat/Seat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROi-aI-jZj">
-                                                                        <rect key="frame" x="0.0" y="40" width="130" height="15"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Seat/Seat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROi-aI-jZj">
+                                                                        <rect key="frame" x="0.0" y="38" width="130" height="15"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -406,13 +410,14 @@
                                                             </constraints>
                                                             <size key="customSize" width="130" height="55"/>
                                                             <connections>
-                                                                <outlet property="timeTable" destination="pep-dy-pjq" id="QYu-1z-ArD"/>
+                                                                <outlet property="theaterSeat" destination="ROi-aI-jZj" id="2Rg-y7-esZ"/>
+                                                                <outlet property="theaterTimeTable" destination="pep-dy-pjq" id="MKv-KY-3A8"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="EIR-mg-iLu" id="xiJ-Hm-eVs"/>
-                                                        <outlet property="delegate" destination="EIR-mg-iLu" id="Hg7-3O-AkW"/>
+                                                        <outlet property="dataSource" destination="qhH-EY-nh3" id="faD-Er-Exb"/>
+                                                        <outlet property="delegate" destination="qhH-EY-nh3" id="81x-gb-x4P"/>
                                                     </connections>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CGV 수서" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Me1-eo-y9h">
@@ -428,7 +433,7 @@
                                                     </constraints>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3관" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-fg-vLW">
-                                                    <rect key="frame" x="314" y="17" width="51" height="22"/>
+                                                    <rect key="frame" x="314" y="16" width="51" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -450,6 +455,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="theaterName" destination="Me1-eo-y9h" id="pdp-jn-tyP"/>
+                                            <outlet property="theaterSection" destination="pDc-fg-vLW" id="Rgp-Rw-g3Y"/>
                                             <outlet property="timeTableCollectionCell" destination="eGA-Rt-vYK" id="Wbl-ml-uI4"/>
                                         </connections>
                                     </tableViewCell>

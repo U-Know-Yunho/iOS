@@ -15,12 +15,18 @@ class MovieViewController: UIViewController {
     
     var cellIdentifier: [String] = []
     var infoData: [MovieDetailInfo] = []
-    
+    var moviePk: Int?
+    var model: MovieDetail?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        MovieManager.singleton.loadMovieDetail(moviePk!) { movie in
+            self.model = movie
+            self.movieInfoTableView.reloadData()
+
+        }
         registerCell()
         infoData = creatMovieInfo()
+        
     }
 
     

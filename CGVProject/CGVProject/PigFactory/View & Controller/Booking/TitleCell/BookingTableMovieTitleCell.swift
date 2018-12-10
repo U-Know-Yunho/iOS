@@ -10,8 +10,8 @@ import UIKit
 
 class BookingTableMovieTitleCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var ageInfoAndRuningTime: UILabel!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieInfo: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -80,10 +80,12 @@ class MainViewController: UIViewController{
     }
     func showMovieDetailPage(moviePk: Int){
         print("showMovieDetailPage")
+        
         let MovieDetailStoryboard = UIStoryboard(name: "MovieInfoStoryboard",bundle: nil)
         guard let MovieDetailVC = MovieDetailStoryboard.instantiateViewController(withIdentifier: "MovieViewController") as?  MovieViewController else {
             return print("MovieDetailStoryboard faild")
         }
+        MovieDetailVC.moviePk = moviePk
         UIApplication.shared.delegate?.window!!.rootViewController?.show(MovieDetailVC, sender: nil)
 
     }
