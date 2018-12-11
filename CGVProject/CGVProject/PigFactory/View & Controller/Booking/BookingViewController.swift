@@ -24,18 +24,18 @@ class BookingViewController: UIViewController {
     var theaterSeat = "112/255"
     var theaterSection = "12관"
 
+    //데이터처리 #3 - 영화 정보를 담을 공간을 생성
+    var movies: [Movie]?
 
-
-
-    
-    
-    
     @IBAction func unwindToBooking(_ unwindSegue: UIStoryboardSegue) {
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        MovieManager.singleton.loadMovieList { movie in
+            self.movies = movie
+            self.tableView.reloadData()
+        }
         
     }
 }
@@ -75,9 +75,10 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTableViewCell", for: indexPath) as! BookingTableViewCell
                 
-                cell.posterCollectionView.scrollToItem(at: [0, 4], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
-                cell.posterCollectionView.selectItem(at: [0, 4], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+//                cell.posterCollectionView.scrollToItem(at: [0, 4], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+//                cell.posterCollectionView.selectItem(at: [0, 4], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
                 
+                return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell
                 cell.movieDateDetails.text = movieDateDetails
@@ -93,10 +94,18 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-        let a = UITableViewCell()
-        return a
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 1:
+                (cell as? BookingTableViewCell)?.posterCollectionView.reloadData()
+            default:
+                break
+            }
+        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
@@ -124,7 +133,12 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.tag {
         case 0:
-            return 6
+            guard let movies = self.movies else {
+                print("=== movieList nil ===");
+                return 1
+            }
+            print("=== movies === : ", movies);
+            return movies.count
         case 1:
             return 7
         case 2:
@@ -138,8 +152,12 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         switch collectionView.tag {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingPosterCollectionViewCell", for: indexPath) as! BookingPosterCollectionViewCell
-            cell.bookingPosterView.image = UIImage(named: images[indexPath.item])
+
+            //데이터 처리 #5 - guard문을 통해 서버통신을 확인하고, movies에 저장된 영화포스터정보를 차례대로 cell.model에 넣어준다.
+            guard let movies = movies else { print("movieList nil"); return cell }
+            cell.model = MoviePosterCollectionViewCellModel.init(movies[indexPath.row])
             return cell
+            
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingDateCollectionViewCell", for: indexPath) as! BookingDateCollectionViewCell
             cell.movieDate.text = movieDate
