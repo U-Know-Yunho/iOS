@@ -31,7 +31,6 @@ class SideMenu: UIView {
         contentView = Bundle.main.loadNibNamed("SideMenu", owner: self, options: nil)?.first! as? UIView
         contentView.frame = self.bounds
         self.addSubview(contentView)
-        
         tableView.register(UINib(nibName: "LoginTableViewCell", bundle: nil), forCellReuseIdentifier: "LoginTableViewCell")
         tableView.register(UINib(nibName: "NotLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "NotLoginTableViewCell")
     }
@@ -49,6 +48,7 @@ extension SideMenu: UITableViewDataSource {
             print("Token : ", UserManager.singleton.hasToken)
             if UserManager.singleton.hasToken {
                 cell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell", for: indexPath)
+                
             }else{
                 cell = tableView.dequeueReusableCell(withIdentifier: "NotLoginTableViewCell", for: indexPath)
             }
@@ -87,7 +87,10 @@ extension SideMenu: UITableViewDelegate{
             MainViewController.singleton.showBookPage()
         case 3:
             // 로그아웃 함수호출
-            UserManager.singleton.signOut()
+            UserManager.singleton.signOut(completion: {
+                tableView.reloadData()
+            })
+            
         default:
             break
         }

@@ -12,14 +12,21 @@ class UserInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userNickName: UILabel!
     @IBOutlet weak var userID: UILabel!
+    
+    var model: User?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         configure()
-        kakaoUserInfo()
+        setUserInfo()
     }
     
-    func kakaoUserInfo() {
+    func setProfile(){
+        guard let user = model else {return}
+        self.userID.text = user.username
+        
+    }
+    func setUserInfo() {
         KOSessionTask.userMeTask { [weak self] (error, userMe) in
             if let error = error {
                 return print(error.localizedDescription)
@@ -27,7 +34,7 @@ class UserInfoTableViewCell: UITableViewCell {
             
             guard let me = userMe,
                 let nickname = me.nickname,
-                let thumbnailImageLink = me.thumbnailImageURL else { return }
+                let thumbnailImageLink = me.thumbnailImageURL else { self?.setProfile(); return }
             print(me)
             
             self?.userNickName.text = nickname

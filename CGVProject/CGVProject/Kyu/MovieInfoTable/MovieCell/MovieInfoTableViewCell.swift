@@ -12,6 +12,8 @@ class MovieInfoTableViewCell: UITableViewCell {
     
     var moviePhoto: [String] = ["sample1", "sample2", "sample3", "sample4"]
     @IBOutlet weak var moviePhotoCollectView: UICollectionView!
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var moviePosterImageView: UIImageView!
     @IBOutlet weak var customProductCompanyView: UIView!
     @IBOutlet weak var customButtonView: UIView!
     @IBOutlet weak var customMovieNewsButton: UIButton!

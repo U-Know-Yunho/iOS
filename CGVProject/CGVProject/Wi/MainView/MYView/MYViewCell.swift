@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MYViewCell: UICollectionViewCell {
+class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
     var myViewTableView = UITableView()
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +34,10 @@ class MYViewCell: UICollectionViewCell {
         myViewTableView.delegate = self
         // MARK: autoLayout
         autolayout()
+    }
+    // MARK: delgate func
+    func logoutDidTap() {
+        myViewTableView.reloadData()
     }
     func autolayout(){
         myViewTableView.translatesAutoresizingMaskIntoConstraints = false

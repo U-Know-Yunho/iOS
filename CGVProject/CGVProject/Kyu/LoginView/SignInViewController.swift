@@ -28,8 +28,9 @@ class SignInViewController: UIViewController {
               let password = passwordTextfield.text else { return }
         let param: Parameters = [ "username": id, "password": password]
         
-        UserManager.singleton.signIn(param: param)
-        
+        UserManager.singleton.signIn(param: param) {
+            self.dismiss(animated: true) 
+        }
     }
     
     
@@ -62,11 +63,6 @@ class SignInViewController: UIViewController {
             }
         }, authTypes: [NSNumber(value: KOAuthType.talk.rawValue)])
             }
-
-    
-    @IBAction func logoutButton(_ sender: Any) {
-        UserManager.singleton.signOut()
-    }
     
     
     
