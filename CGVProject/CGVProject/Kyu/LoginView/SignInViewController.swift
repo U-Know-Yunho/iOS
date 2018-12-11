@@ -11,17 +11,19 @@ import Alamofire
 
 class SignInViewController: UIViewController {
 
+    
     @IBOutlet weak var idTextfield: UITextField!
-    
     @IBOutlet weak var passwordTextfield: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
     }
-
+   
+    
+    
+    
     @IBAction func signInButton(_ sender: Any) {
         
         guard let id = idTextfield.text,

@@ -133,4 +133,8 @@ class MainViewController: UIViewController{
         sideMenuTrailingConstraints!.isActive = true
     }
 
+    // kyu 추가 , SignIn page에 CGV button 연결
+    @IBAction func unwindToMainViewController(_ unwindSegue: UIStoryboardSegue) {
+
+    }
 }
