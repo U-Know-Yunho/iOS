@@ -74,6 +74,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
         return cellIdentifier.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
@@ -82,23 +83,41 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             cell.movieTitleLabel.text = model?.title
             //            cell.moviePosterImageView.kf.setImage(with: URL(string: (model?.mainImgUrl)!))
             return cell
+            
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
 //            let data = infoData[indexPath.row - 1]
 //            cell.setInfoLabel(movieInfo: data)
             cell.directorLabel.text = model?.director
             
+            let num = model?.casts?.count ?? 0
+            print("\n------------ [ num ] -------------\n")
+            print(num)
+            var a: [String] = []
+            for i in 0..<num {
+                let b = model?.casts?[i].actor ?? ""
+                a.append(b)
+                print(a)
+                let c = a.joined()
+                print("\n------------ [ a.joined() ] -------------\n")
+                print(c)
+                cell.actorLabel.text = c
+            }
+        
             
-//            cell.actorLabel.text = model?.casts
             cell.genreLabel.text = model?.genre
             cell.openDateLabel.text = model?.openingDate
             cell.runningTimeLabel.text = model?.durationMin.map({ (String($0) + "분")
             })
             
             return cell
+            
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as! CastTableViewCell
+            
+            
             return cell
+            
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
             // 문자열 중간중간에 있는 '<br>' 제거해주기
