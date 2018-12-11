@@ -15,8 +15,6 @@ class BookingPosterCollectionViewCell: UICollectionViewCell {
     //데이터 처리 #2 - poster model에 저장된 이미지 주소를 불러와서 collectionViewCell 안의 이미지뷰에 넣어준다.
     var model: MoviePosterCollectionViewCellModel! {
         didSet {
-            print("----------------[get image from URL] ---------------")
-            
             bookingPosterView.kf.setImage(with: URL(string: model.moviePosterImageUrl))
         }
     }
@@ -28,11 +26,12 @@ class BookingPosterCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                transform = CGAffineTransform(scaleX: 1.1 , y: 1.1)
                 bookingPosterView.alpha = 1.0
                 bookingPosterView.layer.borderWidth = 3.0
                 bookingPosterView.layer.borderColor = UIColor.white.cgColor
             } else {
+
                 transform = CGAffineTransform.identity
                 bookingPosterView.layer.borderWidth = 0.0
                 bookingPosterView.alpha = 0.5
