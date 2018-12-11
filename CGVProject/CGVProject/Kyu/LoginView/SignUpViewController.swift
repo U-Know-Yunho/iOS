@@ -37,6 +37,25 @@ class SignUpViewController: UIViewController {
         view.endEditing(true) // 이전 뷰로 넘어갈 때 키보드 내리기
     }
     
+    @IBAction func checkOverlapIDButton(_ sender: Any) {
+        guard let checkID = usernameTextField.text else { return }
+        let header: HTTPHeaders = ["Content-Type": "application/json"]
+        let param: Parameters = ["username": checkID]
+        Alamofire.request(API.AuthURL.checkID, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header)
+        .validate()
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    guard let message = value as? [String: String] else { return }
+                    self.alert(message["message"]!)
+                    
+                case .failure(let error):
+                    self.alert(error.localizedDescription)
+                }
+        }
+        
+    }
+    
     
     @IBAction func signUpButton(_ sender: Any) {
         

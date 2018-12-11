@@ -33,7 +33,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SU3-Lc-6pR">
                                 <rect key="frame" x="20" y="381" width="335" height="50"/>
@@ -209,7 +209,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iwd-c3-Wwh">
-                                <rect key="frame" x="20" y="154" width="335" height="45"/>
+                                <rect key="frame" x="20" y="154" width="255" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="i5V-6u-VuP"/>
                                 </constraints>
@@ -257,6 +257,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1m-Fl-c5b">
+                                <rect key="frame" x="285" y="154" width="70" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="SZj-61-Pjv"/>
+                                    <constraint firstAttribute="width" constant="70" id="xsn-BI-MAD"/>
+                                </constraints>
+                                <state key="normal" title="중복검사"/>
+                                <connections>
+                                    <action selector="checkOverlapIDButton:" destination="D25-uM-fkw" eventType="touchUpInside" id="h6O-g2-Ml6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -271,10 +282,11 @@
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="51b-TU-Tr6" secondAttribute="trailing" constant="20" id="I8r-Te-1fd"/>
                             <constraint firstItem="Iwd-c3-Wwh" firstAttribute="top" secondItem="Yjr-VP-uGu" secondAttribute="bottom" constant="30" id="JFu-a3-P2y"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="ym7-aP-63L" secondAttribute="trailing" constant="20" id="JHb-ff-nS6"/>
+                            <constraint firstItem="y1m-Fl-c5b" firstAttribute="centerY" secondItem="Iwd-c3-Wwh" secondAttribute="centerY" id="KR0-dn-VT1"/>
+                            <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="y1m-Fl-c5b" secondAttribute="trailing" constant="20" id="Lod-mA-cZQ"/>
                             <constraint firstItem="Iwd-c3-Wwh" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="MoH-yx-m9w"/>
                             <constraint firstItem="Yjr-VP-uGu" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" id="O6g-Nn-F2c"/>
                             <constraint firstItem="hce-NW-KUF" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="QZT-5s-FHI"/>
-                            <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="Iwd-c3-Wwh" secondAttribute="trailing" constant="20" id="T9y-9E-EKp"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="Yjr-VP-uGu" secondAttribute="trailing" id="Tw5-dt-S0V"/>
                             <constraint firstItem="taj-rf-r4a" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="WCK-kO-1yp"/>
                             <constraint firstItem="ldf-c9-e1L" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="XPv-dp-tKh"/>
@@ -288,6 +300,7 @@
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="ldf-c9-e1L" secondAttribute="trailing" constant="20" id="mHW-u9-SmN"/>
                             <constraint firstItem="taj-rf-r4a" firstAttribute="top" secondItem="ldf-c9-e1L" secondAttribute="bottom" constant="25" id="qQE-IW-YFb"/>
                             <constraint firstItem="ym7-aP-63L" firstAttribute="top" secondItem="51b-TU-Tr6" secondAttribute="bottom" constant="25" id="s7B-ys-eAU"/>
+                            <constraint firstItem="y1m-Fl-c5b" firstAttribute="leading" secondItem="Iwd-c3-Wwh" secondAttribute="trailing" constant="10" id="vE0-sR-hY9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X0G-xg-znw"/>
                     </view>
