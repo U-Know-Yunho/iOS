@@ -28,10 +28,9 @@ class SignInViewController: UIViewController {
               let password = passwordTextfield.text else { return }
         let param: Parameters = [ "username": id, "password": password]
         
-        UserManager.singleton.signIn(param: param)
-        // 아이디 검사하는 부분 추가 필요
-        dismiss(animated: true, completion: nil)
-        
+        UserManager.singleton.signIn(param: param) {
+            self.dismiss(animated: true) 
+        }
     }
     
     
@@ -64,11 +63,6 @@ class SignInViewController: UIViewController {
             }
         }, authTypes: [NSNumber(value: KOAuthType.talk.rawValue)])
             }
-
-    
-    @IBAction func logoutButton(_ sender: Any) {
-        UserManager.singleton.signOut()
-    }
     
     
     

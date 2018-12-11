@@ -33,7 +33,7 @@ class UserManager {
     
 
 
-    func signIn(param: Parameters) {
+    func signIn(param: Parameters,completion: @escaping (() -> Void)) {
         let header: HTTPHeaders = [ "Content-Type": "application/json"]
 
         Alamofire.request(API.AuthURL.signIn, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header)
@@ -43,9 +43,8 @@ class UserManager {
                 case .success(let value):
                     print("Success SignIn")
                     guard let token = value as? [String: String] else { return print("Token parsing error")}
-                    
                     UserManager.singleton.token = token["token"]
-                    print(token["token"])
+                    completion()
                 case .failure(let error):
                     print(error.localizedDescription)
                     
@@ -54,27 +53,30 @@ class UserManager {
 
     }
     
-    func signOut(){
-        let header: HTTPHeaders = [ "Authorization" : token ?? ""]
-    
-        Alamofire.request(API.AuthURL.signOut, method: .get ,encoding: JSONEncoding.default ,headers: header).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                print(value)
-                KOSession.shared()?.logoutAndClose(completionHandler: { (success, error) in
-                    if let error = error {
-                        return print("KakaoError: ",error.localizedDescription)
-                    }
-                    // Logout success
-                    print("KaKaoLogout success")
-                })
-                UserManager.singleton.token = nil
-            case .failure(let err):
-                print("Token err: ", header)
-                print(err.localizedDescription)
+    func signOut(completion: @escaping (() -> Void)){
+        print("=== sign out ===")
+        print("Token : ", token ?? "")
 
-            }
-        }
+        let header: HTTPHeaders = [
+            "Authorization": token ?? "",
+        ]
+        print("header :", header)
+        Alamofire.request(API.AuthURL.signOut, method: .get, headers: header)
+            .validate()
+            .response(completionHandler: { (response) in
+                if response.response?.statusCode == 200 {
+                    KOSession.shared()?.logoutAndClose(completionHandler: { (success, error) in
+                        if let error = error {
+                            return print("KakaoError: ",error.localizedDescription)
+                        }
+                        // Logout success
+                        print("KaKaoLogout success")
+                    })
+                    UserManager.singleton.token = nil
+                    completion()
+                }
+                else{ print("Logout Err")}
+            })
     }
     
     // API 호출 상태값을 관리할 변수

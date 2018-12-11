@@ -7,11 +7,14 @@
 //
 
 import UIKit
+protocol SettingInfoTableViewCellDelegate {
+    func logoutDidTap()
+}
 
 class SettingInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var infoTableView: UITableView!
     private let buttonNames = ["예매내역","결제내역조회","개인정보관리","공지사항","로그아웃"]
-
+    var delegate: SettingInfoTableViewCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -54,7 +57,10 @@ extension SettingInfoTableViewCell: UITableViewDelegate{
             print("공지사항 클릭")
         case 4:
             print("로그아웃 클릭")
-            UserManager.singleton.signOut()
+            UserManager.singleton.signOut(completion: {
+                tableView.reloadData()
+            })
+            delegate?.logoutDidTap()
         default:
             break
         }

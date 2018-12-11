@@ -22,5 +22,6 @@ class LoginTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+
     
 }

@@ -33,6 +33,7 @@ class MainViewController: UIViewController{
     var isSidemenuOpen = false
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        sideMenu.tableView.reloadData()
     }
     @objc private func cgvBtnDidTap(){
         mainView.didSelectItem(scollTo: 0)
@@ -59,7 +60,7 @@ class MainViewController: UIViewController{
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
         }
-        print(isSidemenuOpen)
+        print("isSidemenu Open: ", isSidemenuOpen)
     }
     func showBookPage(){
         print("showBookPageFunc")
