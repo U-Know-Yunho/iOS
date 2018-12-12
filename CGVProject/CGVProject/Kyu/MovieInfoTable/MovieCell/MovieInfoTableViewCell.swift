@@ -9,6 +9,8 @@
 import UIKit
 
 class MovieInfoTableViewCell: UITableViewCell {
+    var movieStillCut: [MovieDetail.Stillcut]?
+    
     
     var moviePhoto: [String] = ["sample1", "sample2", "sample3", "sample4"]
     @IBOutlet weak var moviePhotoCollectView: UICollectionView!

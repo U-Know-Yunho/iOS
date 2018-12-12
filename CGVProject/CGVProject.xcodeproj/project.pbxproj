@@ -95,6 +95,7 @@
 		420AAFDD21B808570027EDF2 /* StillcutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420AAFDB21B808570027EDF2 /* StillcutTableViewCell.xib */; };
 		420AAFE221B808F90027EDF2 /* StillcutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFE021B808F90027EDF2 /* StillcutCollectionViewCell.swift */; };
 		420AAFE321B808F90027EDF2 /* StillcutCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420AAFE121B808F90027EDF2 /* StillcutCollectionViewCell.xib */; };
+		42198AF021BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42198AEF21BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift */; };
 		8992A31FE25CE408FD39EA55 /* Pods_CGVProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAD2C77789BA3D70CF1127A /* Pods_CGVProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -190,6 +191,7 @@
 		420AAFDB21B808570027EDF2 /* StillcutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StillcutTableViewCell.xib; sourceTree = "<group>"; };
 		420AAFE021B808F90027EDF2 /* StillcutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillcutCollectionViewCell.swift; sourceTree = "<group>"; };
 		420AAFE121B808F90027EDF2 /* StillcutCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StillcutCollectionViewCell.xib; sourceTree = "<group>"; };
+		42198AEF21BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillCutCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		B1ADB969A5E1BE593DEACD57 /* Pods-CGVProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGVProject.release.xcconfig"; path = "Target Support Files/Pods-CGVProject/Pods-CGVProject.release.xcconfig"; sourceTree = "<group>"; };
 		D4295228CDF5A16227ADF0B9 /* Pods-CGVProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGVProject.debug.xcconfig"; path = "Target Support Files/Pods-CGVProject/Pods-CGVProject.debug.xcconfig"; sourceTree = "<group>"; };
 		FDAD2C77789BA3D70CF1127A /* Pods_CGVProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CGVProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -553,6 +555,7 @@
 			children = (
 				3CE8DBBD21B4CCB100C9DD3B /* MovieViewController.swift */,
 				3CE8DBBE21B4CCB100C9DD3B /* MovieInfoStoryboard.storyboard */,
+				42198AEF21BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift */,
 				3CE8DBC821B4CCB100C9DD3B /* MovieCell */,
 				3CE8DBC421B4CCB100C9DD3B /* InfoCell */,
 				3CE8DBBF21B4CCB100C9DD3B /* CastCell */,
@@ -840,6 +843,7 @@
 				3CE2C5A921BAD4BB007F6A4E /* LoginTableViewCell.swift in Sources */,
 				3CE8DBD021B4CCB200C9DD3B /* CastCollectionViewCell.swift in Sources */,
 				3CD5BE0521AC495300DAA8A6 /* MYViewCell.swift in Sources */,
+				42198AF021BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift in Sources */,
 				3CD5BE0321AC493F00DAA8A6 /* StoreViewCell.swift in Sources */,
 				3C2BBF6121B5740F00C5DB00 /* Movie.swift in Sources */,
 				3CE8DBDA21B4CCB200C9DD3B /* MoviePhotoCollectionViewCell.swift in Sources */,
