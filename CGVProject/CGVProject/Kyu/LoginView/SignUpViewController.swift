@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     var successCheckOverlapID = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameTextField.becomeFirstResponder()
