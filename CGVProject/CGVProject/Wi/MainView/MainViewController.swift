@@ -65,7 +65,16 @@ class MainViewController: UIViewController{
             return print("Bookstoryborad faild")
         }
         UIApplication.shared.delegate?.window!!.rootViewController?.show(startVC, sender: nil)
-        
+    }
+    static func showCurrentMobvieBookPage(moviePk: Int){
+        print("showCurrentMobvieBookPage")
+        let bookStoryboard = UIStoryboard(name: "Book", bundle: nil)
+        guard let bookingVC = bookStoryboard.instantiateViewController(withIdentifier: "booking") as? BookingViewController  else {
+            return print("Bookstoryborad faild")
+        }
+        bookingVC.moviePk = moviePk
+        print("지금 누른 영화의 pk: ", moviePk)
+        UIApplication.shared.delegate?.window!!.rootViewController?.show(bookingVC, sender: nil)
     }
     static func showLoginPage(){
         print("showLoginPage")

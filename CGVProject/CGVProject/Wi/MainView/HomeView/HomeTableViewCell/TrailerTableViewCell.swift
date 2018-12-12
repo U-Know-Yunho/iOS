@@ -16,7 +16,8 @@ class TrailerTableViewCell: UITableViewCell {
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var showDetail: UIButton!
-    var youtubeVideoID: String = "bLoO0FSXncg"
+    
+    var youtubeUrl: String = "https://www.youtube.com/watch?v=xp0iHIYo52c"
     
 //    var model: Trailer! {
 //        // 트레일러 데이터 연결작업 필요 
@@ -26,8 +27,7 @@ class TrailerTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         trailerView.playerVars = ["playsinline": 1 as AnyObject]
-//        let myVideoURL = NSURL(string: youtubeURL )
-        trailerView.loadVideoID(youtubeVideoID)
+        trailerView.loadVideoURL(URL(string: youtubeUrl)!)
         profileImageView.image = UIImage(named: "test")
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.layer.masksToBounds = true
