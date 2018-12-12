@@ -13,5 +13,4 @@ struct Trailer: Codable{
     let titleImageUrl: String
     let title: String
     let subTitle: String
-    
 }

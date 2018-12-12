@@ -81,10 +81,10 @@ extension SideMenu: UITableViewDelegate{
         case 0: break
         case 1:
             // 영화별 예매
-            MainViewController.singleton.showBookPage()
+            MainViewController.showBookPage()
         case 2:
             // 극장별 예매 추후에 추가 
-            MainViewController.singleton.showBookPage()
+            MainViewController.showBookPage()
         case 3:
             // 로그아웃 함수호출
             UserManager.singleton.signOut(completion: {
