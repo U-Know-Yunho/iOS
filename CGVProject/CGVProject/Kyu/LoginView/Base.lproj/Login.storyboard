@@ -24,7 +24,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNv-21-Nip">
                                 <rect key="frame" x="10" y="301" width="355" height="40"/>
@@ -33,7 +33,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SU3-Lc-6pR">
                                 <rect key="frame" x="20" y="381" width="335" height="50"/>
@@ -145,28 +145,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ym7-aP-63L">
-                                <rect key="frame" x="20" y="504" width="335" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Pua-xs-ai6"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="jT3-wX-wMA"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hce-NW-KUF">
-                                <rect key="frame" x="20" y="574" width="335" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fhk-EI-42E"/>
-                                    <constraint firstAttribute="height" constant="45" id="nFC-Hr-agJ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlS-Nm-6oA">
-                                <rect key="frame" x="165.66666666666666" y="689" width="44" height="79"/>
+                                <rect key="frame" x="165.66666666666666" y="534" width="44" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="완료"/>
                                 <connections>
@@ -208,57 +188,58 @@
                                     <constraint firstItem="YIH-WU-pJT" firstAttribute="centerY" secondItem="Yjr-VP-uGu" secondAttribute="centerY" id="VWM-PZ-kbC"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iwd-c3-Wwh">
-                                <rect key="frame" x="20" y="154" width="255" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Iwd-c3-Wwh">
+                                <rect key="frame" x="20" y="144" width="255" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="i5V-6u-VuP"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" textContentType="username"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldf-c9-e1L">
-                                <rect key="frame" x="20" y="224" width="335" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ldf-c9-e1L">
+                                <rect key="frame" x="20" y="209" width="335" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="CWo-vO-AwX"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Hyc-UL-TmI"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="성" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-1z-23i">
-                                <rect key="frame" x="20" y="364" width="335" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="성" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-1z-23i">
+                                <rect key="frame" x="20.000000000000004" y="339" width="60.333333333333343" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="C9T-uF-ktl"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Hnp-6w-o77"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="UUD-5u-mPY"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taj-rf-r4a">
-                                <rect key="frame" x="20" y="294" width="335" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 확인" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="taj-rf-r4a">
+                                <rect key="frame" x="20" y="274" width="335" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="3zm-c6-LPP"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="8PG-YM-AeB"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="51b-TU-Tr6">
-                                <rect key="frame" x="20" y="434" width="335" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="51b-TU-Tr6">
+                                <rect key="frame" x="100.33333333333333" y="339" width="254.66666666666669" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="DXs-wr-aTR"/>
                                     <constraint firstAttribute="height" constant="45" id="x0w-iK-LZF"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1m-Fl-c5b">
-                                <rect key="frame" x="285" y="154" width="70" height="45"/>
+                                <rect key="frame" x="285" y="144" width="70" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="SZj-61-Pjv"/>
                                     <constraint firstAttribute="width" constant="70" id="xsn-BI-MAD"/>
@@ -268,19 +249,38 @@
                                     <action selector="checkOverlapIDButton:" destination="D25-uM-fkw" eventType="touchUpInside" id="h6O-g2-Ml6"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ym7-aP-63L">
+                                <rect key="frame" x="20" y="404" width="335" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Pua-xs-ai6"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="jT3-wX-wMA"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hce-NW-KUF">
+                                <rect key="frame" x="20" y="469" width="335" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fhk-EI-42E"/>
+                                    <constraint firstAttribute="height" constant="45" id="nFC-Hr-agJ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WRD-1z-23i" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="0KQ-IR-fPk"/>
-                            <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="WRD-1z-23i" secondAttribute="trailing" constant="20" id="0Wk-fv-sfu"/>
                             <constraint firstItem="Yjr-VP-uGu" firstAttribute="centerX" secondItem="uPf-iA-UbS" secondAttribute="centerX" id="1RK-zO-lG0"/>
-                            <constraint firstItem="WRD-1z-23i" firstAttribute="top" secondItem="taj-rf-r4a" secondAttribute="bottom" constant="25" id="1g3-jF-er3"/>
-                            <constraint firstItem="hce-NW-KUF" firstAttribute="top" secondItem="ym7-aP-63L" secondAttribute="bottom" constant="25" id="79c-ie-JNM"/>
-                            <constraint firstItem="ldf-c9-e1L" firstAttribute="top" secondItem="Iwd-c3-Wwh" secondAttribute="bottom" constant="25" id="DrC-zp-dPC"/>
-                            <constraint firstItem="51b-TU-Tr6" firstAttribute="top" secondItem="WRD-1z-23i" secondAttribute="bottom" constant="25" id="FVP-66-b7r"/>
-                            <constraint firstItem="51b-TU-Tr6" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="I3B-MU-CWZ"/>
+                            <constraint firstItem="WRD-1z-23i" firstAttribute="top" secondItem="taj-rf-r4a" secondAttribute="bottom" constant="20" id="1g3-jF-er3"/>
+                            <constraint firstItem="hce-NW-KUF" firstAttribute="top" secondItem="ym7-aP-63L" secondAttribute="bottom" constant="20" id="79c-ie-JNM"/>
+                            <constraint firstItem="51b-TU-Tr6" firstAttribute="centerY" secondItem="WRD-1z-23i" secondAttribute="centerY" id="7Je-Lx-ueX"/>
+                            <constraint firstItem="ym7-aP-63L" firstAttribute="top" secondItem="51b-TU-Tr6" secondAttribute="bottom" constant="20" id="BoJ-kn-scM"/>
+                            <constraint firstItem="ldf-c9-e1L" firstAttribute="top" secondItem="Iwd-c3-Wwh" secondAttribute="bottom" constant="20" id="DrC-zp-dPC"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="51b-TU-Tr6" secondAttribute="trailing" constant="20" id="I8r-Te-1fd"/>
-                            <constraint firstItem="Iwd-c3-Wwh" firstAttribute="top" secondItem="Yjr-VP-uGu" secondAttribute="bottom" constant="30" id="JFu-a3-P2y"/>
+                            <constraint firstItem="Iwd-c3-Wwh" firstAttribute="top" secondItem="Yjr-VP-uGu" secondAttribute="bottom" constant="20" id="JFu-a3-P2y"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="ym7-aP-63L" secondAttribute="trailing" constant="20" id="JHb-ff-nS6"/>
                             <constraint firstItem="y1m-Fl-c5b" firstAttribute="centerY" secondItem="Iwd-c3-Wwh" secondAttribute="centerY" id="KR0-dn-VT1"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="y1m-Fl-c5b" secondAttribute="trailing" constant="20" id="Lod-mA-cZQ"/>
@@ -289,17 +289,16 @@
                             <constraint firstItem="hce-NW-KUF" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="QZT-5s-FHI"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="Yjr-VP-uGu" secondAttribute="trailing" id="Tw5-dt-S0V"/>
                             <constraint firstItem="taj-rf-r4a" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="WCK-kO-1yp"/>
+                            <constraint firstItem="51b-TU-Tr6" firstAttribute="leading" secondItem="WRD-1z-23i" secondAttribute="trailing" constant="20" id="WFG-zR-Kok"/>
                             <constraint firstItem="ldf-c9-e1L" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="XPv-dp-tKh"/>
                             <constraint firstItem="ym7-aP-63L" firstAttribute="leading" secondItem="X0G-xg-znw" secondAttribute="leading" constant="20" id="ZaH-BJ-5Hc"/>
                             <constraint firstItem="RlS-Nm-6oA" firstAttribute="centerX" secondItem="uPf-iA-UbS" secondAttribute="centerX" id="bSO-lS-yF8"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="hce-NW-KUF" secondAttribute="trailing" constant="20" id="fs3-Ig-XiD"/>
-                            <constraint firstItem="RlS-Nm-6oA" firstAttribute="top" secondItem="hce-NW-KUF" secondAttribute="bottom" constant="70" id="gHa-rJ-uPc"/>
+                            <constraint firstItem="RlS-Nm-6oA" firstAttribute="top" secondItem="hce-NW-KUF" secondAttribute="bottom" constant="20" id="gHa-rJ-uPc"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="taj-rf-r4a" secondAttribute="trailing" constant="20" id="hKT-Xg-Gyk"/>
-                            <constraint firstItem="X0G-xg-znw" firstAttribute="bottom" secondItem="RlS-Nm-6oA" secondAttribute="bottom" constant="10" id="iHF-8h-13U"/>
                             <constraint firstItem="Yjr-VP-uGu" firstAttribute="top" secondItem="X0G-xg-znw" secondAttribute="top" constant="20" id="lwm-RI-qwo"/>
                             <constraint firstItem="X0G-xg-znw" firstAttribute="trailing" secondItem="ldf-c9-e1L" secondAttribute="trailing" constant="20" id="mHW-u9-SmN"/>
-                            <constraint firstItem="taj-rf-r4a" firstAttribute="top" secondItem="ldf-c9-e1L" secondAttribute="bottom" constant="25" id="qQE-IW-YFb"/>
-                            <constraint firstItem="ym7-aP-63L" firstAttribute="top" secondItem="51b-TU-Tr6" secondAttribute="bottom" constant="25" id="s7B-ys-eAU"/>
+                            <constraint firstItem="taj-rf-r4a" firstAttribute="top" secondItem="ldf-c9-e1L" secondAttribute="bottom" constant="20" id="qQE-IW-YFb"/>
                             <constraint firstItem="y1m-Fl-c5b" firstAttribute="leading" secondItem="Iwd-c3-Wwh" secondAttribute="trailing" constant="10" id="vE0-sR-hY9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X0G-xg-znw"/>
@@ -316,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fu5-So-XJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734" y="27"/>
+            <point key="canvasLocation" x="2733.5999999999999" y="26.600985221674879"/>
         </scene>
     </scenes>
     <resources>

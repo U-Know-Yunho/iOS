@@ -21,7 +21,7 @@ class MovieViewController: UIViewController {
         MovieManager.singleton.loadMovieDetail(moviePk!) { movie in
             self.model = movie
             self.movieInfoTableView.reloadData()
-            }
+        }
         
         // 셀 안의 Item 사이즈에 맞춰서 셀 높이 조절
         movieInfoTableView.rowHeight = UITableView.automaticDimension
