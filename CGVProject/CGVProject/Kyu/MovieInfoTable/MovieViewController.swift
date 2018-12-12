@@ -72,15 +72,15 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
             cell.directorLabel.text = model?.director
-            
+
             // ==================== CastLabel =====================
+            var castStringArray: [String] = []
             let num = model?.casts?.count ?? 0
-            var a: [String] = []
             for i in 0..<num {
-                let b = model?.casts?[i].actor ?? ""
-                a.append(b)
-                let c = a.joined()
-                cell.actorLabel.text = c
+                let castString = model?.casts?[i].actor ?? ""
+                castStringArray.append(castString)
+                let castArray = castStringArray.joined()
+                cell.actorLabel.text = castArray
             }
 //              고차함수를 사용해 리팩토링 해볼것
 //            if let result = model?.cast?.compactMap({ $0.actor }).joined() {

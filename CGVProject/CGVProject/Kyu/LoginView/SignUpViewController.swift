@@ -20,11 +20,14 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     var successCheckOverlapID = false
     
+    // 텍스트 필드 아닌 곳 터치하면 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameTextField.becomeFirstResponder()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
