@@ -21,7 +21,8 @@ class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
         configure()
     }
     func configure(){
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("LoginButtonDidtap"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("LoginButtonDidTap"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("LogoutBtnDidtap"), object: nil)
         
         // MARK: refreshControl
         myViewTableView.refreshControl = refreshControll
@@ -97,6 +98,7 @@ extension MYViewCell: UITableViewDelegate{
         switch indexPath.row {
         case 0:
             if !UserManager.singleton.hasToken {
+                MainViewController.showLoginPage()
             }
         default:
             break

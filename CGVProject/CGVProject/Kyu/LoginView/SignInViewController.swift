@@ -17,7 +17,6 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.post(name: Notification.Name("LoginButtonDidTap"), object: self)
     }
    
     
@@ -30,8 +29,8 @@ class SignInViewController: UIViewController {
         let param: Parameters = [ "username": id, "password": password]
         
         UserManager.singleton.signIn(param: param) {
-            self.dismiss(animated: true) {
-            }
+            NotificationCenter.default.post(name: Notification.Name("LoginButtonDidTap"), object: self)
+            self.dismiss(animated: true) {}
         }
     }
     
