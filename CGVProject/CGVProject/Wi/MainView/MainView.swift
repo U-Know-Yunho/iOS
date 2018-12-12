@@ -9,7 +9,7 @@
 import UIKit
 
 class MainView: UIView, MenuBarDelegate, MenuPageDelegete {
-
+     
     // MARK: MenuBar Instance
     let menuBar = MenuBar()
     

@@ -12,6 +12,12 @@ protocol MenuPageDelegete {
     func endDraggingIndexPath(indexPath: IndexPath)
 }
 class MenuPage: UIView {
+    func didSelectMy() {
+        pageCollectionView.reloadData()
+    }
+    
+
+    
     // MARK: 메뉴 페이지 콜렉션 뷰 생성
     var pageCollectionView: UICollectionView = {
         // MARK: layout생성
@@ -90,8 +96,6 @@ extension MenuPage: UICollectionViewDelegate{
         let indexPath = IndexPath(item: itemAt, section: 0)
         delegate?.endDraggingIndexPath(indexPath: indexPath)
     }
-    
-    
 }
 extension MenuPage: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

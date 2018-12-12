@@ -29,12 +29,11 @@ class SignInViewController: UIViewController {
         let param: Parameters = [ "username": id, "password": password]
         
         UserManager.singleton.signIn(param: param) {
-            self.dismiss(animated: true) 
+            MainViewController.singleton.mainView.menuPage.pageCollectionView.reloadData()
+            self.dismiss(animated: true){
+            }
         }
     }
-    
-    
-    
     @IBAction func kakaoSignInButton(_ sender: Any) {
         guard let session = KOSession.shared() else { return }
        

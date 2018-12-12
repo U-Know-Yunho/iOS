@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0889AAE521BBA311004E2E74 /* MoviePostrModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0889AAE421BBA311004E2E74 /* MoviePostrModel.swift */; };
-		3C01F40621B7BA3000B7A17B /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01F40521B7BA3000B7A17B /* CustomImageView.swift */; };
 		3C0464BB21AE5DDC001F38BB /* TrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0464B921AE5DDC001F38BB /* TrailerTableViewCell.swift */; };
 		3C0464BC21AE5DDC001F38BB /* TrailerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0464BA21AE5DDC001F38BB /* TrailerTableViewCell.xib */; };
 		3C0464BF21AE7F89001F38BB /* MovieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0464BD21AE7F89001F38BB /* MovieChartTableViewCell.swift */; };
@@ -96,7 +95,6 @@
 
 /* Begin PBXFileReference section */
 		0889AAE421BBA311004E2E74 /* MoviePostrModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePostrModel.swift; sourceTree = "<group>"; };
-		3C01F40521B7BA3000B7A17B /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		3C0464B921AE5DDC001F38BB /* TrailerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerTableViewCell.swift; sourceTree = "<group>"; };
 		3C0464BA21AE5DDC001F38BB /* TrailerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerTableViewCell.xib; sourceTree = "<group>"; };
 		3C0464BD21AE7F89001F38BB /* MovieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieChartTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,14 +198,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C01F40421B7B9F700B7A17B /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				3C01F40521B7BA3000B7A17B /* CustomImageView.swift */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
 		3C0464C121AEA225001F38BB /* MovieChartCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +231,6 @@
 			children = (
 				3CE29BD021B261F500CEA8AE /* SideMenu */,
 				3C0F302521AD00950073F52F /* MYView */,
-				3C0F302421AD00800073F52F /* StoreView */,
 				3C0F302321AD005E0073F52F /* EventView */,
 				3C0F302221AD00480073F52F /* HomeView */,
 				3C4705B921ABC5EF00119F53 /* MainViewController.swift */,
@@ -318,7 +307,7 @@
 				3C27217B21B0F3B600ABA97B /* DefaultInfoTableViewCell.swift */,
 				3C27217C21B0F3B600ABA97B /* DefaultInfoTableViewCell.xib */,
 				3CC2E4CF21B0FA9A007B9F59 /* SettingInfoTableViewCell.swift */,
-				3CC2E4D021B0FA9A007B9F59 /* SettingInfoTableViewCell.xib */,
+				3C0F302421AD00800073F52F /* StoreView */,
 			);
 			path = MYViewTableViewCell;
 			sourceTree = "<group>";
@@ -372,7 +361,6 @@
 		3C4705A221ABC39500119F53 /* CGVProject */ = {
 			isa = PBXGroup;
 			children = (
-				3C01F40421B7B9F700B7A17B /* Utility */,
 				3C4705A321ABC39500119F53 /* AppDelegate.swift */,
 				3C2BBF5921B5616400C5DB00 /*  Data */,
 				3C7447E621B3C031002F1DA2 /* Wi */,
@@ -544,6 +532,7 @@
 			children = (
 				3CE8DB7D21B4C99600C9DD3B /* Login.storyboard */,
 				3CE8DB8221B4C99600C9DD3B /* SignInViewController.swift */,
+				3CC2E4D021B0FA9A007B9F59 /* SettingInfoTableViewCell.xib */,
 				420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */,
 			);
 			path = LoginView;
@@ -803,7 +792,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C27217921AFD38D00ABA97B /* UserInfoTableViewCell.swift in Sources */,
-				3C01F40621B7BA3000B7A17B /* CustomImageView.swift in Sources */,
 				3CE8DBD421B4CCB200C9DD3B /* InfoTableViewCell.swift in Sources */,
 				3C0464BB21AE5DDC001F38BB /* TrailerTableViewCell.swift in Sources */,
 				3C0464C421AEA2DE001F38BB /* MovieCollectionViewCell.swift in Sources */,
@@ -1017,7 +1005,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7TC98YVM4R;
+				DEVELOPMENT_TEAM = G4MM77V7NH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CGVProject/Kyu/LoginView/Framework",
@@ -1051,7 +1039,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7TC98YVM4R;
+				DEVELOPMENT_TEAM = G4MM77V7NH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CGVProject/Kyu/LoginView/Framework",

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+protocol SideMenuDelegate {
+    func sideMenuLogoutFuncDidTap(tableView: UITableView)
+}
 
 class SideMenu: UIView {
 
@@ -19,6 +22,7 @@ class SideMenu: UIView {
         return ["Login","영화별 예매","극장별 예매"]
     }
     
+    var delegate: SideMenuDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -34,6 +38,7 @@ class SideMenu: UIView {
         tableView.register(UINib(nibName: "LoginTableViewCell", bundle: nil), forCellReuseIdentifier: "LoginTableViewCell")
         tableView.register(UINib(nibName: "NotLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "NotLoginTableViewCell")
     }
+
 }
 
 extension SideMenu: UITableViewDataSource {
@@ -48,7 +53,6 @@ extension SideMenu: UITableViewDataSource {
             print("Token : ", UserManager.singleton.hasToken)
             if UserManager.singleton.hasToken {
                 cell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell", for: indexPath)
-                
             }else{
                 cell = tableView.dequeueReusableCell(withIdentifier: "NotLoginTableViewCell", for: indexPath)
             }
@@ -87,10 +91,11 @@ extension SideMenu: UITableViewDelegate{
             MainViewController.singleton.showBookPage()
         case 3:
             // 로그아웃 함수호출
+            delegate?.sideMenuLogoutFuncDidTap(tableView: tableView)
             UserManager.singleton.signOut(completion: {
                 tableView.reloadData()
+                print("reloaded")
             })
-            
         default:
             break
         }

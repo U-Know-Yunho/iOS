@@ -9,7 +9,8 @@
 import UIKit
 
 class MainViewController: UIViewController{
-    // MARK: Sington
+    
+    // MARK: Singleton
     static let singleton = MainViewController()
     
     // MARK: MainView Instance
@@ -33,7 +34,9 @@ class MainViewController: UIViewController{
     var isSidemenuOpen = false
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("View didaAppear")
         sideMenu.tableView.reloadData()
+        mainView.menuPage.pageCollectionView.reloadData()
     }
     @objc private func cgvBtnDidTap(){
         mainView.didSelectItem(scollTo: 0)
@@ -93,7 +96,6 @@ class MainViewController: UIViewController{
     
     private func configure(){
         // MARK: delegate
-        
         
         // MARK: MainView
         mainView.menuBar.indicatorViewWidthConstraint.constant = view.frame.width / 4

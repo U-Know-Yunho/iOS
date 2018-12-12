@@ -125,6 +125,7 @@ extension MenuBar: UICollectionViewDelegate{
         guard let cell = collectionView.cellForItem(at: indexPath) as? MenuCollectionViewCell else {return}
         cell.titleLabel.textColor = .black
         print("메뉴바 선택됨")
+
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? MenuCollectionViewCell else {return}

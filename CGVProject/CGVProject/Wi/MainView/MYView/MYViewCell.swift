@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
+class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate, SideMenuDelegate{
+
     var myViewTableView = UITableView()
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,10 +33,17 @@ class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
         // MARK: delegate, dataSource
         myViewTableView.dataSource = self
         myViewTableView.delegate = self
+        MainViewController.singleton.sideMenu.delegate = self
+        
         // MARK: autoLayout
         autolayout()
     }
     // MARK: delgate func
+    func sideMenuLogoutFuncDidTap(tableView: UITableView) {
+        myViewTableView.reloadData()
+        print("My reload")
+    }
+    
     func logoutDidTap() {
         myViewTableView.reloadData()
     }
@@ -64,7 +72,9 @@ extension MYViewCell: UITableViewDataSource{
         case 0:
             cell = tableView.dequeueReusableCell(withIdentifier: "UserInfo", for: indexPath)
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath)
+            let infoCell = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! SettingInfoTableViewCell
+            infoCell.delegate = self
+            return infoCell
         default: break
             
         }
