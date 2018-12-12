@@ -5,6 +5,7 @@ class BookingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var firstScrollEnable = true
     
     //예매창 - 영화 타이틀 셀 - 데이터
     var movieTitle = "보헤미안랩소디"
@@ -24,19 +25,22 @@ class BookingViewController: UIViewController {
     var theaterSeat = "112/255"
     var theaterSection = "12관"
 
+    //데이터처리 #3 - 영화 정보를 담을 공간을 생성
+    var movies: [Movie]?
 
-
-
-    
-    
-    
     @IBAction func unwindToBooking(_ unwindSegue: UIStoryboardSegue) {
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        MovieManager.singleton.loadMovieList { movie in
+            self.movies = movie
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
     }
 }
 
@@ -65,6 +69,7 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
@@ -74,10 +79,7 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTableViewCell", for: indexPath) as! BookingTableViewCell
-                
-                cell.posterCollectionView.scrollToItem(at: [0, 4], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
-                cell.posterCollectionView.selectItem(at: [0, 4], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
-                
+                return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell
                 cell.movieDateDetails.text = movieDateDetails
@@ -93,10 +95,19 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-        let a = UITableViewCell()
-        return a
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if indexPath.section == 0 {
+//            switch indexPath.row {
+//            case 1:
+//                (cell as? BookingTableViewCell)?.posterCollectionView.reloadData()
+////                (cell as? BookingTableViewCell)?.posterCollectionView.scrollToItem(at: [0 ,4], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+//            default:
+//                break
+//            }
+//        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
@@ -104,7 +115,7 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             case 0:
                 return 45
             case 1:
-                return 165
+                return 190
             case 2:
                 return 85
             default:
@@ -118,13 +129,18 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension BookingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
+//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    
     //tag = 0 > 포스터 콜렉션 셀
     //tag = 1 > 날짜 콜렉션 셀
     //tag = 2 > 극장 콜렉션 셀
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView.tag {
         case 0:
-            return 6
+            guard let movies = self.movies else { return 1 }
+            return movies.count
         case 1:
             return 7
         case 2:
@@ -138,8 +154,20 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         switch collectionView.tag {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingPosterCollectionViewCell", for: indexPath) as! BookingPosterCollectionViewCell
-            cell.bookingPosterView.image = UIImage(named: images[indexPath.item])
+
+            //데이터 처리 #5 - guard문을 통해 서버통신을 확인하고, movies에 저장된 영화포스터정보를 차례대로 cell.model에 넣어준다.
+            guard let movies = movies else { print("movieList nil"); return cell }
+            cell.model = MoviePosterCollectionViewCellModel.init(movies[indexPath.row])
+            
+            //scroll ON/OFF 스위치
+            if firstScrollEnable == true {
+                collectionView.scrollToItem(at: [0, 8], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+                collectionView.selectItem(at: [0, 8], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+                    firstScrollEnable = false
+            }
+            
             return cell
+            
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingDateCollectionViewCell", for: indexPath) as! BookingDateCollectionViewCell
             cell.movieDate.text = movieDate
@@ -156,12 +184,33 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        switch collectionView.tag {
+//        case 0:
+//            collectionView.scrollToItem(at: [0, 8], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+//            collectionView.selectItem(at: [0, 8], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+//        default:
+//            print(0)
+//        }
+
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView.tag {
         case 0:
+            
             collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+            
             theaterTimeTable.reverse()
-            tableView.reloadData()
+//            tableView.reloadData()
+            tableView.reloadSections([1, 1], with: UITableView.RowAnimation.fade)
+            
+            
         default:
             print(0)
         }

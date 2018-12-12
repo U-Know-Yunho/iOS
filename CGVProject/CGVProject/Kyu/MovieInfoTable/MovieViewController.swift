@@ -12,10 +12,7 @@ import Kingfisher
 class MovieViewController: UIViewController {
     
     @IBOutlet weak var movieInfoTableView: UITableView!
-    
-    
     var cellIdentifier: [String] = []
-//    var infoData: [MovieDetailInfo] = []
     var moviePk: Int?
     var model: MovieDetail?
     
@@ -30,11 +27,8 @@ class MovieViewController: UIViewController {
         movieInfoTableView.rowHeight = UITableView.automaticDimension
         
         registerCell()
-//        infoData = creatMovieInfo()
-        
+
     }
-    
-    
     
     private func registerCell() {
         movieInfoTableView.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieInfoTableViewCell")
@@ -54,15 +48,6 @@ class MovieViewController: UIViewController {
         
     }
     
-    private func creatMovieInfo() -> [MovieDetailInfo] {
-        
-        var tempMovieInfo: [MovieDetailInfo] = []
-        
-        let bohemianRhapsody = MovieDetailInfo(director: "브라이언 싱어", actor: "레미 맬렉, 루시 보인턴, 귈림 리, 벤 하디, 조셉 마젤로", genre: "드라마", openDate: "2018.10.31",runningTime: "134분")
-        tempMovieInfo.append(bohemianRhapsody)
-        
-        return tempMovieInfo
-    }
 }
 
 
@@ -81,7 +66,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieInfoTableViewCell", for: indexPath) as! MovieInfoTableViewCell
             cell.movieTitleLabel.text = model?.title
-            //            cell.moviePosterImageView.kf.setImage(with: URL(string: (model?.mainImgUrl)!))
+            cell.moviePosterImageView.kf.setImage(with: URL(string: model?.mainImgUrl ?? ""))
             return cell
             
         case 1:
@@ -90,6 +75,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
 //            cell.setInfoLabel(movieInfo: data)
             cell.directorLabel.text = model?.director
             
+            // ==================== CastLabel =====================
             let num = model?.casts?.count ?? 0
             print("\n------------ [ num ] -------------\n")
             print(num)
@@ -103,7 +89,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
                 print(c)
                 cell.actorLabel.text = c
             }
-        
+            // ===========================================
             
             cell.genreLabel.text = model?.genre
             cell.openDateLabel.text = model?.openingDate
