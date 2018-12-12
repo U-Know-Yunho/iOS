@@ -9,12 +9,8 @@
 import UIKit
 
 class MainViewController: UIViewController{
-    // MARK: Sington
-    static let singleton = MainViewController()
-    
     // MARK: MainView Instance
     let mainView = MainView()
-    
     
     // MARK: SideMenu Instance
     let sideMenu = SideMenu()
@@ -31,8 +27,8 @@ class MainViewController: UIViewController{
         
     }
     var isSidemenuOpen = false
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         sideMenu.tableView.reloadData()
     }
     @objc private func cgvBtnDidTap(){
@@ -62,7 +58,7 @@ class MainViewController: UIViewController{
         }
         print("isSidemenu Open: ", isSidemenuOpen)
     }
-    func showBookPage(){
+    static func showBookPage(){
         print("showBookPageFunc")
         let bookStoryboard = UIStoryboard(name: "Book", bundle: nil)
         guard let startVC = bookStoryboard.instantiateViewController(withIdentifier: "StartViewController") as? StartViewController  else {
@@ -71,7 +67,7 @@ class MainViewController: UIViewController{
         UIApplication.shared.delegate?.window!!.rootViewController?.show(startVC, sender: nil)
         
     }
-    func showLoginPage(){
+    static func showLoginPage(){
         print("showLoginPage")
         let loginStoryboard = UIStoryboard(name: "Login",bundle: nil)
         guard let loginVC = loginStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController  else {
@@ -79,7 +75,7 @@ class MainViewController: UIViewController{
         }
         UIApplication.shared.delegate?.window!!.rootViewController?.present(loginVC, animated: true)
     }
-    func showMovieDetailPage(moviePk: Int){
+    static func showMovieDetailPage(moviePk: Int){
         print("showMovieDetailPage")
         
         let MovieDetailStoryboard = UIStoryboard(name: "MovieInfoStoryboard",bundle: nil)
@@ -92,6 +88,7 @@ class MainViewController: UIViewController{
     }
     
     private func configure(){
+        
         // MARK: delegate
         
         
@@ -109,7 +106,6 @@ class MainViewController: UIViewController{
         autolayout()
         
     }
-    
     // MARK: Autolayout
     var sideMenuSlideWitdthConstraints: NSLayoutConstraint?
     var sideMenuTrailingConstraints: NSLayoutConstraint?

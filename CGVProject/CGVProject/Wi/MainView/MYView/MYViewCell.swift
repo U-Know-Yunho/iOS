@@ -10,6 +10,7 @@ import UIKit
 
 class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
     var myViewTableView = UITableView()
+    private var refreshControll = UIRefreshControl()
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -20,8 +21,12 @@ class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
         configure()
     }
     func configure(){
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("LoginButtonDidtap"), object: nil)
+        
+        // MARK: refreshControl
+        myViewTableView.refreshControl = refreshControll
         myViewTableView.separatorColor = .clear
-    
+        refreshControll.addTarget(self, action: #selector(tableViewRefresh), for: .valueChanged)
         // MARK: addSubView
         self.addSubview(myViewTableView)
         
@@ -30,15 +35,26 @@ class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
         myViewTableView.register(UINib(nibName: "SettingInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "Info")
         
         // MARK: delegate, dataSource
+        
         myViewTableView.dataSource = self
         myViewTableView.delegate = self
         // MARK: autoLayout
         autolayout()
     }
+    // MARK: objc func
+    @objc private func reloadTableView(){
+        myViewTableView.reloadData()
+    }
+    @objc private func tableViewRefresh(){
+        myViewTableView.reloadData()
+        refreshControll.endRefreshing()
+    }
+    
     // MARK: delgate func
     func logoutDidTap() {
         myViewTableView.reloadData()
     }
+    // MARK: autolayout
     func autolayout(){
         myViewTableView.translatesAutoresizingMaskIntoConstraints = false
         myViewTableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -64,7 +80,9 @@ extension MYViewCell: UITableViewDataSource{
         case 0:
             cell = tableView.dequeueReusableCell(withIdentifier: "UserInfo", for: indexPath)
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath)
+            let infoCell = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! SettingInfoTableViewCell
+            infoCell.delegate = self
+            return infoCell
         default: break
             
         }
@@ -78,8 +96,7 @@ extension MYViewCell: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            if !UserManager.singleton.hasToken{
-                MainViewController.singleton.showLoginPage()
+            if !UserManager.singleton.hasToken {
             }
         default:
             break

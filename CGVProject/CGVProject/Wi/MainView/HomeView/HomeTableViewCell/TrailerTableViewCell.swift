@@ -49,7 +49,7 @@ class TrailerTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func showDetailBtnTap(_ sender: UIButton) {
-        MainViewController.singleton.showMovieDetailPage(moviePk: 2)
+        MainViewController.showMovieDetailPage(moviePk: 2)
     }
     
 }

@@ -26,6 +26,6 @@ class NotLoginTableViewCell: UITableViewCell {
     }
     
     @IBAction func loginBtnDidTap(_ sender: UIButton) {
-        MainViewController.singleton.showLoginPage()
+        MainViewController.showLoginPage()
     }
 }

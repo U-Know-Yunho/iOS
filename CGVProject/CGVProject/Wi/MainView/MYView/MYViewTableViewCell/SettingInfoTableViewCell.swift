@@ -58,9 +58,8 @@ extension SettingInfoTableViewCell: UITableViewDelegate{
         case 4:
             print("로그아웃 클릭")
             UserManager.singleton.signOut(completion: {
-                tableView.reloadData()
+                self.delegate?.logoutDidTap()
             })
-            delegate?.logoutDidTap()
         default:
             break
         }
