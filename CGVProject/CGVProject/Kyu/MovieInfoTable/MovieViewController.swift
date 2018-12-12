@@ -89,6 +89,10 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
                 print(c)
                 cell.actorLabel.text = c
             }
+//              고차함수를 사용해 리팩토링 해볼것
+//            if let result = model?.cast?.compactMap({ $0.actor }).joined() {
+//                print(result)
+//            }
             // ===========================================
             
             cell.genreLabel.text = model?.genre
@@ -100,8 +104,6 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as! CastTableViewCell
-            
-            
             return cell
             
         case 3:
@@ -112,7 +114,6 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "StillcutTableViewCell", for: indexPath) as! StillcutTableViewCell
-            
             return cell
         default:
 
