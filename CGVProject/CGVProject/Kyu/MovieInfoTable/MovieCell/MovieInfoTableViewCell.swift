@@ -10,7 +10,13 @@ import UIKit
 
 class MovieInfoTableViewCell: UITableViewCell {
 
-    var moviePhoto: [String] = ["sample1", "sample2", "sample3", "sample4"]
+    var moviePhoto: [String] = []
+    var stillcutURL: [MovieDetail.Stillcut]? {
+        didSet {
+            self.moviePhotoCollectView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var moviePhotoCollectView: UICollectionView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var moviePosterImageView: UIImageView!
@@ -43,12 +49,6 @@ class MovieInfoTableViewCell: UITableViewCell {
         borderSetting()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     private func borderSetting() {
         
         // view, button border setting
@@ -63,12 +63,15 @@ class MovieInfoTableViewCell: UITableViewCell {
 extension MovieInfoTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return moviePhoto.count
+        return stillcutURL?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviePhotoCollectionViewCell", for: indexPath) as! MoviePhotoCollectionViewCell
-        cell.moviePhotoImageView.image = UIImage(named: moviePhoto[indexPath.row])
+        if let urlString = stillcutURL?[indexPath.item].imageUrl,
+            let url = URL(string: urlString) {
+            cell.moviePhotoImageView.kf.setImage(with: url)
+        }
         
         return cell
     }

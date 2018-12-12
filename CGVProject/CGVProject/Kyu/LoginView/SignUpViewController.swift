@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -18,22 +18,52 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    var successCheckOverlapID = false
     
-    // 텍스트 필드 아닌 곳 터치하면 키보드 내리기
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
+   
+    var successCheckOverlapID = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTextField.becomeFirstResponder()
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        checkPasswordTextField.delegate = self
+        lastNameTextField.delegate = self
+        firstNameTextField.delegate = self
+        emailTextField.delegate = self
+        phoneNumberTextField.delegate = self
+       
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification ,object: nil)
+//        usernameTextField.becomeFirstResponder()
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         view.endEditing(true) // 이전 뷰로 넘어갈 때 키보드 내리기
     }
+    
+    // 텍스트 필드 아닌 곳 터치하면 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    // 키보드 Done 눌렀을 때 내리기
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        checkPasswordTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        firstNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        phoneNumberTextField.resignFirstResponder()
+        return true
+    }
+
+//    @objc func keyboardWillShow(_ sender: Notification) {
+//        self.view.frame.origin.y = -100
+//    }
+//    @objc func keyboardWillHide(_ sender: Notification) {
+//        self.view.frame.origin.y = 0
+//    }
     
     @IBAction func checkOverlapIDButton(_ sender: Any) {
         guard let checkID = usernameTextField.text else { return }
@@ -55,7 +85,6 @@ class SignUpViewController: UIViewController {
         
     }
     
-    
     @IBAction func signUpButton(_ sender: Any) {
         
         if self.successCheckOverlapID == true {
@@ -75,7 +104,4 @@ class SignUpViewController: UIViewController {
             self.alert("ID 중복 검사를 해주세요!")
         }
     }
-    
-    
-    
 }

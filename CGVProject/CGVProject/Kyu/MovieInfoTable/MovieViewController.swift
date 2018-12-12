@@ -66,7 +66,8 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieInfoTableViewCell", for: indexPath) as! MovieInfoTableViewCell
             cell.movieTitleLabel.text = model?.title
-            cell.moviePosterImageView.kf.setImage(with: URL(string: model?.mainImgUrl ?? ""))
+        cell.moviePosterImageView.kf.setImage(with: URL(string: model?.mainImgUrl ?? ""))
+            cell.stillcutURL = model?.stillcuts
             return cell
             
         case 1:
@@ -107,14 +108,11 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "StillcutTableViewCell", for: indexPath) as! StillcutTableViewCell
-//            guard let stillcutImage = model?.stillcuts else { return cell }
             cell.stillcutURL = model?.stillcuts
             return cell
         default:
 
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
-//            let data = infoData[indexPath.row - 1]
-//            cell.setInfoLabel(movieInfo: data)
             return cell
             
         }
