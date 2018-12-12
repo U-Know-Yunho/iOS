@@ -15,6 +15,8 @@ class MoviePosterViewController: UIViewController {
     //데이터처리 #3 - 영화 정보를 담을 공간을 생성
     var movies: [Movie]?
     
+    var selectedCollectionCell: IndexPath = [0, 0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +30,11 @@ class MoviePosterViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        guard let destination = segue.destination as? BookingViewController else { return }
+        guard let sendIndexPath = collectionView.indexPathsForSelectedItems else { return }
+        destination.selectedCollectionCell = sendIndexPath.first!
     }
+    
 }
 
 extension MoviePosterViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -49,5 +55,6 @@ extension MoviePosterViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCollectionCell = indexPath
     }
 }

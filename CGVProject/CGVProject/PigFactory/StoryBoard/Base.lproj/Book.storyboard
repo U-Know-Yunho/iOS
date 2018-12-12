@@ -245,7 +245,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jws-Q6-izB">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="171"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="170"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
@@ -870,6 +870,10 @@
                                             <action selector="handleSelection:" destination="FMN-Zy-mH5" eventType="touchUpInside" id="DGd-21-wTp"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-oS-75X">
+                                        <rect key="frame" x="219" y="13" width="24" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="z5y-8x-rpP" firstAttribute="top" secondItem="Nxi-4O-XNq" secondAttribute="top" id="05R-Bs-nsd"/>
@@ -941,10 +945,11 @@
                 <exit id="pwA-J1-PGH" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsF-8U-mtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3983" y="27"/>
+            <point key="canvasLocation" x="3981.5999999999999" y="26.53673163418291"/>
         </scene>
     </scenes>
     <resources>
         <image name="bottomAD" width="1242" height="151"/>
+        <image name="rightArrow" width="22.5" height="22.5"/>
     </resources>
 </document>

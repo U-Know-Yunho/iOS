@@ -5,6 +5,8 @@ class BookingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var selectedCollectionCell: IndexPath = [0, 0]
+    
     var firstScrollEnable = true
     
     //예매창 - 영화 타이틀 셀 - 데이터
@@ -33,7 +35,6 @@ class BookingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         MovieManager.singleton.loadMovieList { movie in
             self.movies = movie
             self.tableView.reloadData()
@@ -102,7 +103,6 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
 //            switch indexPath.row {
 //            case 1:
 //                (cell as? BookingTableViewCell)?.posterCollectionView.reloadData()
-////                (cell as? BookingTableViewCell)?.posterCollectionView.scrollToItem(at: [0 ,4], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
 //            default:
 //                break
 //            }
@@ -161,8 +161,8 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             
             //scroll ON/OFF 스위치
             if firstScrollEnable == true {
-                collectionView.scrollToItem(at: [0, 8], at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
-                collectionView.selectItem(at: [0, 8], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+                collectionView.scrollToItem(at: selectedCollectionCell, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+                collectionView.selectItem(at: selectedCollectionCell, animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
                     firstScrollEnable = false
             }
             
@@ -185,8 +185,6 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
