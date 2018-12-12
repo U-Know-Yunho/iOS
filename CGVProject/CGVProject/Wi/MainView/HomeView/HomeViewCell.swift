@@ -66,6 +66,7 @@ extension HomeViewCell: UITableViewDataSource{
             cell.clipsToBounds = true
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChart", for: indexPath) as! MovieChartTableViewCell
+            cell.selectionStyle = .none
             return cell
         case 2:
             cell = tableView.dequeueReusableCell(withIdentifier: "Event", for: indexPath) as! EventTableViewCell

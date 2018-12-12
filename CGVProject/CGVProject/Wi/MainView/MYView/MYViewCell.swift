@@ -10,6 +10,7 @@ import UIKit
 
 class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
     var myViewTableView = UITableView()
+    var model: User?
     private var refreshControll = UIRefreshControl()
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,6 +22,11 @@ class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
         configure()
     }
     func configure(){
+        UserManager.singleton.getUserProfile { user in
+            self.model = user
+            self.myViewTableView.reloadData()
+            print(user)
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("LoginButtonDidTap"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("LogoutBtnDidtap"), object: nil)
         
@@ -53,6 +59,7 @@ class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
     
     // MARK: delgate func
     func logoutDidTap() {
+        model = nil 
         myViewTableView.reloadData()
     }
     // MARK: autolayout
@@ -76,10 +83,12 @@ extension MYViewCell: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
+        let cell = UITableViewCell()
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "UserInfo", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UserInfo", for: indexPath) as! UserInfoTableViewCell
+            cell.model = self.model
+            return cell
         case 1:
             let infoCell = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! SettingInfoTableViewCell
             infoCell.delegate = self

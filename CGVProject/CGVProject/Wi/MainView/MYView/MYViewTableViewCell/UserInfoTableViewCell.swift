@@ -13,18 +13,22 @@ class UserInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var userNickName: UILabel!
     @IBOutlet weak var userID: UILabel!
     
-    var model: User?
+    var model: User? {
+        didSet{
+            guard let user = model else {return}
+            self.userID.text = user.username
+            if user.firstName == "", user.lastName == ""{
+                self.userNickName.text = "닉네임을 설정해주세요"
+            }else{
+                self.userNickName.text = "\(user.firstName!) \(user.lastName!)"
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         configure()
         setUserInfo()
-    }
-    
-    func setProfile(){
-        guard let user = model else {return}
-        self.userID.text = user.username
-        
     }
     func setUserInfo() {
         KOSessionTask.userMeTask { [weak self] (error, userMe) in
@@ -34,7 +38,7 @@ class UserInfoTableViewCell: UITableViewCell {
             
             guard let me = userMe,
                 let nickname = me.nickname,
-                let thumbnailImageLink = me.thumbnailImageURL else { self?.setProfile(); return }
+                let thumbnailImageLink = me.thumbnailImageURL else { return }
             print(me)
             
             self?.userNickName.text = nickname
