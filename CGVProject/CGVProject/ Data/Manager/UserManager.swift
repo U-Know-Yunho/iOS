@@ -124,6 +124,24 @@ class UserManager {
         
         
     }
+    func getUserProfile(completion: @escaping ((User) -> Void)){
+        let header: HTTPHeaders = [
+            "Authorization": token ?? "",
+            "Content-Type" : "application/json"
+            ]
+        Alamofire.request(API.UserURL.userProfile, method: .get, encoding: JSONEncoding.default, headers: header)
+            .validate()
+            .responseData { (response) in
+                switch response.result{
+                case .success(let value):
+                    let user = try! JSONDecoder().decode(User.self, from: value)
+                    completion(user)
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+        }
+        
+    }
     
     // 카카오 로그인 시 카카오 ID로 토큰 받기
     func postKakaoUserId() {
