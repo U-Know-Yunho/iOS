@@ -42,7 +42,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         print("Moviepk:", model.moviePk)
     }
     @IBAction func bookBtnDidTap(_ sender: UIButton) {
-        MainViewController.showBookPage()
+        MainViewController.showCurrentMobvieBookPage(moviePk: model.moviePk)
     }
     
     

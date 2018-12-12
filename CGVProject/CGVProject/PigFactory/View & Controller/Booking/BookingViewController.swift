@@ -29,7 +29,9 @@ class BookingViewController: UIViewController {
 
     //데이터처리 #3 - 영화 정보를 담을 공간을 생성
     var movies: [Movie]?
-
+    
+    // MARK: 데이터처리
+    var moviePk: Int?
     @IBAction func unwindToBooking(_ unwindSegue: UIStoryboardSegue) {
     }
 
