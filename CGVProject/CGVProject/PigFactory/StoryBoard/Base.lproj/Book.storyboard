@@ -845,9 +845,17 @@
                                             <action selector="handleSelection:" destination="FMN-Zy-mH5" eventType="touchUpInside" id="DGd-21-wTp"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-oS-75X">
-                                        <rect key="frame" x="219" y="13" width="24" height="15"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-oS-75X">
+                                        <rect key="frame" x="212" y="5" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius2">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth2">
+                                                <real key="value" value="-1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -925,6 +933,6 @@
     </scenes>
     <resources>
         <image name="bottomAD" width="1242" height="151"/>
-        <image name="rightArrow" width="22.5" height="22.5"/>
+        <image name="downArrow" width="512" height="512"/>
     </resources>
 </document>
