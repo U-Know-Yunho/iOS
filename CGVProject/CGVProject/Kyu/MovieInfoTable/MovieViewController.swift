@@ -71,22 +71,15 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
-//            let data = infoData[indexPath.row - 1]
-//            cell.setInfoLabel(movieInfo: data)
             cell.directorLabel.text = model?.director
             
             // ==================== CastLabel =====================
             let num = model?.casts?.count ?? 0
-            print("\n------------ [ num ] -------------\n")
-            print(num)
             var a: [String] = []
             for i in 0..<num {
                 let b = model?.casts?[i].actor ?? ""
                 a.append(b)
-                print(a)
                 let c = a.joined()
-                print("\n------------ [ a.joined() ] -------------\n")
-                print(c)
                 cell.actorLabel.text = c
             }
 //              고차함수를 사용해 리팩토링 해볼것
@@ -114,6 +107,8 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "StillcutTableViewCell", for: indexPath) as! StillcutTableViewCell
+//            guard let stillcutImage = model?.stillcuts else { return cell }
+            cell.stillcutURL = model?.stillcuts
             return cell
         default:
 

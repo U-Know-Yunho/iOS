@@ -77,7 +77,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfT-dN-s9y">
-                                <rect key="frame" x="132.66666666666666" y="739" width="109.66666666666666" height="30"/>
+                                <rect key="frame" x="132.66666666666666" y="696.66666666666663" width="109.66666666666666" height="30"/>
                                 <state key="normal" title="CJ ONE 회원가입">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -116,7 +116,7 @@
                             <constraint firstItem="fQL-NL-Dm9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hhp-Hx-CkZ"/>
                             <constraint firstItem="W3L-6q-XZw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="jea-lP-PG4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s4o-VF-ZJm" secondAttribute="trailing" constant="10" id="lhT-Go-xVt"/>
-                            <constraint firstItem="wfT-dN-s9y" firstAttribute="top" secondItem="tqe-3a-pZ3" secondAttribute="bottom" constant="142.33333333333337" id="lzB-EW-uW5"/>
+                            <constraint firstItem="wfT-dN-s9y" firstAttribute="top" secondItem="tqe-3a-pZ3" secondAttribute="bottom" constant="100" id="lzB-EW-uW5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wfT-dN-s9y" secondAttribute="trailing" constant="132.66666666666669" id="p9x-nv-5rs"/>
                             <constraint firstItem="fQL-NL-Dm9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="qE0-t2-to5"/>
                             <constraint firstItem="H4y-Ai-Tia" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="rh1-g7-8JT"/>
