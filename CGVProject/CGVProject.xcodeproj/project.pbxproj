@@ -82,6 +82,8 @@
 		3CE8DBD921B4CCB200C9DD3B /* MovieInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DBCB21B4CCB100C9DD3B /* MovieInfoTableViewCell.swift */; };
 		3CE8DBDA21B4CCB200C9DD3B /* MoviePhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DBCC21B4CCB100C9DD3B /* MoviePhotoCollectionViewCell.swift */; };
 		3CE8DBDD21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DBDC21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift */; };
+		3CF02B6C21C20B17003E8B73 /* PersonalInfoSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF02B6B21C20B17003E8B73 /* PersonalInfoSetting.storyboard */; };
+		3CF02B6E21C211D0003E8B73 /* PersonalInfoSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF02B6D21C211D0003E8B73 /* PersonalInfoSettingViewController.swift */; };
 		420AAFAE21B4FEB20027EDF2 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420AAFAD21B4FEB20027EDF2 /* KakaoOpenSDK.framework */; };
 		420AAFD021B793C10027EDF2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */; };
 		420AAFD321B797E50027EDF2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFD221B797E50027EDF2 /* Utils.swift */; };
@@ -173,6 +175,8 @@
 		3CE8DBCB21B4CCB100C9DD3B /* MovieInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfoTableViewCell.swift; sourceTree = "<group>"; };
 		3CE8DBCC21B4CCB100C9DD3B /* MoviePhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		3CE8DBDC21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCellModel.swift; sourceTree = "<group>"; };
+		3CF02B6B21C20B17003E8B73 /* PersonalInfoSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalInfoSetting.storyboard; sourceTree = "<group>"; };
+		3CF02B6D21C211D0003E8B73 /* PersonalInfoSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoSettingViewController.swift; sourceTree = "<group>"; };
 		420AAFAD21B4FEB20027EDF2 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		420AAFAF21B500460027EDF2 /* CGVProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGVProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				3C4705B521ABC3A700119F53 /* Home.storyboard */,
+				3CF02B6B21C20B17003E8B73 /* PersonalInfoSetting.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 		3C0F302521AD00950073F52F /* MYView */ = {
 			isa = PBXGroup;
 			children = (
+				3CCF670F21C11189004259E9 /* ViewControllers */,
 				3C27217621AFD35A00ABA97B /* MYViewTableViewCell */,
 				3CD5BE0421AC495300DAA8A6 /* MYViewCell.swift */,
 			);
@@ -414,6 +420,14 @@
 				3C7E7A5021BCE7CF00A61EE6 /* TrailerTableViewCellModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3CCF670F21C11189004259E9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3CF02B6D21C211D0003E8B73 /* PersonalInfoSettingViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		3CE29BD021B261F500CEA8AE /* SideMenu */ = {
@@ -721,6 +735,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				420AAFE321B808F90027EDF2 /* StillcutCollectionViewCell.xib in Resources */,
+				3CF02B6C21C20B17003E8B73 /* PersonalInfoSetting.storyboard in Resources */,
 				3CE8DBD821B4CCB200C9DD3B /* MovieInfoTableViewCell.xib in Resources */,
 				3CE2C5AA21BAD4BB007F6A4E /* LoginTableViewCell.xib in Resources */,
 				3C7E7A4D21BB9AA000A61EE6 /* NotLoginTableViewCell.xib in Resources */,
@@ -857,6 +872,7 @@
 				3CE8DB5621B4C6AC00C9DD3B /* PopUpViewController.swift in Sources */,
 				3CD5BDF721AC03C100DAA8A6 /* MenuBar.swift in Sources */,
 				420AAFD721B805B10027EDF2 /* DescriptionTableViewCell.swift in Sources */,
+				3CF02B6E21C211D0003E8B73 /* PersonalInfoSettingViewController.swift in Sources */,
 				3CE8DB5A21B4C6AC00C9DD3B /* BookingDateTableViewCell.swift in Sources */,
 				3CE8DB5921B4C6AC00C9DD3B /* BookingDateCollectionViewCell.swift in Sources */,
 				3CE8DBCE21B4CCB200C9DD3B /* MovieViewController.swift in Sources */,

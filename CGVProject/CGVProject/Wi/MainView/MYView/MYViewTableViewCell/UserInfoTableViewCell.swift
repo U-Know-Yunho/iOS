@@ -15,13 +15,19 @@ class UserInfoTableViewCell: UITableViewCell {
     
     var model: User? {
         didSet{
-            guard let user = model else {return}
-            self.userID.text = user.username
-            if user.firstName == "", user.lastName == ""{
-                self.userNickName.text = "닉네임을 설정해주세요"
+            if UserManager.singleton.hasToken{
+                guard let user = model else {return}
+                self.userID.text = user.username
+                if user.firstName == "", user.lastName == ""{
+                    self.userNickName.text = "이름을 설정해주세요"
+                }else{
+                    self.userNickName.text = "\(user.firstName!) \(user.lastName!)"
+                }
             }else{
-                self.userNickName.text = "\(user.firstName!) \(user.lastName!)"
+                self.userNickName.text = "로그인 후 이용해주세요."
+                self.userID.text = " "
             }
+            
         }
     }
     override func awakeFromNib() {
