@@ -222,30 +222,38 @@
                                     <constraint firstAttribute="width" constant="30" id="iIH-RS-llk"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="hgz-mk-jW4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4B-fg-0no">
                                 <rect key="frame" x="172.66666666666666" y="5" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="8QT-db-laD"/>
-                                    <constraint firstAttribute="width" constant="30" id="P4L-E8-5XX"/>
+                                    <constraint firstAttribute="width" constant="30" id="DgK-4U-wvb"/>
+                                    <constraint firstAttribute="height" constant="30" id="WiT-S7-mwL"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket" translatesAutoresizingMaskIntoConstraints="NO" id="q1A-pu-TZV">
+                                <state key="normal" title="Button" image="share"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aLp-yg-KbE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42J-Te-AUU">
                                 <rect key="frame" x="295" y="5" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="ihB-2U-cKQ"/>
-                                    <constraint firstAttribute="height" constant="30" id="lL2-ki-ssR"/>
+                                    <constraint firstAttribute="width" constant="30" id="OMw-Vx-mPR"/>
+                                    <constraint firstAttribute="height" constant="30" id="RR8-QS-bru"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button" image="ticket"/>
+                                <connections>
+                                    <action selector="bookButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QJO-M5-MHw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hgz-mk-jW4" firstAttribute="centerX" secondItem="UNt-TX-jEc" secondAttribute="centerX" id="Gnl-ih-JxF"/>
-                            <constraint firstItem="q1A-pu-TZV" firstAttribute="centerY" secondItem="UNt-TX-jEc" secondAttribute="centerY" id="HaR-tj-KlB"/>
                             <constraint firstItem="EPU-a4-k0Y" firstAttribute="centerY" secondItem="UNt-TX-jEc" secondAttribute="centerY" id="MmS-Kf-5Bn"/>
-                            <constraint firstItem="hgz-mk-jW4" firstAttribute="centerY" secondItem="UNt-TX-jEc" secondAttribute="centerY" id="TeQ-Qz-aub"/>
+                            <constraint firstAttribute="trailing" secondItem="42J-Te-AUU" secondAttribute="trailing" constant="50" id="PEh-Bw-3j5"/>
                             <constraint firstItem="EPU-a4-k0Y" firstAttribute="leading" secondItem="UNt-TX-jEc" secondAttribute="leading" constant="50" id="Vaa-n0-z1g"/>
                             <constraint firstAttribute="height" constant="40" id="ZDY-eq-lhP"/>
-                            <constraint firstAttribute="trailing" secondItem="q1A-pu-TZV" secondAttribute="trailing" constant="50" id="yc9-e4-7zn"/>
+                            <constraint firstItem="G4B-fg-0no" firstAttribute="centerX" secondItem="UNt-TX-jEc" secondAttribute="centerX" id="g9Q-4E-nUT"/>
+                            <constraint firstItem="G4B-fg-0no" firstAttribute="centerY" secondItem="UNt-TX-jEc" secondAttribute="centerY" id="tjK-sb-08Q"/>
+                            <constraint firstItem="42J-Te-AUU" firstAttribute="centerY" secondItem="UNt-TX-jEc" secondAttribute="centerY" id="xtB-sb-RTm"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -287,7 +295,6 @@
                 <outlet property="moviePhotoCollectView" destination="BUf-CD-De8" id="Cn5-NC-Zli"/>
                 <outlet property="moviePosterImageView" destination="Bev-mb-7qn" id="cFX-hn-DxJ"/>
                 <outlet property="movieTitleLabel" destination="BjT-qv-o5d" id="w8R-8d-SgE"/>
-                <outlet property="shareImageView" destination="hgz-mk-jW4" id="Whx-5G-fmQ"/>
             </connections>
             <point key="canvasLocation" x="226.40000000000001" y="156.65024630541873"/>
         </tableViewCell>

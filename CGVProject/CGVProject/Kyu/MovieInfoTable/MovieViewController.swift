@@ -27,7 +27,8 @@ class MovieViewController: UIViewController {
         movieInfoTableView.rowHeight = UITableView.automaticDimension
         
         registerCell()
-
+        
+        
     }
     
     private func registerCell() {
@@ -45,9 +46,20 @@ class MovieViewController: UIViewController {
         
         movieInfoTableView.register(UINib(nibName: "StillcutTableViewCell", bundle: nil), forCellReuseIdentifier: "StillcutTableViewCell")
         cellIdentifier.append("StillcutTableViewCell")
-        
+
     }
     
+    func presentShare() {
+        print("shareImageTap")
+        let text = "Movie Title"
+        let textToShare = [text]
+        // 엑티비티 뷰 컨트롤러 셋업
+        let activityVC = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        // 제외하고 싶은 어플
+        activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop]
+        // 현재 뷰에서 present
+        present(activityVC, animated: true, completion: nil)
+    }
 }
 
 
@@ -66,14 +78,14 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieInfoTableViewCell", for: indexPath) as! MovieInfoTableViewCell
             cell.movieTitleLabel.text = model?.title
-        cell.moviePosterImageView.kf.setImage(with: URL(string: model?.mainImgUrl ?? ""))
+            cell.moviePosterImageView.kf.setImage(with: URL(string: model?.mainImgUrl ?? ""))
             cell.stillcutURL = model?.stillcuts
             return cell
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
             cell.directorLabel.text = model?.director
-
+            
             // ==================== CastLabel =====================
             var castStringArray: [String] = []
             let num = model?.casts?.count ?? 0
@@ -83,10 +95,10 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
                 let castArray = castStringArray.joined()
                 cell.actorLabel.text = castArray
             }
-//              고차함수를 사용해 리팩토링 해볼것
-//            if let result = model?.cast?.compactMap({ $0.actor }).joined() {
-//                print(result)
-//            }
+            //              고차함수를 사용해 리팩토링 해볼것
+            //            if let result = model?.cast?.compactMap({ $0.actor }).joined() {
+            //                print(result)
+            //            }
             // ===========================================
             
             cell.genreLabel.text = model?.genre
@@ -104,8 +116,8 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             // 문자열 중에 '<br>'을 줄바꿈 '\n' 으로 바꿔주기
             let replaceString = model?.description?.replacingOccurrences(of: "<br>", with: "\n", options: NSString.CompareOptions.literal, range: nil)
             cell.descriptionLabel.text = replaceString
-           // 문자열 중간중간에 있는 '<br>' 제거해주기
-           // model?.description?.components(separatedBy: ["<", ">", "b", "r"]).joined()
+            // 문자열 중간중간에 있는 '<br>' 제거해주기
+            // model?.description?.components(separatedBy: ["<", ">", "b", "r"]).joined()
             cell.descriptionLabel.sizeToFit()
             return cell
             
@@ -115,7 +127,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
             
         default:
-
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
             return cell
             

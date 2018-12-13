@@ -9,7 +9,7 @@
 import UIKit
 
 class MovieInfoTableViewCell: UITableViewCell {
-    
+    var moviePk: MovieCollectionViewCellModel?
     var moviePhoto: [String] = []
     var stillcutURL: [MovieDetail.Stillcut]? {
         didSet {
@@ -25,8 +25,14 @@ class MovieInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var customMovieNewsButton: UIButton!
     @IBOutlet weak var customMovieInfoButton: UIButton!
     @IBOutlet weak var likeImageView: UIImageView!
-    @IBOutlet weak var shareImageView: UIImageView!
     
+    @IBAction func shareButton(_ sender: Any) {
+        
+    }
+    
+    @IBAction func bookButton(_ sender: Any) {
+        MainViewController.showCurrentMobvieBookPage(moviePk: moviePk?.moviePk ?? 0)
+    }
     
     @IBAction func customMovieNewsButton(_ sender: Any) {
         customMovieNewsButton.layer.addBorder2([.bottom], color: UIColor.red, width: 2.0)
@@ -48,7 +54,6 @@ class MovieInfoTableViewCell: UITableViewCell {
         likeImageView.isUserInteractionEnabled = true
         likeImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(likeImageTap)))
         
-       
     }
     
     @objc func likeImageTap(_ sender: UITapGestureRecognizer) {
