@@ -79,7 +79,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             let num = model?.casts?.count ?? 0
             for i in 0..<num {
                 let castString = model?.casts?[i].actor ?? ""
-                castStringArray.append(castString)
+                castStringArray.append(castString + ", ")
                 let castArray = castStringArray.joined()
                 cell.actorLabel.text = castArray
             }
@@ -93,7 +93,6 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             cell.openDateLabel.text = model?.openingDate
             cell.runningTimeLabel.text = model?.durationMin.map({ (String($0) + "분")
             })
-            
             return cell
             
         case 2:
@@ -102,14 +101,19 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
-            // 문자열 중간중간에 있는 '<br>' 제거해주기
-            cell.descriptionLabel.text = model?.description?.components(separatedBy: ["<", ">", "b", "r"]).joined()
+            // 문자열 중에 '<br>'을 줄바꿈 '\n' 으로 바꿔주기
+            let replaceString = model?.description?.replacingOccurrences(of: "<br>", with: "\n", options: NSString.CompareOptions.literal, range: nil)
+            cell.descriptionLabel.text = replaceString
+           // 문자열 중간중간에 있는 '<br>' 제거해주기
+           // model?.description?.components(separatedBy: ["<", ">", "b", "r"]).joined()
             cell.descriptionLabel.sizeToFit()
             return cell
+            
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "StillcutTableViewCell", for: indexPath) as! StillcutTableViewCell
             cell.stillcutURL = model?.stillcuts
             return cell
+            
         default:
 
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
