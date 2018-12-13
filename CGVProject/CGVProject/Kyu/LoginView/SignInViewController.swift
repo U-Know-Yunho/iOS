@@ -18,23 +18,31 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-   
-    
-    
     
     @IBAction func signInButton(_ sender: Any) {
         
         guard let id = idTextfield.text,
               let password = passwordTextfield.text else { return }
+        if id.isEmpty { alert(msg: "아이디와 패스워드를 입력해 주세요") }
         let param: Parameters = [ "username": id, "password": password]
         
         UserManager.singleton.signIn(param: param) {
+            if UserManager.singleton.hasToken {
             NotificationCenter.default.post(name: Notification.Name("LoginButtonDidTap"), object: self)
             self.dismiss(animated: true) {}
+            } else {
+                self.alert(msg: "아이디와 비밀번호를 다시 확인해 주세요")
+            }
         }
+        
     }
     
-    
+    func alert(msg: String) {
+        let alert = UIAlertController(title: "로그인", message: msg, preferredStyle: .alert)
+        let OkAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(OkAction)
+        present(alert, animated: true)
+    }
     
     @IBAction func kakaoSignInButton(_ sender: Any) {
         guard let session = KOSession.shared() else { return }
@@ -61,6 +69,7 @@ class SignInViewController: UIViewController {
             } else {
                 print("SignIn Success")
                 UserManager.singleton.postKakaoUserId()
+                
             }
         }, authTypes: [NSNumber(value: KOAuthType.talk.rawValue)])
             }

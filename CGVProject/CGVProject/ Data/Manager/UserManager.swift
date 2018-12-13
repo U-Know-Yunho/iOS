@@ -44,14 +44,20 @@ class UserManager {
                     print("Success SignIn")
                     guard let token = value as? [String: String] else { return print("Token parsing error")}
                     UserManager.singleton.token = token["token"]
-                    completion()
-                case .failure(let error):
+                    case .failure(let error):
                     print(error.localizedDescription)
-                    
                 }
+                completion()
         }
 
     }
+//    func alert() {
+//        let msg: String?
+//        let alert = UIAlertController(title: "로그인 에러", message: msg, preferredStyle: .alert)
+//        let OkAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+//        alert.addAction(OkAction)
+////        present(alert, animated: true)
+//    }
     
     func signOut(completion: @escaping (() -> Void)){
         print("=== sign out ===")
