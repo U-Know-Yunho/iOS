@@ -38,7 +38,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func moviePosterTap(_ sender: UIGestureRecognizer){
-        MainViewController.showMovieDetailPage(moviePk: model.moviePk)
+    MainViewController.showMovieDetailPage(moviePk: model.moviePk)
         print("Moviepk:", model.moviePk)
     }
     @IBAction func bookBtnDidTap(_ sender: UIButton) {

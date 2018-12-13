@@ -56,5 +56,5 @@ extension StillcutTableViewCell: UICollectionViewDelegateFlowLayout {
         
         return collectionView.bounds.size
     }
-    
+        
 }
