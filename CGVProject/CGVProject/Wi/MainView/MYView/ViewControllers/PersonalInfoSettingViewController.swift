@@ -40,10 +40,10 @@ extension PersonalInfoSettingViewController: UITableViewDataSource{
             cell.textLabel?.text = "회원정보수정"
             return cell
         case 1:
-            <#code#>
+            break
         default:break
         }
-        
+        return UITableViewCell()
     }
     
     
