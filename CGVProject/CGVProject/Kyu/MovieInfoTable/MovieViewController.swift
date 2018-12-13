@@ -80,6 +80,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             cell.movieTitleLabel.text = model?.title
             cell.moviePosterImageView.kf.setImage(with: URL(string: model?.mainImgUrl ?? ""))
             cell.stillcutURL = model?.stillcuts
+            cell.moviePk = moviePk
             return cell
             
         case 1:

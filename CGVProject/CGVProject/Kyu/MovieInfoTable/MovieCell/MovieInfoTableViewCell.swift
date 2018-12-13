@@ -9,7 +9,7 @@
 import UIKit
 
 class MovieInfoTableViewCell: UITableViewCell {
-    var moviePk: MovieCollectionViewCellModel?
+    var moviePk: Int?
     var moviePhoto: [String] = []
     var stillcutURL: [MovieDetail.Stillcut]? {
         didSet {
@@ -31,7 +31,7 @@ class MovieInfoTableViewCell: UITableViewCell {
     }
     
     @IBAction func bookButton(_ sender: Any) {
-        MainViewController.showCurrentMobvieBookPage(moviePk: moviePk?.moviePk ?? 0)
+        MainViewController.showCurrentMobvieBookPage(moviePk: moviePk ?? 0)
     }
     
     @IBAction func customMovieNewsButton(_ sender: Any) {
