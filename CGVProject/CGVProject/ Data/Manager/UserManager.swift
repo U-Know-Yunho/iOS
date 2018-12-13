@@ -58,6 +58,30 @@ class UserManager {
 //        alert.addAction(OkAction)
 ////        present(alert, animated: true)
 //    }
+    func checkPW(password: String, completion: @escaping ((Bool) -> Void)){
+        let header: HTTPHeaders = [
+        "Content-Type": "application/json",
+        "Authorization": token ?? ""
+        ]
+        let pram: Parameters = [
+            "password": password
+        ]
+        Alamofire.request(API.AuthURL.checkPW, method: .post, parameters: pram, encoding: JSONEncoding.default, headers: header)
+        .validate()
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    print(value)
+                    completion(true)
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    completion(false)
+                }
+                
+                
+      }
+        
+    }
     
     func signOut(completion: @escaping (() -> Void)){
         print("=== sign out ===")

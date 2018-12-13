@@ -84,6 +84,9 @@
 		3CE8DBDD21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DBDC21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift */; };
 		3CF02B6C21C20B17003E8B73 /* PersonalInfoSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF02B6B21C20B17003E8B73 /* PersonalInfoSetting.storyboard */; };
 		3CF02B6E21C211D0003E8B73 /* PersonalInfoSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF02B6D21C211D0003E8B73 /* PersonalInfoSettingViewController.swift */; };
+		3CF2DB7B21C24FC000D908BB /* InfoFixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7A21C24FC000D908BB /* InfoFixViewController.swift */; };
+		3CF2DB7D21C25D9C00D908BB /* PasswordConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7C21C25D9C00D908BB /* PasswordConfirmViewController.swift */; };
+		3CF2DB7F21C26F8100D908BB /* CancelMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7E21C26F8100D908BB /* CancelMembershipViewController.swift */; };
 		420AAFAE21B4FEB20027EDF2 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420AAFAD21B4FEB20027EDF2 /* KakaoOpenSDK.framework */; };
 		420AAFD021B793C10027EDF2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */; };
 		420AAFD321B797E50027EDF2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFD221B797E50027EDF2 /* Utils.swift */; };
@@ -177,6 +180,9 @@
 		3CE8DBDC21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		3CF02B6B21C20B17003E8B73 /* PersonalInfoSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalInfoSetting.storyboard; sourceTree = "<group>"; };
 		3CF02B6D21C211D0003E8B73 /* PersonalInfoSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoSettingViewController.swift; sourceTree = "<group>"; };
+		3CF2DB7A21C24FC000D908BB /* InfoFixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFixViewController.swift; sourceTree = "<group>"; };
+		3CF2DB7C21C25D9C00D908BB /* PasswordConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConfirmViewController.swift; sourceTree = "<group>"; };
+		3CF2DB7E21C26F8100D908BB /* CancelMembershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelMembershipViewController.swift; sourceTree = "<group>"; };
 		420AAFAD21B4FEB20027EDF2 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		420AAFAF21B500460027EDF2 /* CGVProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGVProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -426,6 +432,9 @@
 			isa = PBXGroup;
 			children = (
 				3CF02B6D21C211D0003E8B73 /* PersonalInfoSettingViewController.swift */,
+				3CF2DB7A21C24FC000D908BB /* InfoFixViewController.swift */,
+				3CF2DB7C21C25D9C00D908BB /* PasswordConfirmViewController.swift */,
+				3CF2DB7E21C26F8100D908BB /* CancelMembershipViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -447,8 +456,8 @@
 			isa = PBXGroup;
 			children = (
 				3CE8DB4921B4C6AC00C9DD3B /* Start */,
-				3CE8DB4B21B4C6AC00C9DD3B /* MoviePoster */,
 				3CE8DB3A21B4C6AC00C9DD3B /* Booking */,
+				3CE8DB4B21B4C6AC00C9DD3B /* MoviePoster */,
 				3CE8DB4E21B4C6AC00C9DD3B /* Seat */,
 			);
 			path = "View & Controller";
@@ -834,9 +843,12 @@
 				3CC2E4D621B107DB007B9F59 /* SideMenu.swift in Sources */,
 				0889AAE521BBA311004E2E74 /* MoviePosterModel.swift in Sources */,
 				3C0464BF21AE7F89001F38BB /* MovieChartTableViewCell.swift in Sources */,
+				3CF2DB7B21C24FC000D908BB /* InfoFixViewController.swift in Sources */,
 				3CE29BCF21B250A800CEA8AE /* MainView.swift in Sources */,
+				3CF2DB7F21C26F8100D908BB /* CancelMembershipViewController.swift in Sources */,
 				3CE8DB5E21B4C6AC00C9DD3B /* BookingTableMovieTitleCell.swift in Sources */,
 				3C4705A421ABC39500119F53 /* AppDelegate.swift in Sources */,
+				3CF2DB7D21C25D9C00D908BB /* PasswordConfirmViewController.swift in Sources */,
 				3C0464C821AEEE09001F38BB /* EventTableViewCell.swift in Sources */,
 				420AAFE221B808F90027EDF2 /* StillcutCollectionViewCell.swift in Sources */,
 				3C2BBF5C21B5622C00C5DB00 /* MovieDetail.swift in Sources */,
