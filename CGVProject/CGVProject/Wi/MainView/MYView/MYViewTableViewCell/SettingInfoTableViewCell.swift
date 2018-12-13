@@ -53,6 +53,7 @@ extension SettingInfoTableViewCell: UITableViewDelegate{
             print("결제내역조회 클릭")
         case 2:
             print("개인정보관리 클릭")
+            MainViewController.showPersonalInfoSetting()
         case 3:
             print("공지사항 클릭")
         case 4:

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--개인정보관리-->
+        <scene sceneID="yBH-wb-AGQ">
+            <objects>
+                <viewController storyboardIdentifier="PersonalInfoSettingViewController" id="IUy-gO-7ni" customClass="PersonalInfoSettingViewController" customModule="CGVProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5eV-Hz-QYu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4py-KL-37d">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="kqa-zC-u37">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kqa-zC-u37" id="1Uc-kL-h5q">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IUy-gO-7ni" id="b7M-Ff-2AI"/>
+                                    <outlet property="delegate" destination="IUy-gO-7ni" id="KgR-TM-urT"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0K9-sS-YLQ">
+                                <rect key="frame" x="20" y="313.5" width="335" height="40"/>
+                                <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZFw-N8-ET4"/>
+                                </constraints>
+                                <state key="normal" title="로그아웃">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius2">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logoutButtonDidTap:" destination="IUy-gO-7ni" eventType="touchUpInside" id="gr1-3M-GUx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1kn-hQ-BSv" firstAttribute="trailing" secondItem="0K9-sS-YLQ" secondAttribute="trailing" constant="20" id="1Yr-ir-rK1"/>
+                            <constraint firstItem="0K9-sS-YLQ" firstAttribute="centerX" secondItem="5eV-Hz-QYu" secondAttribute="centerX" id="Cfd-qo-3lB"/>
+                            <constraint firstItem="1kn-hQ-BSv" firstAttribute="bottom" secondItem="4py-KL-37d" secondAttribute="bottom" id="RHN-7S-7sa"/>
+                            <constraint firstItem="1kn-hQ-BSv" firstAttribute="trailing" secondItem="4py-KL-37d" secondAttribute="trailing" id="Vlu-sB-3Rh"/>
+                            <constraint firstItem="0K9-sS-YLQ" firstAttribute="leading" secondItem="1kn-hQ-BSv" secondAttribute="leading" constant="20" id="ejR-Zk-iZG"/>
+                            <constraint firstItem="4py-KL-37d" firstAttribute="leading" secondItem="1kn-hQ-BSv" secondAttribute="leading" id="txV-Mv-uyh"/>
+                            <constraint firstItem="0K9-sS-YLQ" firstAttribute="centerY" secondItem="5eV-Hz-QYu" secondAttribute="centerY" id="uYi-Bu-vT1"/>
+                            <constraint firstItem="4py-KL-37d" firstAttribute="top" secondItem="1kn-hQ-BSv" secondAttribute="top" id="wHO-Y0-JcB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1kn-hQ-BSv"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="개인정보관리" leftItemsSupplementBackButton="YES" id="dRa-fQ-sON"/>
+                    <connections>
+                        <outlet property="logoutButton" destination="0K9-sS-YLQ" id="CDH-GU-SOw"/>
+                        <outlet property="tableView" destination="4py-KL-37d" id="sh5-5l-N39"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdA-n8-Lai" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="-581.55922038980509"/>
+        </scene>
+    </scenes>
+</document>

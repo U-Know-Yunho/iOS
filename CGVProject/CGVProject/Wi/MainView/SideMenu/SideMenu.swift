@@ -18,7 +18,7 @@ class SideMenu: UIView {
         }
         return ["Login","영화별 예매","극장별 예매"]
     }
-    
+    private var model: User?
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -28,11 +28,28 @@ class SideMenu: UIView {
         commonInit()
     }
     private func commonInit(){
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("LoginButtonDidTap"), object: nil)
+        UserManager.singleton.getUserProfile { (user) in
+            self.model = user
+            self.tableView.reloadData()
+        }
         contentView = Bundle.main.loadNibNamed("SideMenu", owner: self, options: nil)?.first! as? UIView
         contentView.frame = self.bounds
         self.addSubview(contentView)
         tableView.register(UINib(nibName: "LoginTableViewCell", bundle: nil), forCellReuseIdentifier: "LoginTableViewCell")
         tableView.register(UINib(nibName: "NotLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "NotLoginTableViewCell")
+    }
+    @objc private func reloadTableView(){
+        if UserManager.singleton.hasToken{
+            UserManager.singleton.getUserProfile { user in
+                self.model = user
+                self.tableView.reloadData()
+                print(user)
+            }
+            return
+        }
+        self.tableView.reloadData()
+        
     }
 }
 
@@ -47,8 +64,9 @@ extension SideMenu: UITableViewDataSource {
         case 0:
             print("Token : ", UserManager.singleton.hasToken)
             if UserManager.singleton.hasToken {
-                cell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell", for: indexPath)
-                
+                let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell", for: indexPath) as! LoginTableViewCell
+                loginCell.model = model
+                return loginCell
             }else{
                 cell = tableView.dequeueReusableCell(withIdentifier: "NotLoginTableViewCell", for: indexPath)
             }

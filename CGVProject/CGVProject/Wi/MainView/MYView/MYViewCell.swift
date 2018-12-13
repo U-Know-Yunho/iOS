@@ -50,7 +50,16 @@ class MYViewCell: UICollectionViewCell, SettingInfoTableViewCellDelegate {
     }
     // MARK: objc func
     @objc private func reloadTableView(){
-        myViewTableView.reloadData()
+        if UserManager.singleton.hasToken{
+            UserManager.singleton.getUserProfile { user in
+                self.model = user
+                self.myViewTableView.reloadData()
+                print(user)
+            }
+            return
+        }
+        self.myViewTableView.reloadData()
+       
     }
     @objc private func tableViewRefresh(){
         myViewTableView.reloadData()
