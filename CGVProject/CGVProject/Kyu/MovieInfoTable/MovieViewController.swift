@@ -102,7 +102,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             //            }
             // ===========================================
             
-            cell.genreLabel.text = model?.genre
+            cell.genreLabel.text = model?.genre ?? "드라마"
             cell.openDateLabel.text = model?.openingDate
             cell.runningTimeLabel.text = model?.durationMin.map({ (String($0) + "분")
             })
