@@ -128,8 +128,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
         if passwordValidate(password: passwordTextField.text ?? "") == false {
-            passwordTextField.placeholder = "비밀번호 형식이 맞지 않습니다"
-            self.alert("비밀번호 형식이 맞지 않습니다")
+            passwordTextField.placeholder = "8자리 이상, 대문자, 소문자 포함"
+            self.alert("비밀번호 양식이 맞지 않습니다")
             passwordTextField.becomeFirstResponder()
             return false
         }
