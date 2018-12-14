@@ -21,6 +21,8 @@ class MovieViewController: UIViewController {
         MovieManager.singleton.loadMovieDetail(moviePk!) { movie in
             self.model = movie
             self.movieInfoTableView.reloadData()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem?.tintColor = .black
         }
         
         // 셀 안의 Item 사이즈에 맞춰서 셀 높이 조절
@@ -103,9 +105,9 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             // ===========================================
             
             cell.genreLabel.text = model?.genre ?? "드라마"
-            cell.openDateLabel.text = model?.openingDate
+            cell.openDateLabel.text = model?.openingDate ?? "2019.01.23"
             cell.runningTimeLabel.text = model?.durationMin.map({ (String($0) + "분")
-            })
+            }) ?? "120분"
             return cell
             
         case 2:
