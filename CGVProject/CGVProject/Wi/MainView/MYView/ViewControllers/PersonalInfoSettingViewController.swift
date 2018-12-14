@@ -11,7 +11,7 @@ import UIKit
 class PersonalInfoSettingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var logoutButton: UIButton!
-    
+    var user: User?
     override func viewDidLoad() {
         super.viewDidLoad()
         logoutButton.layer.cornerRadius = 20
@@ -60,6 +60,7 @@ extension PersonalInfoSettingViewController: UITableViewDelegate{
             guard let pCVC = personalInfoSettingStoryboard.instantiateViewController(withIdentifier: "PasswordConfirmViewController") as? PasswordConfirmViewController  else {
                 return print("PasswordConfirmViewController faild")
             }
+            pCVC.user = self.user
             UIApplication.shared.delegate?.window!!.rootViewController?.present(pCVC, animated: true)
         case 1:
             print("회원탈퇴")

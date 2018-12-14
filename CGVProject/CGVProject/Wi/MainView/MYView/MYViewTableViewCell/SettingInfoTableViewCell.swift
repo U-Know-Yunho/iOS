@@ -15,6 +15,7 @@ class SettingInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var infoTableView: UITableView!
     private let buttonNames = ["예매내역","결제내역조회","개인정보관리","공지사항","로그아웃"]
     var delegate: SettingInfoTableViewCellDelegate?
+    var user: User?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -53,7 +54,7 @@ extension SettingInfoTableViewCell: UITableViewDelegate{
             print("결제내역조회 클릭")
         case 2:
             print("개인정보관리 클릭")
-            MainViewController.showPersonalInfoSetting()
+            MainViewController.showPersonalInfoSetting(user: self.user)
         case 3:
             print("공지사항 클릭")
         case 4:
