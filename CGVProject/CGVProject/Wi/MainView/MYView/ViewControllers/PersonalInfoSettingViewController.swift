@@ -15,6 +15,8 @@ class PersonalInfoSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logoutButton.layer.cornerRadius = 20
+        navigationItem.backBarButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .black
         
         // Do any additional setup after loading the view.
     }
@@ -34,17 +36,39 @@ extension PersonalInfoSettingViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "infoSetting", for: indexPath)
             cell.textLabel?.text = "회원정보수정"
             return cell
         case 1:
-            break
-        default:break
+            let cell = tableView.dequeueReusableCell(withIdentifier: "remove", for: indexPath)
+            cell.textLabel?.text = "회원탈퇴"
+            return cell
+        default: break
         }
         return UITableViewCell()
     }
-    
-    
+}
+extension PersonalInfoSettingViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            print("회원정보수정")
+            let  personalInfoSettingStoryboard = UIStoryboard(name: "PersonalInfoSetting",bundle: nil)
+            guard let pCVC = personalInfoSettingStoryboard.instantiateViewController(withIdentifier: "PasswordConfirmViewController") as? PasswordConfirmViewController  else {
+                return print("PasswordConfirmViewController faild")
+            }
+            UIApplication.shared.delegate?.window!!.rootViewController?.present(pCVC, animated: true)
+        case 1:
+            print("회원탈퇴")
+            let  personalInfoSettingStoryboard = UIStoryboard(name: "PersonalInfoSetting", bundle: nil)
+            guard let cancelVC = personalInfoSettingStoryboard.instantiateViewController(withIdentifier: "CancelMembershipViewController") as? CancelMembershipViewController  else {
+                return print("CancelMembershipViewController faild")
+            }
+            UIApplication.shared.delegate?.window!!.rootViewController?.show(cancelVC, sender: nil)
+        default:break
+        }
+    }
 }
