@@ -100,6 +100,7 @@ extension MYViewCell: UITableViewDataSource{
             return cell
         case 1:
             let infoCell = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! SettingInfoTableViewCell
+            infoCell.user = self.model
             infoCell.delegate = self
             return infoCell
         default: break

@@ -102,12 +102,13 @@ class MainViewController: UIViewController{
         UIApplication.shared.delegate?.window!!.rootViewController?.show(MovieDetailVC, sender: nil)
 
     }
-    static func showPersonalInfoSetting(){
+    static func showPersonalInfoSetting(user: User?){
         print("showLoginPage")
         let personalStoryboard = UIStoryboard(name: "PersonalInfoSetting",bundle: nil)
         guard let personalVC = personalStoryboard.instantiateViewController(withIdentifier: "PersonalInfoSettingViewController") as? PersonalInfoSettingViewController  else {
             return print("PersonalInfoSettingViewController faild")
         }
+           personalVC.user = user
         UIApplication.shared.delegate?.window!!.rootViewController?.show(personalVC, sender: nil)
     }
     

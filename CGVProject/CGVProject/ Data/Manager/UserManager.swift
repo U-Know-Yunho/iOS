@@ -48,6 +48,7 @@ class UserManager {
                     print(error.localizedDescription)
                 }
                 completion()
+                print(self.token)
         }
 
     }
@@ -152,6 +153,27 @@ class UserManager {
         }
         
         
+        
+    }
+    func patchUserProfile(pram: Parameters,completion: @escaping ((User) -> Void)){
+        let header: HTTPHeaders = [
+            "Authorization": token ?? "",
+            "Content-Type" : "application/json"
+        ]
+        Alamofire.request(API.UserURL.userProfile, method: .patch, parameters: pram, encoding: JSONEncoding.default, headers: header)
+        .validate()
+            .responseData { (response) in
+                switch response.result{
+                case .success(let value):
+                    let user = try! JSONDecoder().decode(User.self, from: value)
+                    completion(user)
+                    print(user)
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+                print(pram)
+                print(header)
+        }
         
     }
     func getUserProfile(completion: @escaping ((User) -> Void)){
