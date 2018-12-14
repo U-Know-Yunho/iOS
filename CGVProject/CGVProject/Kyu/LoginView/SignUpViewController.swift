@@ -79,9 +79,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     guard let message = value as? [String: String] else { return }
                     self.alert(message["message"]!)
                     self.successCheckOverlapID = true
+                    self.passwordTextField.becomeFirstResponder()
                     
-                case .failure(let error):
-                    self.alert(error.localizedDescription)
+                case .failure:
+                    self.alert("아이디를 입력 해주세요")
                 }
         }
         
@@ -89,7 +90,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signUpButton(_ sender: Any) {
         
-        if self.successCheckOverlapID == true {
+        if isValid() {
         // 1-2. 전달값을 Parameters 타입의 객체로 정의
         let param: Parameters = [
             "username": self.usernameTextField.text!,
@@ -102,12 +103,102 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         UserManager.singleton.signUp(param: param)
         dismiss(animated: true, completion: nil)
-        } else {
-            self.alert("ID 중복 검사를 해주세요!")
         }
     }
     
-    func passwordLogic() {
+    func isValid() -> Bool {
         
+        if usernameTextField.text?.count == 0 {
+            usernameTextField.placeholder = "아이디를 입력해주세요"
+            self.alert("아이디를 입력해주세요")
+            usernameTextField.becomeFirstResponder()
+            return false
+        }
+        
+        if successCheckOverlapID == false {
+            self.alert("아이디 중복체크를 해주세요")
+            return false
+        }
+        
+        if passwordTextField.text?.count == 0 {
+            passwordTextField.placeholder = "enter the Password"
+            self.alert("비밀번호를 입력해 주세요")
+            passwordTextField.becomeFirstResponder()
+            return false
+        }
+        
+        if checkPasswordTextField.text?.count == 0 {
+            checkPasswordTextField.placeholder = "비밀번호를 재입력 해주세요"
+            self.alert("비밀번호를 재입력 해주세요")
+            checkPasswordTextField.becomeFirstResponder()
+            return false
+        } else if checkPasswordTextField.text != passwordTextField.text {
+            checkPasswordTextField.placeholder = "비밀번호가 일치하지 않습니다"
+            self.alert("비밀번호가 일치하지 않습니다")
+            checkPasswordTextField.becomeFirstResponder()
+            return false
+        }
+    
+        if emailTextField.text?.count == 0 {
+            emailTextField.placeholder = "enter the your eamil"
+            self.alert("email을 입력해 주세요")
+            emailTextField.becomeFirstResponder()
+            return false
+        }
+        
+        return true
+//        guard let username = usernameTextField.text, usernameTextField.text?.count != 0  else {
+//            usernameTextField.placeholder = "아이디를 입력해주세요"
+//            self.alert("아이디를 입력해 주세요")
+//            usernameTextField.becomeFirstResponder()
+//            return false
+//        }
+//        if self.successCheckOverlapID == false {
+//            self.alert("아이디 중복체크를 해주세요")
+//            return false
+//        }
+//        guard let password = passwordTextField.text, passwordTextField.text?.count != 0 else {
+//            passwordTextField.placeholder = "enter the Password"
+//            self.alert("비밀번호를 입력해 주세요")
+//            passwordTextField.becomeFirstResponder()
+//            return false
+//        }
+//        guard let checkPassword = checkPasswordTextField.text, checkPasswordTextField.text != password else {
+//            checkPasswordTextField.placeholder = "비밀번호가 일치하지 않습니다"
+//            self.alert("비밀번호가 일치하지 않습니다")
+//            checkPasswordTextField.becomeFirstResponder()
+//            return false
+//        }
+//
+//        guard let email = emailTextField.text, emailTextField.text?.count != 0 else {
+//            emailTextField.placeholder = "enter the your eamil"
+//            self.alert("email을 입력해 주세요")
+//            emailTextField.becomeFirstResponder()
+//            return false
+//        }
+//
+//        if passwordValidate(password: password) == false {
+//            self.alert("비밀번호 다시 지정")
+//            return false
+//        }
+//        if emailValidate(email: email) == false {
+//            self.alert("email 형식에 맞게 작성")
+//            return false
+//        }
+//        return true
+
+    }
+    
+    
+    func passwordValidate(password: String) -> Bool {
+        let passwordRegEx = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[a-z]).{8}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
+        return predicate.evaluate(with: password)
+    }
+    
+    func emailValidate(email: String) -> Bool {
+        let emailRegEx = "^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return predicate.evaluate(with: email)
     }
 }
