@@ -31,6 +31,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         firstNameTextField.delegate = self
         emailTextField.delegate = self
         phoneNumberTextField.delegate = self
+        // 화면 나올 때 커서 시작 위치
+        usernameTextField.becomeFirstResponder()
        
 //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification ,object: nil)
 //        usernameTextField.becomeFirstResponder()
@@ -103,5 +105,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         } else {
             self.alert("ID 중복 검사를 해주세요!")
         }
+    }
+    
+    func passwordLogic() {
+        
     }
 }
