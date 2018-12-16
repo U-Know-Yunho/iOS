@@ -27,25 +27,25 @@ class PasswordConfirmViewController: UIViewController {
     }
     
     @IBAction func okButtonDidTap(_ sender: Any) {
-    // 일단 화면 넘김
-        let  personalInfoSettingStoryboard = UIStoryboard(name: "PersonalInfoSetting",bundle: nil)
-        guard let iFVC = personalInfoSettingStoryboard.instantiateViewController(withIdentifier: "InfoFixViewController") as? InfoFixViewController  else {
-            return print("InfoFixViewController faild")
+    
+        UserManager.singleton.checkPW(password: passwordTextField.text ?? "") { (isSuccess) in
+            if isSuccess {
+                // 회원정보 수정화면
+                let  personalInfoSettingStoryboard = UIStoryboard(name: "PersonalInfoSetting",bundle: nil)
+                guard let iFVC = personalInfoSettingStoryboard.instantiateViewController(withIdentifier: "InfoFixViewController") as? InfoFixViewController  else {
+                    return print("InfoFixViewController faild")
+                }
+                iFVC.user = self.user
+                self.dismiss(animated: false) {
+                    UIApplication.shared.delegate?.window!!.rootViewController?.show(iFVC, sender: true)
+                }
+                return
+            }
+            self.passwordTextField.borderStyle = .bezel
+            self.passwordTextField.text = ""
+            self.passwordNotConfirm.alpha = 1
+            self.passwordTextField.layer.borderColor = UIColor.red.cgColor
         }
-        iFVC.user = self.user
-        dismiss(animated: false) {
-        UIApplication.shared.delegate?.window!!.rootViewController?.show(iFVC, sender: true)
-        }
-//        UserManager.singleton.checkPW(password: passwordTextField.text ?? "") { (isSuccess) in
-//            if isSuccess {
-//                // 회원정보 수정화면
-//                return
-//            }
-//            self.passwordTextField.borderStyle = .bezel
-//            self.passwordTextField.text = ""
-//            self.passwordNotConfirm.alpha = 1
-//            self.passwordTextField.layer.borderColor = UIColor.red.cgColor
-//        }
         
     }
     
