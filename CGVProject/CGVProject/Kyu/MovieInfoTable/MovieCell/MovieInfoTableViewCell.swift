@@ -9,8 +9,14 @@
 import UIKit
 
 class MovieInfoTableViewCell: UITableViewCell {
-
-    var moviePhoto: [String] = ["sample1", "sample2", "sample3", "sample4"]
+    var moviePk: Int?
+    var moviePhoto: [String] = []
+    var stillcutURL: [MovieDetail.Stillcut]? {
+        didSet {
+            self.moviePhotoCollectView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var moviePhotoCollectView: UICollectionView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var moviePosterImageView: UIImageView!
@@ -18,6 +24,15 @@ class MovieInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var customButtonView: UIView!
     @IBOutlet weak var customMovieNewsButton: UIButton!
     @IBOutlet weak var customMovieInfoButton: UIButton!
+    @IBOutlet weak var likeImageView: UIImageView!
+    
+    @IBAction func shareButton(_ sender: Any) {
+        
+    }
+    
+    @IBAction func bookButton(_ sender: Any) {
+        MainViewController.showCurrentMobvieBookPage(moviePk: moviePk ?? 0)
+    }
     
     @IBAction func customMovieNewsButton(_ sender: Any) {
         customMovieNewsButton.layer.addBorder2([.bottom], color: UIColor.red, width: 2.0)
@@ -27,10 +42,6 @@ class MovieInfoTableViewCell: UITableViewCell {
     @IBAction func customMovieInfoButton(_ sender: Any) {
         customMovieInfoButton.layer.addBorder2([.bottom], color: UIColor.red, width: 2.0)
         customMovieNewsButton.layer.addBorder2([.bottom], color: UIColor.white, width: 2.0)
-        
-        
-
-        
     }
     
     override func awakeFromNib() {
@@ -39,14 +50,20 @@ class MovieInfoTableViewCell: UITableViewCell {
         moviePhotoCollectView.dataSource = self
         moviePhotoCollectView.delegate = self
         moviePhotoCollectView.register(UINib(nibName: "MoviePhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MoviePhotoCollectionViewCell")
-        
         borderSetting()
+        likeImageView.isUserInteractionEnabled = true
+        likeImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(likeImageTap)))
+        
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+    @objc func likeImageTap(_ sender: UITapGestureRecognizer) {
+        let greyHeart = UIImage(named: "greyheart")
+        let redHeart = UIImage(named: "heart")
+        if likeImageView.image == greyHeart {
+            likeImageView.image = redHeart
+        } else {
+            likeImageView.image = greyHeart
+        }
     }
     
     private func borderSetting() {
@@ -54,21 +71,24 @@ class MovieInfoTableViewCell: UITableViewCell {
         // view, button border setting
         customProductCompanyView.layer.addBorder2([.top, .bottom], color: UIColor.lightGray, width: 1.0)
         customButtonView.layer.addBorder2([.bottom], color: UIColor.lightGray, width: 1.0)
-    customMovieNewsButton.layer.addBorder2([.bottom], color: UIColor.red, width: 2.0)
+        customMovieNewsButton.layer.addBorder2([.bottom], color: UIColor.red, width: 2.0)
     }
     
     
 }
 
 extension MovieInfoTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
-   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return moviePhoto.count
+        return stillcutURL?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoviePhotoCollectionViewCell", for: indexPath) as! MoviePhotoCollectionViewCell
-        cell.moviePhotoImageView.image = UIImage(named: moviePhoto[indexPath.row])
+        if let urlString = stillcutURL?[indexPath.item].imageUrl,
+            let url = URL(string: urlString) {
+            cell.moviePhotoImageView.kf.setImage(with: url)
+        }
         
         return cell
     }
@@ -81,7 +101,7 @@ extension MovieInfoTableViewCell: UICollectionViewDelegateFlowLayout {
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
+        ) -> CGSize {
         return collectionView.bounds.size
     }
 }

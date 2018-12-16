@@ -23,7 +23,6 @@ class MovieManager {
                 do {
                     let movies = try JSONDecoder().decode([Movie].self, from: data)
                     completion(movies)
-                    
                 }catch{
                     print(error.localizedDescription, "eerr")
                 }

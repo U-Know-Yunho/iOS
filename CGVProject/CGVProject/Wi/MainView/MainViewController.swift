@@ -24,12 +24,16 @@ class MainViewController: UIViewController{
         self.navigationItem.leftBarButtonItem = leftNaviButton
         let rightNaviButton = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showSideMenu))
         self.navigationItem.rightBarButtonItem = rightNaviButton
+        navigationItem.backBarButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .black
+//        self.navigationItem.backBarButtonItem = backNaviButton
         
     }
     var isSidemenuOpen = false
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sideMenu.tableView.reloadData()
+        
     }
     @objc private func cgvBtnDidTap(){
         mainView.didSelectItem(scollTo: 0)
@@ -58,6 +62,9 @@ class MainViewController: UIViewController{
         }
         print("isSidemenu Open: ", isSidemenuOpen)
     }
+    
+    // MARK: static func
+    
     static func showBookPage(){
         print("showBookPageFunc")
         let bookStoryboard = UIStoryboard(name: "Book", bundle: nil)
@@ -95,6 +102,17 @@ class MainViewController: UIViewController{
         UIApplication.shared.delegate?.window!!.rootViewController?.show(MovieDetailVC, sender: nil)
 
     }
+    static func showPersonalInfoSetting(user: User?){
+        print("showLoginPage")
+        let personalStoryboard = UIStoryboard(name: "PersonalInfoSetting",bundle: nil)
+        guard let personalVC = personalStoryboard.instantiateViewController(withIdentifier: "PersonalInfoSettingViewController") as? PersonalInfoSettingViewController  else {
+            return print("PersonalInfoSettingViewController faild")
+        }
+           personalVC.user = user
+        UIApplication.shared.delegate?.window!!.rootViewController?.show(personalVC, sender: nil)
+    }
+    
+    // MARK: configure
     
     private func configure(){
         

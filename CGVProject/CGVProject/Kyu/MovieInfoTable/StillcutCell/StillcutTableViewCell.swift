@@ -12,8 +12,9 @@ class StillcutTableViewCell: UITableViewCell {
 
     var stillcutPhoto: [String] = []
 
-    //스틸컷 - 영화 스틸컷 담을 배열 생성(MovieViewController에서 pk값에 해당하는 정보 입력)
-    var stillcutURL : [MovieDetail.Stillcut]? {
+    // 스틸컷 - 영화 스틸컷 담을 배열 생성(MovieViewController에서 pk값에 해당하는 정보 입력)
+    //
+    var stillcutURL: [MovieDetail.Stillcut]? {
         didSet {
             self.stillcutCollectionViewCell.reloadData()
         }
@@ -55,5 +56,5 @@ extension StillcutTableViewCell: UICollectionViewDelegateFlowLayout {
         
         return collectionView.bounds.size
     }
-    
+        
 }

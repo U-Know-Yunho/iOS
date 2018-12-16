@@ -22,8 +22,10 @@ enum API{
         static let signIn = API.baseURL + "members/login/"
         static let socialSignIn = API.baseURL + "members/social-login/"
         static let signOut = API.baseURL + "members/logout/"
+        static let checkPW = API.baseURL + "memebers/check-password/"
     }
     enum UserURL {
         static let userProfile = API.baseURL + "members/profile/"
+        
     }
 }

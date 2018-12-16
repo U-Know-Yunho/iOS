@@ -44,13 +44,44 @@ class UserManager {
                     print("Success SignIn")
                     guard let token = value as? [String: String] else { return print("Token parsing error")}
                     UserManager.singleton.token = token["token"]
-                    completion()
-                case .failure(let error):
+                    case .failure(let error):
                     print(error.localizedDescription)
-                    
                 }
+                completion()
+                print(self.token)
         }
 
+    }
+//    func alert() {
+//        let msg: String?
+//        let alert = UIAlertController(title: "로그인 에러", message: msg, preferredStyle: .alert)
+//        let OkAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+//        alert.addAction(OkAction)
+////        present(alert, animated: true)
+//    }
+    func checkPW(password: String, completion: @escaping ((Bool) -> Void)){
+        let header: HTTPHeaders = [
+        "Content-Type": "application/json",
+        "Authorization": token ?? ""
+        ]
+        let pram: Parameters = [
+            "password": password
+        ]
+        Alamofire.request(API.AuthURL.checkPW, method: .post, parameters: pram, encoding: JSONEncoding.default, headers: header)
+        .validate()
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    print(value)
+                    completion(true)
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    completion(false)
+                }
+                
+                
+      }
+        
     }
     
     func signOut(completion: @escaping (() -> Void)){
@@ -122,6 +153,27 @@ class UserManager {
         }
         
         
+        
+    }
+    func patchUserProfile(pram: Parameters,completion: @escaping ((User) -> Void)){
+        let header: HTTPHeaders = [
+            "Authorization": token ?? "",
+            "Content-Type" : "application/json"
+        ]
+        Alamofire.request(API.UserURL.userProfile, method: .patch, parameters: pram, encoding: JSONEncoding.default, headers: header)
+        .validate()
+            .responseData { (response) in
+                switch response.result{
+                case .success(let value):
+                    let user = try! JSONDecoder().decode(User.self, from: value)
+                    completion(user)
+                    print(user)
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+                print(pram)
+                print(header)
+        }
         
     }
     func getUserProfile(completion: @escaping ((User) -> Void)){
