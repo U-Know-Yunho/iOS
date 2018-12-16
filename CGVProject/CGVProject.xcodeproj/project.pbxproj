@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0803C5CE21C684A6007FEF1A /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5CD21C684A6007FEF1A /* Theater.swift */; };
+		0803C5D021C68569007FEF1A /* TheaterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5CF21C68569007FEF1A /* TheaterDetail.swift */; };
+		0803C5D221C688F9007FEF1A /* TheaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5D121C688F9007FEF1A /* TheaterManager.swift */; };
 		0889AAE521BBA311004E2E74 /* MoviePosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0889AAE421BBA311004E2E74 /* MoviePosterModel.swift */; };
 		3C01F40621B7BA3000B7A17B /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01F40521B7BA3000B7A17B /* CustomImageView.swift */; };
 		3C0464BB21AE5DDC001F38BB /* TrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0464B921AE5DDC001F38BB /* TrailerTableViewCell.swift */; };
@@ -100,6 +103,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0803C5CD21C684A6007FEF1A /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
+		0803C5CF21C68569007FEF1A /* TheaterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterDetail.swift; sourceTree = "<group>"; };
+		0803C5D121C688F9007FEF1A /* TheaterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterManager.swift; sourceTree = "<group>"; };
 		0889AAE421BBA311004E2E74 /* MoviePosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterModel.swift; sourceTree = "<group>"; };
 		3C01F40521B7BA3000B7A17B /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		3C0464B921AE5DDC001F38BB /* TrailerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerTableViewCell.swift; sourceTree = "<group>"; };
@@ -234,6 +240,8 @@
 				3C2BBF5B21B5622C00C5DB00 /* MovieDetail.swift */,
 				3C2BBF6021B5740F00C5DB00 /* Movie.swift */,
 				3C7E7A5221BCE87000A61EE6 /* Trailer.swift */,
+				0803C5CD21C684A6007FEF1A /* Theater.swift */,
+				0803C5CF21C68569007FEF1A /* TheaterDetail.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -359,6 +367,7 @@
 			children = (
 				3C2BBF6221B5768800C5DB00 /* MovieManager.swift */,
 				3C09167721BA274100C538D9 /* UserManager.swift */,
+				0803C5D121C688F9007FEF1A /* TheaterManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -852,10 +861,12 @@
 				3CC2E4D121B0FA9A007B9F59 /* SettingInfoTableViewCell.swift in Sources */,
 				3C7E7A4C21BB9AA000A61EE6 /* NotLoginTableViewCell.swift in Sources */,
 				3CE8DB6221B4C6AC00C9DD3B /* SeatViewController.swift in Sources */,
+				0803C5D021C68569007FEF1A /* TheaterDetail.swift in Sources */,
 				3CD5BDFF21AC491200DAA8A6 /* HomeViewCell.swift in Sources */,
 				3C2BBF6321B5768800C5DB00 /* MovieManager.swift in Sources */,
 				3CE8DB6021B4C6AC00C9DD3B /* MoviePosterViewController.swift in Sources */,
 				3C2BBF5F21B563AB00C5DB00 /* APIEnum.swift in Sources */,
+				0803C5D221C688F9007FEF1A /* TheaterManager.swift in Sources */,
 				3CE8DB9721B4C99600C9DD3B /* SignInViewController.swift in Sources */,
 				3CE8DBDD21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift in Sources */,
 				420AAFDC21B808570027EDF2 /* StillcutTableViewCell.swift in Sources */,
@@ -879,6 +890,7 @@
 				420AAFD321B797E50027EDF2 /* Utils.swift in Sources */,
 				3CE8DB5621B4C6AC00C9DD3B /* PopUpViewController.swift in Sources */,
 				3CD5BDF721AC03C100DAA8A6 /* MenuBar.swift in Sources */,
+				0803C5CE21C684A6007FEF1A /* Theater.swift in Sources */,
 				420AAFD721B805B10027EDF2 /* DescriptionTableViewCell.swift in Sources */,
 				3CF02B6E21C211D0003E8B73 /* PersonalInfoSettingViewController.swift in Sources */,
 				3CE8DB5A21B4C6AC00C9DD3B /* BookingDateTableViewCell.swift in Sources */,
