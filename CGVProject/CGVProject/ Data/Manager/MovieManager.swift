@@ -16,7 +16,7 @@ class MovieManager {
     // nowOpen에 따라 현재 상영작과 개봉 예정작을 판별해 데이터를 로드합니다.
     func loadHomeViewData(nowOpen: Bool, completion: @escaping (HomeViewData) -> Void){
         let pram: Parameters = [
-            "now_open": nowOpen
+            "nowOpen": nowOpen
         ]
         
         Alamofire.request(API.MovieURL.homeViewData, method: .get, parameters: pram, encoding: JSONEncoding.default)
