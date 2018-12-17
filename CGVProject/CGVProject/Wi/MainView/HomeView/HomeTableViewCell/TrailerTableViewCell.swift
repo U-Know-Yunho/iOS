@@ -16,12 +16,18 @@ class TrailerTableViewCell: UITableViewCell {
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var showDetail: UIButton!
-    
+    var moviePk: Int?
     var youtubeUrl: String = "https://www.youtube.com/watch?v=xp0iHIYo52c"
     
-//    var model: Trailer! {
-//        // 트레일러 데이터 연결작업 필요 
-//    }
+    var model: HomeViewData.Trailer! {
+        didSet{
+            trailerView.loadVideoURL(URL(string: model.movieTrailer)!)
+            profileImageView.kf.setImage(with: URL(string: model.postingImgUrl))
+            subTitle.text = model.movieTitle
+            title.text = model.comment
+            moviePk = model.moviePk
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,7 +55,7 @@ class TrailerTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func showDetailBtnTap(_ sender: UIButton) {
-        MainViewController.showMovieDetailPage(moviePk: 2)
+        MainViewController.showMovieDetailPage(moviePk: self.moviePk ?? 2)
     }
     
 }

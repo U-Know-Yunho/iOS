@@ -12,6 +12,7 @@ class HomeViewCell: UICollectionViewCell {
 
     var homeTableView  = UITableView()
     var model: HomeViewData?
+    private var refreshControll = UIRefreshControl()
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -22,6 +23,9 @@ class HomeViewCell: UICollectionViewCell {
         configure()
     }
     func configure(){
+        homeTableView.refreshControl = refreshControll
+        homeTableView.separatorColor = .clear
+        refreshControll.addTarget(self, action: #selector(tableViewRefresh), for: .valueChanged)
         homeTableView.separatorColor = .clear
         MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
             self.model = homeViewData
@@ -42,6 +46,13 @@ class HomeViewCell: UICollectionViewCell {
         
         // MARK: AutoLayout
         autolayout()
+    }
+    @objc private func tableViewRefresh(){
+        MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
+            self.model = homeViewData
+            self.homeTableView.reloadData()
+            self.refreshControll.endRefreshing()
+        }
     }
     func autolayout(){
         // MARK: AutoLayout 설정
@@ -67,6 +78,8 @@ extension HomeViewCell: UITableViewDataSource{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Trailer", for: indexPath) as! TrailerTableViewCell
             cell.clipsToBounds = true
+            guard let trailer = model?.trailer else {print("trailer binding err");return cell}
+            cell.model = trailer
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChart", for: indexPath) as! MovieChartTableViewCell
