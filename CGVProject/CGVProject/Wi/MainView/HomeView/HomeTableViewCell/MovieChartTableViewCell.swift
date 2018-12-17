@@ -50,6 +50,7 @@ extension MovieChartTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieChart", for: indexPath) as! MovieCollectionViewCell
         guard let movies = self.movies else {print("MovieList nil"); return cell}
         cell.model = MovieCollectionViewCellModel.init((movies[indexPath.row]))
+        cell.movieRank.text = "\(indexPath.row + 1)"
         return cell
         
     }
