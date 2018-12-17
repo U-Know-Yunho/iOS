@@ -13,6 +13,24 @@ class BookingTableMovieTitleCell: UITableViewCell {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieInfo: UILabel!
     
+    
+    //데이터 처리 #2
+    
+    //    var model: MovieDetail! {
+    //        didSet {
+    //            movieTitle?.text = model.title
+    //            movieInfo?.text = String(model.durationMin!)
+    //        }
+    //    }
+    
+    var model: MovieTitleModel! {
+        didSet {
+            movieTitle?.text = model.movieTitle
+            movieInfo?.text = String(model.duration)
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -48,7 +48,7 @@ class UserManager {
                     print(error.localizedDescription)
                 }
                 completion()
-                print(self.token)
+                print(self.token as Any)
         }
 
     }
@@ -100,7 +100,7 @@ class UserManager {
                 }
                 completion(false)
                 print("회원탈퇴 실패")
-                print(response.response?.statusCode)
+                print(response.response?.statusCode as Any)
                 
         }
     }

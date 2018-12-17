@@ -16,16 +16,43 @@ class SeatViewController: UIViewController {
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var normalCount: UILabel!
 
+    //하단 라벨
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var theaterInfo: UILabel!
+    @IBOutlet weak var price: UILabel!
+    
+    
     @IBOutlet weak var aa: UICollectionView!
     
     var normalCounting = 0
     var checkingChooseSeats: [IndexPath] = []
+    var reservedSeats: [Int] = []
 
+    //상영관 자세한 정보 받아오기
+    var moviePk: Int?
+    var theaterDetail: TheaterDetail?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonRoundCorners(item: topButton, cornerRadius: 20)
         viewRoundCorners(item: bottomView, cornerRadius: 20)
+        
+        //데이터 처리 #2
+        //예약된 좌석 정보 불러오기
+        var model: SeatModel! {
+            didSet {
+                reservedSeats.append(model.row)
+            }
+        }
+        print(reservedSeats)
+        
+        //상영관 정보 받아오기
+        guard let moviePk = moviePk else {return}
+        TheaterManager.singleton.loadTheaterDetail(moviePk) { aa in
+            self.theaterDetail = aa
+        }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

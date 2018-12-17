@@ -19,8 +19,14 @@ class MovieManager {
         let pram: Parameters = [
             "nowOpen": nowOpen
         ]
+<<<<<<< HEAD
+        let header: HTTPHeaders = ["Content-Type": "application/json"]
+        Alamofire.request(API.MovieURL.homeViewData, method: .get, parameters: pram, encoding: JSONEncoding.default, headers: header)
+        .validate()
+=======
         Alamofire.request(API.MovieURL.homeViewData + "\(nowOpen)", method: .get, parameters: pram, encoding: JSONEncoding.default, headers: header)
             .validate()
+>>>>>>> 5dfcbe62bed746ec7e484eca5ae40d22d9dc2260
             .responseData { (response) in
                 switch response.result{
                 case .success(let data):

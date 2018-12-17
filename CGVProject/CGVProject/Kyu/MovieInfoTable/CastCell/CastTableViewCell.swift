@@ -10,8 +10,12 @@ import UIKit
 
 class CastTableViewCell: UITableViewCell {
     var castPhoto: [String] = ["Bryan Singer", "Rami Malek", "Lucy Boynton", "Gwilym Lee"]
-    
     @IBOutlet weak var castCollectionView: UICollectionView!
+    var castEnglishName: [MovieDetail.Cast]? {
+        didSet {
+            self.castCollectionView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +40,7 @@ extension CastTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return castPhoto.count
+        return castEnglishName?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,6 +51,9 @@ extension CastTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         cell.castImageView.layer.borderWidth = 1
         cell.castImageView.layer.borderColor = UIColor.clear.cgColor
         cell.castImageView.clipsToBounds = true
+        
+        cell.castEnglishName.text = castEnglishName?[indexPath.item].actor
+        
         
         return cell
     }

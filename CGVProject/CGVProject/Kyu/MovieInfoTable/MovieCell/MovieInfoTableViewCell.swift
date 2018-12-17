@@ -54,7 +54,8 @@ class MovieInfoTableViewCell: UITableViewCell {
         borderSetting()
         likeImageView.isUserInteractionEnabled = true
         likeImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(likeImageTap)))
-        
+        movieTitleLabel.sizeToFit()
+        movieTitleLabel.adjustsFontSizeToFitWidth = true
     }
     
     @objc func likeImageTap(_ sender: UITapGestureRecognizer) {
