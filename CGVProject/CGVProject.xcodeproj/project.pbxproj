@@ -69,7 +69,6 @@
 		3CE8DB6521B4C6AC00C9DD3B /* Book.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE8DB5421B4C6AC00C9DD3B /* Book.storyboard */; };
 		3CE8DB9421B4C99600C9DD3B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE8DB7D21B4C99600C9DD3B /* Login.storyboard */; };
 		3CE8DB9721B4C99600C9DD3B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB8221B4C99600C9DD3B /* SignInViewController.swift */; };
-		3CE8DBBA21B4CC7600C9DD3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE8DBB921B4CC7600C9DD3B /* Assets.xcassets */; };
 		3CE8DBCE21B4CCB200C9DD3B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DBBD21B4CCB100C9DD3B /* MovieViewController.swift */; };
 		3CE8DBCF21B4CCB200C9DD3B /* MovieInfoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE8DBBE21B4CCB100C9DD3B /* MovieInfoStoryboard.storyboard */; };
 		3CE8DBD021B4CCB200C9DD3B /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DBC021B4CCB100C9DD3B /* CastCollectionViewCell.swift */; };
@@ -88,6 +87,7 @@
 		3CF2DB7B21C24FC000D908BB /* InfoFixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7A21C24FC000D908BB /* InfoFixViewController.swift */; };
 		3CF2DB7D21C25D9C00D908BB /* PasswordConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7C21C25D9C00D908BB /* PasswordConfirmViewController.swift */; };
 		3CF2DB7F21C26F8100D908BB /* CancelMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7E21C26F8100D908BB /* CancelMembershipViewController.swift */; };
+		4206BB6F21C7C4D700C48F44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4206BB6E21C7C4D600C48F44 /* Assets.xcassets */; };
 		420AAFAE21B4FEB20027EDF2 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420AAFAD21B4FEB20027EDF2 /* KakaoOpenSDK.framework */; };
 		420AAFD021B793C10027EDF2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */; };
 		420AAFD321B797E50027EDF2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFD221B797E50027EDF2 /* Utils.swift */; };
@@ -166,7 +166,6 @@
 		3CE8DB5521B4C6AC00C9DD3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Book.storyboard; sourceTree = "<group>"; };
 		3CE8DB7E21B4C99600C9DD3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		3CE8DB8221B4C99600C9DD3B /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		3CE8DBB921B4CC7600C9DD3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CE8DBBD21B4CCB100C9DD3B /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		3CE8DBBE21B4CCB100C9DD3B /* MovieInfoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieInfoStoryboard.storyboard; sourceTree = "<group>"; };
 		3CE8DBC021B4CCB100C9DD3B /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -185,6 +184,7 @@
 		3CF2DB7A21C24FC000D908BB /* InfoFixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFixViewController.swift; sourceTree = "<group>"; };
 		3CF2DB7C21C25D9C00D908BB /* PasswordConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConfirmViewController.swift; sourceTree = "<group>"; };
 		3CF2DB7E21C26F8100D908BB /* CancelMembershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelMembershipViewController.swift; sourceTree = "<group>"; };
+		4206BB6E21C7C4D600C48F44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		420AAFAD21B4FEB20027EDF2 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		420AAFAF21B500460027EDF2 /* CGVProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGVProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -376,6 +376,7 @@
 				3C4705A121ABC39500119F53 /* Products */,
 				8AC88360601490D3C343DC13 /* Pods */,
 				D273DF51EAFF47817613E6BF /* Frameworks */,
+				4206BB6E21C7C4D600C48F44 /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -398,7 +399,6 @@
 				3CE8DB6621B4C95500C9DD3B /* Kyu */,
 				3C4705AC21ABC39500119F53 /* LaunchScreen.storyboard */,
 				3C4705AF21ABC39500119F53 /* Info.plist */,
-				3CE8DBB921B4CC7600C9DD3B /* Assets.xcassets */,
 				420AAFAC21B4FEB20027EDF2 /* Framework */,
 				420AAFAF21B500460027EDF2 /* CGVProject-Bridging-Header.h */,
 			);
@@ -752,7 +752,6 @@
 				3CE2C5AA21BAD4BB007F6A4E /* LoginTableViewCell.xib in Resources */,
 				3C7E7A4D21BB9AA000A61EE6 /* NotLoginTableViewCell.xib in Resources */,
 				3CE8DBD321B4CCB200C9DD3B /* CastTableViewCell.xib in Resources */,
-				3CE8DBBA21B4CC7600C9DD3B /* Assets.xcassets in Resources */,
 				3CE8DBD721B4CCB200C9DD3B /* MoviePhotoCollectionViewCell.xib in Resources */,
 				3C27217A21AFD38D00ABA97B /* UserInfoTableViewCell.xib in Resources */,
 				3CE8DB9421B4C99600C9DD3B /* Login.storyboard in Resources */,
@@ -771,6 +770,7 @@
 				3C0464C521AEA2DE001F38BB /* MovieCollectionViewCell.xib in Resources */,
 				3C0464C921AEEE09001F38BB /* EventTableViewCell.xib in Resources */,
 				3CE8DBD121B4CCB200C9DD3B /* CastCollectionViewCell.xib in Resources */,
+				4206BB6F21C7C4D700C48F44 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
