@@ -100,11 +100,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             "email": self.emailTextField.text!,
             "phone_number": self.phoneNumberTextField.text!
         ]
-        
-<<<<<<< HEAD
-            UserManager.singleton.signUp(param: param)
-        dismiss(animated: true, completion: nil)
-=======
 
             UserManager.singleton.signUp(param: param) {
                 print(SignUpViewController.successToSignUp)
@@ -117,7 +112,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
 
             }
->>>>>>> bf0421a005a897db8355ad149b463a42ac51ac33
         }
     }
     
