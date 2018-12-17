@@ -145,9 +145,12 @@ class UserManager {
                 
                 switch response.result {
                 case .success(let user):
+                    SignUpViewController.successToSignUp = true
+                    print(SignUpViewController.successToSignUp)
                     print("가입완료 Login :", user)
                 case .failure(let error):
                     self.isCalling = false
+                    SignUpViewController.successToSignUp = false
                     print("가입 실패: ",error.localizedDescription)
                 }
         }

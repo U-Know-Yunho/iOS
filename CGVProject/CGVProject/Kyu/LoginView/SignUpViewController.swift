@@ -88,8 +88,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    static var successToSignUp = false
     @IBAction func signUpButton(_ sender: Any) {
-        
         if isValid() {
         // 1-2. 전달값을 Parameters 타입의 객체로 정의
         let param: Parameters = [
@@ -102,7 +102,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         ]
         
         UserManager.singleton.signUp(param: param)
-        dismiss(animated: true, completion: nil)
+            if SignUpViewController.successToSignUp == true {
+                self.alert("회원 가입 완료")
+                dismiss(animated: true, completion: nil)
+            } else {
+                self.alert("회원 가입 실패, 내용을 확인해 주세요")
+                usernameTextField.becomeFirstResponder()
+            }
         }
     }
     
@@ -121,14 +127,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
         if passwordTextField.text?.count == 0 {
-            passwordTextField.placeholder = "enter the Password"
+            passwordTextField.placeholder = "8자리 이상, 대문자, 소문자, 숫자 포함"
             self.alert("비밀번호를 입력해 주세요")
             passwordTextField.becomeFirstResponder()
             return false
         }
         
         if passwordValidate(password: passwordTextField.text ?? "") == false {
-            passwordTextField.placeholder = "8자리 이상, 대문자, 소문자 포함"
+            passwordTextField.placeholder = "8자리 이상, 대문자, 소문자, 숫자 포함"
             self.alert("비밀번호 양식이 맞지 않습니다")
             passwordTextField.becomeFirstResponder()
             return false
