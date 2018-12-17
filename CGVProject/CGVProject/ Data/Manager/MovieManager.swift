@@ -27,7 +27,7 @@ class MovieManager {
                     print(error.localizedDescription, "eerr")
                 }
             case .failure(let err):
-                print(err.localizedDescription)
+                print("movieList Err: ",err.localizedDescription)
             }
         }
     }

@@ -101,7 +101,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             "phone_number": self.phoneNumberTextField.text!
         ]
         
-        UserManager.singleton.signUp(param: param)
+            UserManager.singleton.signUp(param: param)
         dismiss(animated: true, completion: nil)
         }
     }

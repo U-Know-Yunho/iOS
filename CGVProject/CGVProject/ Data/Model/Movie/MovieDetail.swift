@@ -11,7 +11,8 @@ import Foundation
 struct MovieDetail: Decodable{
     let pk: Int?
     let title: String?
-    let director: String?
+    let directors: [director]?
+    let age: String?
     let casts: [Cast]?
     let durationMin: Int?
     let openingDate: String?
@@ -23,6 +24,9 @@ struct MovieDetail: Decodable{
     let mainImgUrl: String?
     let stillcuts: [Stillcut]?
     
+    struct director: Decodable{
+        let director: String?
+    }
     struct Cast: Decodable{
         let actor: String?
     }

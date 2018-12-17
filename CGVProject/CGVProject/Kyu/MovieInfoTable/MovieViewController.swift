@@ -87,7 +87,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
-            cell.directorLabel.text = model?.director
+            cell.directorLabel.text = model?.
             
             // ==================== CastLabel =====================
             var castStringArray: [String] = []
