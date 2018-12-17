@@ -27,7 +27,15 @@ class PasswordConfirmViewController: UIViewController {
     }
     
     @IBAction func okButtonDidTap(_ sender: Any) {
-    
+        //임시로 넘기는 코드
+//        let  personalInfoSettingStoryboard = UIStoryboard(name: "PersonalInfoSetting",bundle: nil)
+//        guard let iFVC = personalInfoSettingStoryboard.instantiateViewController(withIdentifier: "InfoFixViewController") as? InfoFixViewController  else {
+//            return print("InfoFixViewController faild")
+//        }
+//        iFVC.user = self.user
+//        self.dismiss(animated: false) {
+//            UIApplication.shared.delegate?.window!!.rootViewController?.show(iFVC, sender: true)
+//        }
         UserManager.singleton.checkPW(password: passwordTextField.text ?? "") { (isSuccess) in
             if isSuccess {
                 // 회원정보 수정화면

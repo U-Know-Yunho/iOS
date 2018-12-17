@@ -18,16 +18,10 @@ class MovieChartTableViewCell: UITableViewCell {
     @IBOutlet weak var currentTime: UILabel!
     
     @IBOutlet weak var movieChartCollectionView: UICollectionView!
-    var movies: [Movie]?
+    var movies: [HomeViewData.Movie]? 
     override func awakeFromNib() {
         super.awakeFromNib()
 //         Initialization code
-        MovieManager.singleton.loadMovieList { movie in
-            self.movies = movie
-            self.movieChartCollectionView.reloadData()
-        }
-        
-        
         movieChartCollectionView.dataSource = self
         movieChartCollectionView.delegate = self
         movieChartCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil ), forCellWithReuseIdentifier: "MovieChart")
@@ -50,6 +44,7 @@ extension MovieChartTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieChart", for: indexPath) as! MovieCollectionViewCell
         guard let movies = self.movies else {print("MovieList nil"); return cell}
+        
         cell.model = MovieCollectionViewCellModel.init((movies[indexPath.row]))
         return cell
         

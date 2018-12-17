@@ -29,7 +29,8 @@ class SignInViewController: UIViewController {
         UserManager.singleton.signIn(param: param) {
             if UserManager.singleton.hasToken {
             NotificationCenter.default.post(name: Notification.Name("LoginButtonDidTap"), object: self)
-            self.dismiss(animated: true) {}
+            MainViewController.showMainViewController()
+            self.dismiss(animated: true, completion: nil)
             } else {
                 self.alert(msg: "아이디와 비밀번호를 다시 확인해 주세요")
             }

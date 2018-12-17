@@ -11,5 +11,5 @@ import Foundation
 struct Theater: Decodable{
     let pk: Int?
     let location: String?
-    let sub_location: String?
+    let subLocation: String?
 }

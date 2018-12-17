@@ -22,7 +22,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
         didSet {
             moviePoster.kf.setImage(with: URL(string: model.moviePosterImageUrl))
             movieName.text = model.movieName
-            movieRank.text = model.movieRank
             advanceRate.text = model.advanceRate
         }
     }

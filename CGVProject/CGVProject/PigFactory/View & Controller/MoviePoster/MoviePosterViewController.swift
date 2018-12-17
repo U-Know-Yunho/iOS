@@ -13,7 +13,7 @@ class MoviePosterViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     //데이터처리 #3 - 영화 정보를 담을 공간을 생성
-    var movies: [Movie]?
+    var movies: [HomeViewData.Movie]?
     
     var selectedCollectionCell: IndexPath = [0, 0]
     
