@@ -14,7 +14,12 @@ enum API{
     //데이터 오는거 보고 추가
     enum MovieURL {
         static let movieList = API.baseURL + "movies/"
+<<<<<<< HEAD
         static let movieDetail = API.baseURL + "movies/pre/"
+=======
+        static let movieDetail = API.baseURL + "movies/detail/"
+        static let homeViewData =  "https://www.younghoonjean.com/m/"
+>>>>>>> 8b03cae4cb133b83f17a5c287e609b6128ee2f1a
     }
     enum AuthURL {
         static let signUp = API.baseURL + "members/signup/"
@@ -26,6 +31,7 @@ enum API{
     }
     enum UserURL {
         static let userProfile = API.baseURL + "members/profile/"
+        static let userDelete = API.baseURL + "members/user-delete/"
         
     }
     

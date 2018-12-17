@@ -64,6 +64,14 @@ class MainViewController: UIViewController{
     }
     
     // MARK: static func
+    static func showMainViewController(){
+        print("showMainViewController")
+        let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        guard let mainVC = homeStoryboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController  else {
+            return print("Homestoryborad faild")
+        }
+        UIApplication.shared.delegate?.window!!.rootViewController?.show(mainVC, sender: nil)
+    }
     
     static func showBookPage(){
         print("showBookPageFunc")

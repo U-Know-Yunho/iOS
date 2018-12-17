@@ -9,16 +9,18 @@
 import Foundation
 
 class TrailerTableViewCellModel {
+    var moviePk: Int
     var youtubeUrl: String
     var titleImageUrl: String
     var title: String
     var subTitle: String
     
-    init(trailer: Trailer ) {
-        youtubeUrl = trailer.youtubeUrl
-        titleImageUrl = trailer.titleImageUrl
-        title = trailer.title
-        subTitle = trailer.subTitle
+    init(trailer: HomeViewData.Trailer ) {
+        youtubeUrl = trailer.movieTrailer
+        titleImageUrl = trailer.postingImgUrl
+        title = trailer.comment
+        subTitle = trailer.movieTitle
+        moviePk = trailer.moviePk
     }
     
 }
