@@ -80,6 +80,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieInfoTableViewCell", for: indexPath) as! MovieInfoTableViewCell
             cell.movieTitleLabel.text = model?.title
+            cell.movieRatedImage.image = UIImage(named: model?.age ?? "12세 이상")
             cell.moviePosterImageView.kf.setImage(with: URL(string: model?.mainImgUrl ?? ""))
             cell.stillcutURL = model?.stillcuts
             cell.moviePk = moviePk
