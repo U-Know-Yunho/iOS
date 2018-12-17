@@ -25,6 +25,7 @@ class HomeViewCell: UICollectionViewCell {
         homeTableView.separatorColor = .clear
         MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
             self.model = homeViewData
+            print(homeViewData)
             self.homeTableView.reloadData()
         }
         // MARK: Delegate,dataSource

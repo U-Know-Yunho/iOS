@@ -18,7 +18,11 @@ class MovieChartTableViewCell: UITableViewCell {
     @IBOutlet weak var currentTime: UILabel!
     
     @IBOutlet weak var movieChartCollectionView: UICollectionView!
-    var movies: [HomeViewData.Movie]? 
+    var movies: [HomeViewData.Movie]? {
+        didSet{
+            movieChartCollectionView.reloadData()
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
 //         Initialization code
@@ -44,7 +48,6 @@ extension MovieChartTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieChart", for: indexPath) as! MovieCollectionViewCell
         guard let movies = self.movies else {print("MovieList nil"); return cell}
-        
         cell.model = MovieCollectionViewCellModel.init((movies[indexPath.row]))
         return cell
         
