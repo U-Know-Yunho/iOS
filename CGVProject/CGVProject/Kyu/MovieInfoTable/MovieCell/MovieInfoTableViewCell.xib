@@ -293,8 +293,8 @@
                 <outlet property="customProductCompanyView" destination="Qwn-qO-Pt5" id="Dji-NR-Z14"/>
                 <outlet property="likeImageView" destination="EPU-a4-k0Y" id="k8C-P6-Ocf"/>
                 <outlet property="moviePhotoCollectView" destination="BUf-CD-De8" id="Cn5-NC-Zli"/>
-                <outlet property="moviePossibleAge" destination="1RN-8f-Kgr" id="TuX-hl-nPD"/>
                 <outlet property="moviePosterImageView" destination="Bev-mb-7qn" id="cFX-hn-DxJ"/>
+                <outlet property="movieRatedImage" destination="1RN-8f-Kgr" id="xr3-2F-oNW"/>
                 <outlet property="movieTitleLabel" destination="BjT-qv-o5d" id="w8R-8d-SgE"/>
             </connections>
             <point key="canvasLocation" x="226.40000000000001" y="156.65024630541873"/>

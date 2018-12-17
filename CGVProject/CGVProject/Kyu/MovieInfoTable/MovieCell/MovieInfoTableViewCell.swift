@@ -19,7 +19,7 @@ class MovieInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var moviePhotoCollectView: UICollectionView!
     @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var moviePossibleAge: UIImageView!
+    @IBOutlet weak var movieRatedImage: UIImageView!
     @IBOutlet weak var moviePosterImageView: UIImageView!
     @IBOutlet weak var customProductCompanyView: UIView!
     @IBOutlet weak var customButtonView: UIView!
