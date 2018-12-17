@@ -48,7 +48,7 @@ class UserManager {
                     print(error.localizedDescription)
                 }
                 completion()
-                print(self.token)
+                print(self.token as Any)
         }
 
     }
@@ -92,7 +92,7 @@ class UserManager {
             "Authorization": token ?? "",
         ]
         print("header :", header)
-        Alamofire.request(API.AuthURL.signOut, method: .get, headers: header)
+        Alamofire.request(API.AuthURL.signOut, method: .delete, headers: header)
             .validate()
             .response(completionHandler: { (response) in
                 if response.response?.statusCode == 200 {
