@@ -73,8 +73,10 @@ class UserManager {
                 switch response.result {
                 case .success(let value):
                     print(value)
+                    print(pram)
                     completion(true)
                 case .failure(let err):
+                    print("실패:",pram,header)
                     print(err.localizedDescription)
                     completion(false)
                 }
@@ -82,6 +84,25 @@ class UserManager {
                 
       }
         
+    }
+    func userDelete(completion: @escaping ((Bool) -> Void)){
+        let header: HTTPHeaders = [
+            "Authorization": token ?? ""
+            ]
+        Alamofire.request(API.UserURL.userDelete, method: .delete, encoding: JSONEncoding.default, headers: header)
+        .validate()
+            .response { (response) in
+                if response.response?.statusCode == 204 {
+                    completion(true)
+                    self.token = nil
+                    print("회원탈퇴 성공")
+                    return
+                }
+                completion(false)
+                print("회원탈퇴 실패")
+                print(response.response?.statusCode)
+                
+        }
     }
     
     func signOut(completion: @escaping (() -> Void)){
@@ -92,7 +113,7 @@ class UserManager {
             "Authorization": token ?? "",
         ]
         print("header :", header)
-        Alamofire.request(API.AuthURL.signOut, method: .get, headers: header)
+        Alamofire.request(API.AuthURL.signOut, method: .delete, headers: header)
             .validate()
             .response(completionHandler: { (response) in
                 if response.response?.statusCode == 200 {

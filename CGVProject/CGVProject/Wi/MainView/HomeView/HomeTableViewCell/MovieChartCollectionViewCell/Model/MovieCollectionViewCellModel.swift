@@ -11,14 +11,12 @@ class MovieCollectionViewCellModel {
     var moviePk: Int
     var moviePosterImageUrl: String
     var movieName: String
-    var movieRank: String
     var advanceRate: String
 
-    init(_ movie: Movie) {
+    init(_ movie: HomeViewData.Movie) {
         moviePk = movie.pk
-        moviePosterImageUrl = movie.mainImgUrl
+        moviePosterImageUrl = movie.thumbImgUrl
         movieName = movie.title
-        movieRank = String(movie.pk)
         advanceRate = String(movie.reservationScore)
     }
 }

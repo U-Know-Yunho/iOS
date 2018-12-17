@@ -13,15 +13,38 @@ class MovieManager {
     // MARK: Singleton 사용시 MovieManager.singleton.함수명으로 사용해주세요
     static let singleton = MovieManager()
     
+    // nowOpen에 따라 현재 상영작과 개봉 예정작을 판별해 데이터를 로드합니다.
+    func loadHomeViewData(nowOpen: Bool, completion: @escaping (HomeViewData) -> Void){
+        let pram: Parameters = [
+            "now_open": nowOpen
+        ]
+        
+        Alamofire.request(API.MovieURL.homeViewData, method: .get, parameters: pram, encoding: JSONEncoding.default)
+        .validate()
+            .responseData { (response) in
+                switch response.result{
+                case .success(let data):
+                    do{
+                        let movies = try JSONDecoder().decode(HomeViewData.self, from: data)
+                        completion(movies)
+                    }catch{
+                        print("HomeData Decode err: ",error.localizedDescription)
+                    }
+                    
+                case .failure(let err):
+                    print("HomeData Err:",err.localizedDescription)
+                }
+        }
+    }
     
     // MARK: 전체 무비 리스트를 가져오는 함수 입니다.
-    func loadMovieList(completion: @escaping ([Movie]) -> Void){
+    func loadMovieList(completion: @escaping ([HomeViewData.Movie]) -> Void){
         
         Alamofire.request(API.MovieURL.movieList, method: .get).responseData { (response) in
             switch response.result {
             case .success(let data):
                 do {
-                    let movies = try JSONDecoder().decode([Movie].self, from: data)
+                    let movies = try JSONDecoder().decode([HomeViewData.Movie].self, from: data)
                     completion(movies)
                 }catch{
                     print(error.localizedDescription, "eerr")

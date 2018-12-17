@@ -11,6 +11,7 @@ import UIKit
 class HomeViewCell: UICollectionViewCell {
 
     var homeTableView  = UITableView()
+    var model: HomeViewData?
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -22,7 +23,10 @@ class HomeViewCell: UICollectionViewCell {
     }
     func configure(){
         homeTableView.separatorColor = .clear
-        
+        MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
+            self.model = homeViewData
+            self.homeTableView.reloadData()
+        }
         // MARK: Delegate,dataSource
         homeTableView.delegate = self
         homeTableView.dataSource = self
@@ -52,7 +56,6 @@ class HomeViewCell: UICollectionViewCell {
     
 }
 extension HomeViewCell: UITableViewDataSource{
-    // test용
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -62,10 +65,12 @@ extension HomeViewCell: UITableViewDataSource{
         var cell = UITableViewCell()
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "Trailer", for: indexPath) as! TrailerTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Trailer", for: indexPath) as! TrailerTableViewCell
             cell.clipsToBounds = true
+            return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChart", for: indexPath) as! MovieChartTableViewCell
+            cell.movies = self.model?.chart
             cell.selectionStyle = .none
             return cell
         case 2:

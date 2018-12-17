@@ -12,7 +12,7 @@ import Foundation
 class MoviePosterCollectionViewCellModel {
     var moviePosterImageUrl: String
     
-    init(_ movie: Movie) {
-        moviePosterImageUrl = movie.mainImgUrl
+    init(_ movie: HomeViewData.Movie) {
+        moviePosterImageUrl = movie.thumbImgUrl
     }
 }
