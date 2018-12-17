@@ -27,14 +27,6 @@ class MoviePosterViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        guard let destination = segue.destination as? BookingViewController else { return }
-        guard let sendIndexPath = collectionView.indexPathsForSelectedItems else { return }
-        destination.selectedCollectionCell = sendIndexPath.first!
-    }
-    
 }
 
 extension MoviePosterViewController: UICollectionViewDelegate, UICollectionViewDataSource {

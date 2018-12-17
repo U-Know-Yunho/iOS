@@ -28,4 +28,9 @@ enum API{
         static let userProfile = API.baseURL + "members/profile/"
         
     }
+    
+    enum TheaterURL {
+        static let theaterList = API.baseURL + "theaters/list"
+        static let theaterDetail = API.baseURL + "theaters/detail/"
+    }
 }

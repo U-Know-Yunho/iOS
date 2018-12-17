@@ -18,7 +18,7 @@ class BookingTableViewCell: UITableViewCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        posterCollectionView.reloadData()
+//        posterCollectionView.reloadData()
 
     }
     
