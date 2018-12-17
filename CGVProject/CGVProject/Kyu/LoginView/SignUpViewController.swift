@@ -101,13 +101,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             "phone_number": self.phoneNumberTextField.text!
         ]
         
-        UserManager.singleton.signUp(param: param)
-            if SignUpViewController.successToSignUp == true {
-                self.alert("회원 가입 완료")
-                dismiss(animated: true, completion: nil)
-            } else {
-                self.alert("회원 가입 실패, 내용을 확인해 주세요")
-                usernameTextField.becomeFirstResponder()
+
+            UserManager.singleton.signUp(param: param) {
+                print(SignUpViewController.successToSignUp)
+                if SignUpViewController.successToSignUp == true {
+                    self.alert("회원 가입 완료") {
+                    self.dismiss(animated: true, completion: nil) }
+                } else {
+                    self.alert("회원 가입 실패, 내용을 확인해 주세요")
+                    self.usernameTextField.becomeFirstResponder()
+                }
+
             }
         }
     }

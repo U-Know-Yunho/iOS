@@ -113,7 +113,7 @@ class UserManager {
     // API 호출 상태값을 관리할 변수
     var isCalling = false
     
-    func signUp(param: Parameters) {
+    func signUp(param: Parameters, completion: @escaping (()-> Void)) {
         
         // 인디케이터 뷰 애니메이션 시작
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -153,6 +153,7 @@ class UserManager {
                     SignUpViewController.successToSignUp = false
                     print("가입 실패: ",error.localizedDescription)
                 }
+                completion()
         }
         
         
