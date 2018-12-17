@@ -16,8 +16,6 @@ class BookingViewController: UIViewController {
     let images = ["001", "002", "003", "004", "005", "006"]
 
     //예매창 - 날짜 콜렉션 셀 - 데이터
-    var movieDay = "월"
-    var movieDate = "10"
     var movieDateDetails = "2018년 12월 10일 월요일-오늘"
     
     //예매창 - 영화관 콜렉션 셀 - 데이터
@@ -29,6 +27,10 @@ class BookingViewController: UIViewController {
     //데이터처리 #3 - 영화 정보를 담을 공간을 생성
     var movies: [Movie]?
     var movieDetails: MovieDetail?
+    var theater: [Theater]?
+    var theaterDetail: TheaterDetail?
+    
+    //메인화면에서 영화를 선택하면 넘어오는 PK
     var moviePk: Int?
     
     var a = true
@@ -44,15 +46,24 @@ class BookingViewController: UIViewController {
         //영화 정보 받아오기
         MovieManager.singleton.loadMovieList { movie in
             self.movies = movie
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
         }
         
         //처음 영화 상세 정보 받아오기
         guard let moviePk = moviePk else {return}
-        MovieManager.singleton.loadMovieDetail(moviePk) { aa in
-            self.movieDetails = aa
-            print(self.movieDetails?.title ?? "")
-            print(self.movieDetails?.pk ?? 0)
+        MovieManager.singleton.loadMovieDetail(moviePk) { MovieDetails in
+            self.movieDetails = MovieDetails
+        }
+        
+        //상영관 정보 받아오기
+        TheaterManager.singleton.loadTheaterList{ Theater in
+            self.theater = Theater
+            self.tableView.reloadData()
+        }
+        
+        //상영관 상세 정보 받아오기
+        TheaterManager.singleton.loadTheaterDetail(moviePk) { TheaterDetails in
+            self.theaterDetail = TheaterDetails
         }
     }
     
@@ -60,6 +71,19 @@ class BookingViewController: UIViewController {
         print("----------------[2. view did appear] ---------------")
 
     }
+    
+/*
+   static func showSeatPage(moviePk: Int){
+        let bookStoryboard = UIStoryboard(name: "Book", bundle: nil)
+        guard let seatVC = bookStoryboard.instantiateViewController(withIdentifier: "Seat") as? SeatViewController  else {
+            return print("Bookstoryborad faild")
+        }
+        seatVC.moviePk = moviePk
+        print("지금 누른 영화의 pk: ", moviePk)
+        UIApplication.shared.delegate?.window!!.rootViewController?.show(seatVC, sender: nil)
+    }
+*/
+    
 }
 
 extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -100,10 +124,10 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
 //                } else {
 //                    cell.movieTitle.text = movieDetails?.title
 //                }
-
-                cell.movieTitle.text = movies?[moviePk! - 1].title
-
-                cell.movieInfo.text = movieInfo
+                
+                //데이터 처리 #5 - moive title, duration 넣어주기
+                guard let movieDetail = self.movieDetails else {print("movieDetail nil"); return cell}
+                cell.model = MovieTitleModel.init(movieDetail)
                 print("================================================")
                 return cell
 
@@ -184,6 +208,7 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView.tag {
+        //poster collection
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingPosterCollectionViewCell", for: indexPath) as! BookingPosterCollectionViewCell
 
@@ -200,12 +225,17 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             }
             
             return cell
-            
+        
+        //예약 가능 날짜
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingDateCollectionViewCell", for: indexPath) as! BookingDateCollectionViewCell
-            cell.movieDate.text = movieDate
-            cell.movieDay.text = movieDay
+            
+            guard let movieDate = movies else {print("movieDate nil"); return cell }
+            cell.model = BookingDateModel.init(movieDate[indexPath.row])
+            
             return cell
+            
+        //상영시간 및 예약 가능 자석 표시
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingTheaterCollectionViewCell", for: indexPath) as! BookingTheaterCollectionViewCell
             cell.theaterTimeTable.setTitle(theaterTimeTable[0], for: .normal)
