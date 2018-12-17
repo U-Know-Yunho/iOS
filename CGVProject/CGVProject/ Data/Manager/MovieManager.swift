@@ -19,7 +19,6 @@ class MovieManager {
         let pram: Parameters = [
             "nowOpen": nowOpen
         ]
-
         Alamofire.request(API.MovieURL.homeViewData + "\(nowOpen)", method: .get, parameters: pram, encoding: JSONEncoding.default, headers: header)
             .validate()
             .responseData { (response) in

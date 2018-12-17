@@ -92,7 +92,7 @@
 		3CF2DB7B21C24FC000D908BB /* InfoFixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7A21C24FC000D908BB /* InfoFixViewController.swift */; };
 		3CF2DB7D21C25D9C00D908BB /* PasswordConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7C21C25D9C00D908BB /* PasswordConfirmViewController.swift */; };
 		3CF2DB7F21C26F8100D908BB /* CancelMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2DB7E21C26F8100D908BB /* CancelMembershipViewController.swift */; };
-		4206BB6F21C7C4D700C48F44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4206BB6E21C7C4D600C48F44 /* Assets.xcassets */; };
+		3CFE5B0E21C7C92100EB6C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE5B0D21C7C92100EB6C15 /* Assets.xcassets */; };
 		420AAFAE21B4FEB20027EDF2 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420AAFAD21B4FEB20027EDF2 /* KakaoOpenSDK.framework */; };
 		420AAFD021B793C10027EDF2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */; };
 		420AAFD321B797E50027EDF2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFD221B797E50027EDF2 /* Utils.swift */; };
@@ -194,7 +194,7 @@
 		3CF2DB7A21C24FC000D908BB /* InfoFixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFixViewController.swift; sourceTree = "<group>"; };
 		3CF2DB7C21C25D9C00D908BB /* PasswordConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConfirmViewController.swift; sourceTree = "<group>"; };
 		3CF2DB7E21C26F8100D908BB /* CancelMembershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelMembershipViewController.swift; sourceTree = "<group>"; };
-		4206BB6E21C7C4D600C48F44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3CFE5B0D21C7C92100EB6C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		420AAFAD21B4FEB20027EDF2 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		420AAFAF21B500460027EDF2 /* CGVProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGVProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		420AAFCF21B793C10027EDF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -387,7 +387,6 @@
 				3C4705A121ABC39500119F53 /* Products */,
 				8AC88360601490D3C343DC13 /* Pods */,
 				D273DF51EAFF47817613E6BF /* Frameworks */,
-				4206BB6E21C7C4D600C48F44 /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -412,6 +411,7 @@
 				3C4705AF21ABC39500119F53 /* Info.plist */,
 				420AAFAC21B4FEB20027EDF2 /* Framework */,
 				420AAFAF21B500460027EDF2 /* CGVProject-Bridging-Header.h */,
+				3CFE5B0D21C7C92100EB6C15 /* Assets.xcassets */,
 			);
 			path = CGVProject;
 			sourceTree = "<group>";
@@ -785,7 +785,7 @@
 				3C0464C521AEA2DE001F38BB /* MovieCollectionViewCell.xib in Resources */,
 				3C0464C921AEEE09001F38BB /* EventTableViewCell.xib in Resources */,
 				3CE8DBD121B4CCB200C9DD3B /* CastCollectionViewCell.xib in Resources */,
-				4206BB6F21C7C4D700C48F44 /* Assets.xcassets in Resources */,
+				3CFE5B0E21C7C92100EB6C15 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
