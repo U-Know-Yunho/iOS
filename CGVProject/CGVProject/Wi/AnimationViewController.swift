@@ -18,7 +18,7 @@ class AnimationViewController: UIViewController {
             self.scrollView.contentOffset.x += 300
         }) { (isFinish) in
             if isFinish{
-                
+                self.dismiss(animated: false, completion: nil)
             }
         }
         // Do any additional setup after loading the view.

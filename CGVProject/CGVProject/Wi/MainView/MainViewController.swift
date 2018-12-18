@@ -15,7 +15,6 @@ class MainViewController: UIViewController{
     // MARK: SideMenu Instance
     let sideMenu = SideMenu()
     let sideMenuWidth: CGFloat = 300
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -72,6 +71,7 @@ class MainViewController: UIViewController{
         }
         UIApplication.shared.delegate?.window!!.rootViewController?.show(mainVC, sender: nil)
     }
+    
     
     static func showBookPage(){
         print("showBookPageFunc")
