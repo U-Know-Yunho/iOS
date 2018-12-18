@@ -18,8 +18,7 @@ class AnimationViewController: UIViewController {
             self.scrollView.contentOffset.x += 300
         }) { (isFinish) in
             if isFinish{
-                let storyboard = UIStoryboard(name: "Home", bundle: nil)
-                let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+                
             }
         }
         // Do any additional setup after loading the view.
