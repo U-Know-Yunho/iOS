@@ -10,6 +10,7 @@
 		0803C5CE21C684A6007FEF1A /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5CD21C684A6007FEF1A /* Theater.swift */; };
 		0803C5D021C68569007FEF1A /* TheaterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5CF21C68569007FEF1A /* TheaterDetail.swift */; };
 		0803C5D221C688F9007FEF1A /* TheaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5D121C688F9007FEF1A /* TheaterManager.swift */; };
+		0831BD8A21C8B6CA006E3BA4 /* TicketBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0831BD8921C8B6CA006E3BA4 /* TicketBox.swift */; };
 		0889AAE521BBA311004E2E74 /* MoviePosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0889AAE421BBA311004E2E74 /* MoviePosterModel.swift */; };
 		08F7065E21C7B78B003728D7 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7065D21C7B78B003728D7 /* Seat.swift */; };
 		08F7066021C7B7B6003728D7 /* SeatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7065F21C7B7B6003728D7 /* SeatModel.swift */; };
@@ -110,6 +111,7 @@
 		0803C5CD21C684A6007FEF1A /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		0803C5CF21C68569007FEF1A /* TheaterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterDetail.swift; sourceTree = "<group>"; };
 		0803C5D121C688F9007FEF1A /* TheaterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterManager.swift; sourceTree = "<group>"; };
+		0831BD8921C8B6CA006E3BA4 /* TicketBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketBox.swift; sourceTree = "<group>"; };
 		0889AAE421BBA311004E2E74 /* MoviePosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterModel.swift; sourceTree = "<group>"; };
 		08F7065D21C7B78B003728D7 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 		08F7065F21C7B7B6003728D7 /* SeatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatModel.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				0803C5CF21C68569007FEF1A /* TheaterDetail.swift */,
 				3C03604D21C789DC00534368 /* HomeViewData.swift */,
 				08F7065D21C7B78B003728D7 /* Seat.swift */,
+				0831BD8921C8B6CA006E3BA4 /* TicketBox.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				3CE8DBD021B4CCB200C9DD3B /* CastCollectionViewCell.swift in Sources */,
 				3CD5BE0521AC495300DAA8A6 /* MYViewCell.swift in Sources */,
 				08F7066621C7B99E003728D7 /* TheaterModel.swift in Sources */,
+				0831BD8A21C8B6CA006E3BA4 /* TicketBox.swift in Sources */,
 				42198AF021BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift in Sources */,
 				3CD5BE0321AC493F00DAA8A6 /* StoreViewCell.swift in Sources */,
 				3CE8DBDA21B4CCB200C9DD3B /* MoviePhotoCollectionViewCell.swift in Sources */,

@@ -35,5 +35,6 @@ enum API{
     enum TheaterURL {
         static let theaterList = API.baseURL + "theaters/list"
         static let theaterDetail = API.baseURL + "theaters/detail/"
+        static let ticketBoxList = API.baseURL + "tickets/m/filter/"
     }
 }
