@@ -20,13 +20,10 @@ class BookingTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         posterCollectionView.reloadData()
-        if moviePk == 2 {
+        if moviePk == 4 {
             posterCollectionView.selectItem(at: [0, 0], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
         }
-       
     }
-    
-    
 }
 
 

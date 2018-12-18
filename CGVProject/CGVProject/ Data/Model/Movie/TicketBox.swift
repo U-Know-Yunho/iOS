@@ -8,53 +8,49 @@
 
 import Foundation
 
-struct TicketBox: Decodable {
+struct TicketBox: Codable {
     
     let detail: Detail?
-    let movie: [Movie?]
-    let location: [Location?]
-    let subLocation: [SubLocation?]
-    
-    struct Detail: Decodable {
+    let movie: [Movie]?
+    let location: [Location]?
+    let subLocation: [SubLocation]?
+    let date: [[Date]]?
+
+    struct Detail: Codable {
         let pk: Int?
         let title: String?
         let age: String?
         let durationMin: Int?
     }
     
-    struct Movie: Decodable {
+    struct Movie: Codable {
         let pk: Int?
         let title: String?
         let thumbImgUrl: String?
     }
-    
-    struct Location: Decodable {
+
+    struct Location: Codable {
         let pk: Int?
         let location: String?
-        let num: Int
+        let num: Int?
     }
-    
-    struct SubLocation: Decodable {
+
+    struct Date: Codable {
+        let date: String?
+        let weekday: String?
+        let show: Bool
+    }
+
+    struct SubLocation: Codable {
         let subLocation: String?
-        let screenTime: [ScreenTime?]
-        let date: [Date?]
-        
-        struct ScreenTime: Decodable {
-            let pk: Int?
-            let auditoriumName: String?
-            let times: String?
-            let currentSeatsNo: Int?
-        }
-        
-        struct Date: Decodable {
-            struct D1: Decodable {
-                let date: String?
-                let weekday: String?
-            }
-            struct D2: Decodable {
-                let show: Bool
-            }
-        }
+        let screenTime: [ScreenTime]?
+    }
+
+    struct ScreenTime: Codable {
+        let pk: Int?
+        let auditoriumName: String?
+        let times: String?
+        let currentSeatsNo: Int?
     }
     
 }

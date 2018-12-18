@@ -45,14 +45,14 @@ class TheaterManager {
         }
     }
     
-    func loadTicketBoxList(_ pk: Int, completion: @escaping ((TheaterDetail)-> Void)){
-        Alamofire.request(API.TheaterURL.theaterDetail + "\(pk)/", method: .get).responseData { (response) in
+    func loadTicketBoxList(_ pk: Int, completion: @escaping ((TicketBox)-> Void)){
+        Alamofire.request(API.TheaterURL.ticketBoxList + "\(pk)/", method: .get).responseData { (response) in
             switch response.result{
             case .success(let data):
-                print("loadMovieDetail")
+                print("ticketPoxList")
                 do{
-                    let theaterDetail = try JSONDecoder().decode(TheaterDetail.self, from: data)
-                    completion(theaterDetail)
+                    let ticketBoxList = try JSONDecoder().decode(TicketBox.self, from: data)
+                    completion(ticketBoxList)
                 }catch{
                     print(error.localizedDescription)
                 }

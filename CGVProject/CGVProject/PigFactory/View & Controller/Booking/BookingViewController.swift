@@ -25,6 +25,7 @@ class BookingViewController: UIViewController {
     var theater: [Theater]?
     var theaterDetail: TheaterDetail?
     var moviePk: Int?
+    var ticketBox: TicketBox?
     
     var a = true
     
@@ -34,14 +35,8 @@ class BookingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("----------------[1. view did load] ---------------")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print(moviePk)
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+
+        
         //영화 정보 받아오기
         MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
             self.movies = homeViewData.chart
@@ -52,6 +47,7 @@ class BookingViewController: UIViewController {
         guard let moviePk = moviePk else {return}
         MovieManager.singleton.loadMovieDetail(moviePk) { MovieDetails in
             self.movieDetails = MovieDetails
+            self.tableView.reloadRows(at: [[0, 0]], with: UITableView.RowAnimation.fade)
         }
         
         //상영관 정보 받아오기
@@ -63,6 +59,19 @@ class BookingViewController: UIViewController {
         //상영관 상세 정보 받아오기
         TheaterManager.singleton.loadTheaterDetail(moviePk) { TheaterDetails in
             self.theaterDetail = TheaterDetails
+        }
+        
+        TheaterManager.singleton.loadTicketBoxList(moviePk) { TicketBox in
+            self.ticketBox = TicketBox
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print(self.ticketBox)
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
         }
     }
     
@@ -126,6 +135,8 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
                 //collection cell을 선택할때도 다시 여기로 들어와진다
                 guard let movieDetail = self.movieDetails else {print("movieDetail nil"); return cell}
                 cell.model = MovieTitleModel.init(movieDetail)
+
+                
                 return cell
 
             case 1:
@@ -215,7 +226,14 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             guard let movies = movies else { print("movieList nil"); return cell }
             cell.model = MoviePosterCollectionViewCellModel.init(movies[indexPath.row])
             
-
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print(moviePk)
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             //print(movies.index(of: moviePk))
             if firstScrollEnable == true {
                 for i in 0...20 {
