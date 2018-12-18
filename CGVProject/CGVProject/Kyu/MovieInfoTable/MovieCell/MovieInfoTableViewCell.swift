@@ -33,6 +33,7 @@ class MovieInfoTableViewCell: UITableViewCell {
     
     @IBAction func bookButton(_ sender: Any) {
         MainViewController.showCurrentMobvieBookPage(moviePk: moviePk ?? 0)
+
     }
     
     @IBAction func customMovieNewsButton(_ sender: Any) {
