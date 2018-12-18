@@ -70,14 +70,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupRootViewController() {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-        
-        
-        let storyboardID = KOSession.shared().isOpen() ? "MainViewController" : "MainViewController"
-        let vc = storyboard.instantiateViewController(withIdentifier: storyboardID)
-        navigationController.viewControllers = [vc]
-        window?.rootViewController = navigationController
+//        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+//        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+//        
+//        
+//        let storyboardID = KOSession.shared().isOpen() ? "MainViewController" : "MainViewController"
+//        let vc = storyboard.instantiateViewController(withIdentifier: storyboardID)
+//        navigationController.viewControllers = [vc]
+//        window?.rootViewController = navigationController
     }
 
 

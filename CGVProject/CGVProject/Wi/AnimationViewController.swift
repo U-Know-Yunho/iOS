@@ -10,10 +10,18 @@ import UIKit
 
 class AnimationViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UIView.animate(withDuration: 2, animations: {
+            self.scrollView.contentOffset.x += 300
+        }) { (isFinish) in
+            if isFinish{
+                let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+            }
+        }
         // Do any additional setup after loading the view.
     }
 
