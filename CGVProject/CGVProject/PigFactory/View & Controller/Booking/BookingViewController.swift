@@ -8,13 +8,6 @@ class BookingViewController: UIViewController {
     //이 화면으로 넘어왔을때 선택된 포스터를 클릭후 다음 포스터를 눌렀을때 스크롤이 돌아가는것을 방지하기 위한 용도
     var firstScrollEnable = true
     
-    //예매창 - 영화 타이틀 셀 - 데이터
-    var movieTitle = "보헤미안랩소디"
-    var movieInfo = "12세이상관람가 = 2시간 14분"
-    
-    //예매창 - 포스터 콜렉션 셀 - 데이터
-    let images = ["001", "002", "003", "004", "005", "006"]
-
     //예매창 - 날짜 콜렉션 셀 - 데이터
     var movieDay = "월"
     var movieDate = "10"
@@ -41,12 +34,18 @@ class BookingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("----------------[1. view did load] ---------------")
-
-        
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        print(moviePk)
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
         //영화 정보 받아오기
-        MovieManager.singleton.loadMovieList { movie in
-            self.movies = movie
-            //            self.tableView.reloadData()
+        MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
+            self.movies = homeViewData.chart
+            self.tableView.reloadData()
         }
         
         //처음 영화 상세 정보 받아오기
@@ -70,6 +69,10 @@ class BookingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         print("----------------[2. view did appear] ---------------")
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        firstScrollEnable = true
     }
     
     /*
@@ -118,22 +121,16 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTableMovieTitleCell", for: indexPath) as! BookingTableMovieTitleCell
                 
-//                if a == true {
-//                    cell.movieTitle.text = movies?[moviePk!].title
-//                    a = false
-//                } else {
-//                    cell.movieTitle.text = movieDetails?.title
-//                }
-                
-                
-                //데이터 처리 #5 - moive title, duration 넣어주기
+                //메인 화면에서 영화 클릭해서 들어왔을 때 바로 해당 타이틀 보여주기용
+                //movie title 데이터 #5 - moive title, duration 넣어주기
+                //collection cell을 선택할때도 다시 여기로 들어와진다
                 guard let movieDetail = self.movieDetails else {print("movieDetail nil"); return cell}
                 cell.model = MovieTitleModel.init(movieDetail)
-                print("================================================")
                 return cell
 
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTableViewCell", for: indexPath) as! BookingTableViewCell
+                cell.moviePk = moviePk
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell
@@ -152,19 +149,19 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("----------------[3. will display] ---------------")
-
-        if indexPath.section == 0 {
-            switch indexPath.row {
-            case 1:
-                print("kkkkk")
-                (cell as? BookingTableViewCell)?.posterCollectionView.reloadData()
-            default:
-                break
-            }
-        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        //print("----------------[3. will display] ---------------")
+//
+//        if indexPath.section == 0 {
+//            switch indexPath.row {
+//            case 1:
+//                //print("kkkkk")
+//                (cell as? BookingTableViewCell)?.posterCollectionView.reloadData()
+//            default:
+//                break
+//            }
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
@@ -218,12 +215,15 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             guard let movies = movies else { print("movieList nil"); return cell }
             cell.model = MoviePosterCollectionViewCellModel.init(movies[indexPath.row])
             
-            print("dddddddddddd")
-            //scroll ON/OFF 스위치
+
+            //print(movies.index(of: moviePk))
             if firstScrollEnable == true {
-                print(moviePk!)
-                collectionView.selectItem(at: [0, self.moviePk! - 1], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
-                    firstScrollEnable = false
+                for i in 0...20 {
+                    if movies[i].pk == moviePk {
+                        collectionView.selectItem(at: [0, i], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+                        firstScrollEnable = false
+                    }
+                }
             }
             
             return cell
@@ -249,35 +249,27 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print("----------------[4. collection View will display ] ---------------")
-
+        //print("----------------[4. collection View will display ] ---------------")
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("#############################################")
         switch collectionView.tag {
         case 0:
+            
             //누를때마다 영화 상세 정보 받아오기
-//            MovieManager.singleton.loadMovieDetail(indexPath.row) { aa in
-//                self.movieDetails = aa
-//                print("====================\(self.movieDetails?.title ?? "")===================")
-//            }
-            
-            print(indexPath)
-            
+            //1. 정보를 불러온다 > 2. { } 외부먼저 진행 > 3. { } 내부 진행
+            MovieManager.singleton.loadMovieDetail(movies![indexPath.row].pk) { detail in
+                self.movieDetails = detail
+                self.tableView.reloadRows(at: [[0, 0]], with: UITableView.RowAnimation.fade)
+            }
+
             collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
             
             theaterTimeTable.reverse()
             tableView.reloadSections([1, 1], with: UITableView.RowAnimation.fade)
-            
-            
-//            tableView.reloadRows(at: [[0, 0]], with: UITableView.RowAnimation.fade)
-            
-//            (cell as? BookingTableMovieTitleCell)?.movieTitle.text = movies2[indexPath.row - 1].title
-            
             
         default:
             print(0)

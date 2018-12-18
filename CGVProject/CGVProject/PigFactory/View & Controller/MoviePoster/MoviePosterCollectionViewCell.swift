@@ -16,8 +16,7 @@ class MoviePosterCollectionViewCell: UICollectionViewCell {
     var model: MoviePosterCollectionViewCellModel! {
         
         didSet {
-            let url = URL(string: model.moviePosterImageUrl)
-            posterView.kf.setImage(with: url)
+            posterView.kf.setImage(with: URL(string: model.moviePosterImageUrl))
             
 //            posterView.kf.setImage(
 //                with: url,

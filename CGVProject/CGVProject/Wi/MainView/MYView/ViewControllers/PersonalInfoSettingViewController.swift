@@ -41,11 +41,14 @@ extension PersonalInfoSettingViewController: UITableViewDataSource{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "infoSetting", for: indexPath)
             cell.textLabel?.text = "회원정보수정"
+            cell.selectionStyle = .none
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "remove", for: indexPath)
             cell.textLabel?.text = "회원탈퇴"
+            cell.selectionStyle = .none
             return cell
+            
         default: break
         }
         return UITableViewCell()

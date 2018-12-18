@@ -111,7 +111,7 @@
                             <constraint firstItem="AIF-aV-cbf" firstAttribute="leading" secondItem="trH-jU-KDr" secondAttribute="trailing" constant="2.5" id="xJ1-NA-1n2"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="sDx-0H-dzD" customClass="CustomImageView" customModule="CGVProject" customModuleProvider="target">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tom Hollander" translatesAutoresizingMaskIntoConstraints="NO" id="sDx-0H-dzD" customClass="CustomImageView" customModule="CGVProject" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="166" height="240"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -151,7 +151,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="001" width="185" height="260"/>
+        <image name="Tom Hollander" width="120" height="150"/>
         <image name="medal" width="16" height="16"/>
     </resources>
 </document>

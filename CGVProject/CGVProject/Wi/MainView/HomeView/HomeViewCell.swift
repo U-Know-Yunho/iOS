@@ -31,6 +31,9 @@ class HomeViewCell: UICollectionViewCell {
             self.model = homeViewData
             self.homeTableView.reloadData()
         }
+        // MARK:Noti
+        NotificationCenter.default.addObserver(self, selector: #selector(movieChartDidTap), name: NSNotification.Name("MovieChart"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notReleaseMovieDidTap), name: NSNotification.Name("NotReleaseMovie"), object: nil)
         // MARK: Delegate,dataSource
         homeTableView.delegate = self
         homeTableView.dataSource = self
@@ -46,6 +49,18 @@ class HomeViewCell: UICollectionViewCell {
         
         // MARK: AutoLayout
         autolayout()
+    }
+    @objc private func movieChartDidTap(){
+        MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
+            self.model = homeViewData
+            self.homeTableView.reloadData()
+        }
+    }
+    @objc private func notReleaseMovieDidTap(){
+        MovieManager.singleton.loadHomeViewData(nowOpen: false) { (homeViewData) in
+            self.model = homeViewData
+            self.homeTableView.reloadData()
+        }
     }
     @objc private func tableViewRefresh(){
         MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
@@ -80,6 +95,7 @@ extension HomeViewCell: UITableViewDataSource{
             cell.clipsToBounds = true
             guard let trailer = model?.trailer else {print("trailer binding err");return cell}
             cell.model = trailer
+            cell.selectionStyle = .none
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChart", for: indexPath) as! MovieChartTableViewCell

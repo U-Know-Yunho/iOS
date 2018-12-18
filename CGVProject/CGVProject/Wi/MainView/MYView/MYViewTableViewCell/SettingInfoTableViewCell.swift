@@ -40,6 +40,7 @@ extension SettingInfoTableViewCell: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultInfo", for: indexPath)
         cell.textLabel?.text = buttonNames[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
     
