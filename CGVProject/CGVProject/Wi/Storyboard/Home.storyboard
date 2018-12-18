@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dRM-Sw-QXI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIR-V8-FfH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,24 +45,30 @@
             </objects>
             <point key="canvasLocation" x="772" y="192.95352323838082"/>
         </scene>
-        <!--View Controller-->
+        <!--Animation View Controller-->
         <scene sceneID="F3O-3p-jbG">
             <objects>
-                <viewController id="dRM-Sw-QXI" sceneMemberID="viewController">
+                <viewController id="dRM-Sw-QXI" customClass="AnimationViewController" customModule="CGVProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LWu-4Z-QhD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuno1" translatesAutoresizingMaskIntoConstraints="NO" id="eXM-V0-W3G">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrM-xj-ELE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpU-mD-u9T">
+                                        <rect key="frame" x="67" y="259" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eXM-V0-W3G" firstAttribute="top" secondItem="6Ql-7d-nqx" secondAttribute="top" id="JBB-ml-vbk"/>
-                            <constraint firstItem="6Ql-7d-nqx" firstAttribute="trailing" secondItem="eXM-V0-W3G" secondAttribute="trailing" id="LJI-K6-Mkv"/>
-                            <constraint firstItem="eXM-V0-W3G" firstAttribute="leading" secondItem="6Ql-7d-nqx" secondAttribute="leading" id="mNU-4q-OcN"/>
-                            <constraint firstItem="6Ql-7d-nqx" firstAttribute="bottom" secondItem="eXM-V0-W3G" secondAttribute="bottom" id="otO-Sx-06O"/>
+                            <constraint firstItem="jrM-xj-ELE" firstAttribute="leading" secondItem="6Ql-7d-nqx" secondAttribute="leading" id="6D1-oE-3UM"/>
+                            <constraint firstItem="6Ql-7d-nqx" firstAttribute="trailing" secondItem="jrM-xj-ELE" secondAttribute="trailing" id="Cgb-fv-KCv"/>
+                            <constraint firstItem="6Ql-7d-nqx" firstAttribute="bottom" secondItem="jrM-xj-ELE" secondAttribute="bottom" id="QBy-zL-CQU"/>
+                            <constraint firstItem="jrM-xj-ELE" firstAttribute="top" secondItem="6Ql-7d-nqx" secondAttribute="top" id="Yts-5b-Mka"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Ql-7d-nqx"/>
                     </view>
@@ -72,7 +78,4 @@
             <point key="canvasLocation" x="9" y="193"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="yuno1" width="600" height="600"/>
-    </resources>
 </document>

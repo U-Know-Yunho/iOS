@@ -28,6 +28,7 @@
 		3C0464C921AEEE09001F38BB /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0464C721AEEE09001F38BB /* EventTableViewCell.xib */; };
 		3C09167621BA228300C538D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09167521BA228300C538D9 /* User.swift */; };
 		3C09167821BA274100C538D9 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09167721BA274100C538D9 /* UserManager.swift */; };
+		3C1AD3B521C8CE39009C550F /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1AD3B421C8CE39009C550F /* AnimationViewController.swift */; };
 		3C27217921AFD38D00ABA97B /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27217721AFD38D00ABA97B /* UserInfoTableViewCell.swift */; };
 		3C27217A21AFD38D00ABA97B /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C27217821AFD38D00ABA97B /* UserInfoTableViewCell.xib */; };
 		3C27217D21B0F3B600ABA97B /* DefaultInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27217B21B0F3B600ABA97B /* DefaultInfoTableViewCell.swift */; };
@@ -129,6 +130,7 @@
 		3C0464C721AEEE09001F38BB /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		3C09167521BA228300C538D9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3C09167721BA274100C538D9 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3C1AD3B421C8CE39009C550F /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		3C27217721AFD38D00ABA97B /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		3C27217821AFD38D00ABA97B /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
 		3C27217B21B0F3B600ABA97B /* DefaultInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 				3C0F302121AD00070073F52F /* Storyboard */,
 				3C0F301E21ACFFB60073F52F /* MainView */,
 				3CD5BDEC21ABCE0800DAA8A6 /* HomeViewNaviController.swift */,
+				3C1AD3B421C8CE39009C550F /* AnimationViewController.swift */,
 			);
 			path = Wi;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				3CE8DB5821B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift in Sources */,
 				3CC2E4D621B107DB007B9F59 /* SideMenu.swift in Sources */,
 				0889AAE521BBA311004E2E74 /* MoviePosterModel.swift in Sources */,
+				3C1AD3B521C8CE39009C550F /* AnimationViewController.swift in Sources */,
 				3C0464BF21AE7F89001F38BB /* MovieChartTableViewCell.swift in Sources */,
 				3CF2DB7B21C24FC000D908BB /* InfoFixViewController.swift in Sources */,
 				3CE29BCF21B250A800CEA8AE /* MainView.swift in Sources */,
