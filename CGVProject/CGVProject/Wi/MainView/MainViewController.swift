@@ -15,8 +15,10 @@ class MainViewController: UIViewController{
     // MARK: SideMenu Instance
     let sideMenu = SideMenu()
     let sideMenuWidth: CGFloat = 300
+    let aniVC = AnimationViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        present(aniVC, animated: false, completion: nil)
         configure()
         let leftNaviButton = UIBarButtonItem(image: UIImage(named: "cgvLogo"), style: .plain, target: self, action: #selector(cgvBtnDidTap))
         self.navigationController?.navigationBar.contentMode = .left

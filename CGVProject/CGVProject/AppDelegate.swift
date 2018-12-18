@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - App Life Cycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         initializeApp()
         return true
     }
@@ -78,6 +79,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardID)
         navigationController.viewControllers = [vc]
         window?.rootViewController = navigationController
+        
+        
     }
 
 

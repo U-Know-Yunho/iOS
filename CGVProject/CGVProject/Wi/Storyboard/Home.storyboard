@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="846" y="193"/>
         </scene>
-        <!--Animation View Controller-->
+        <!--View Controller-->
         <scene sceneID="F3O-3p-jbG">
             <objects>
-                <viewController storyboardIdentifier="AnimationViewController" id="dRM-Sw-QXI" customClass="AnimationViewController" customModule="CGVProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AnimationViewController" id="dRM-Sw-QXI" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LWu-4Z-QhD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,10 +81,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Ql-7d-nqx"/>
                     </view>
-                    <connections>
-                        <outlet property="imageView" destination="wpU-mD-u9T" id="gSV-s8-Czm"/>
-                        <outlet property="scrollView" destination="jrM-xj-ELE" id="4ds-z3-A5X"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ue-Sw-18H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
