@@ -19,5 +19,14 @@ class BookingTheaterTableViewCell: UITableViewCell {
         timeTableCollectionCell.reloadData()
     }
     
+    var model: BookingTheaterModel! {
+        
+        didSet {
+            theaterName.text = model.sublocation
+            theaterSection.text = model.audi
+            //            posterView.kf.setImage(with: URL(string: model.moviePosterImageUrl))
+        }
+    }
+    
 }
 

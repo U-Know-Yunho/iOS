@@ -13,7 +13,7 @@ class MoviePosterViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     //데이터처리 #3 - 영화 정보를 담을 공간을 생성
-    var movies: [HomeViewData.Movie]? 
+    var movies: [TheaterMovieList]?
     
     var selectedCollectionCell: IndexPath = [0, 0]
     
@@ -22,10 +22,14 @@ class MoviePosterViewController: UIViewController {
 
         //데이터처리 #4 - 서버로 부터 영화 포스터 정보를 받아와서 변수 movies에 저장해준다.
         //데이터처리 #6 - collectionView에 저장된 데이터를 새로고침 해준다.
-        MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
-            self.movies = homeViewData.chart
+        TicketManager.singleton.ticketLoadMovieList { TheaterMovieList in
+            self.movies = TheaterMovieList
             self.collectionView.reloadData()
         }
+//        MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
+//            self.movies = homeViewData.chart
+//            self.collectionView.reloadData()
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,7 +42,7 @@ class MoviePosterViewController: UIViewController {
         print("****************************")
         print("****************************")
         print("****************************")
-        destination.moviePk = movies?[selectedCollectionCell.row].pk
+//        destination.moviePk = movies?[selectedCollectionCell.row].pk
     }
 }
 

@@ -8,20 +8,10 @@ class BookingViewController: UIViewController {
     //이 화면으로 넘어왔을때 선택된 포스터를 클릭후 다음 포스터를 눌렀을때 스크롤이 돌아가는것을 방지하기 위한 용도
     var firstScrollEnable = true
     
-    //예매창 - 날짜 콜렉션 셀 - 데이터
-    var movieDay = "월"
-    var movieDate = "10"
-    var movieDateDetails = "2018년 12월 10일 월요일-오늘"
-    
-    //예매창 - 영화관 콜렉션 셀 - 데이터
-    var theaterTimeTable = ["13:00 ~ 15:00", "00:00 ~ 1:00"]
-    var theaterName = "CGV 서울"
-    var theaterSeat = "112/255"
-    var theaterSection = "12관"
-
     //데이터처리 #3 - 영화 정보를 담을 공간을 생성
-    var movies: [HomeViewData.Movie]?
+    var movies: [TheaterMovieList]?
     var movieDetails: MovieDetail?
+    var theaterInfo: TheaterInfo?
     var moviePk: Int?
     
     var a = true
@@ -31,18 +21,11 @@ class BookingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("----------------[1. view did load] ---------------")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print(moviePk)
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-        print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        //print("----------------[1. view did load] ---------------")
+
         //영화 정보 받아오기
-        MovieManager.singleton.loadHomeViewData(nowOpen: true) { (homeViewData) in
-            self.movies = homeViewData.chart
+        TicketManager.singleton.ticketLoadMovieList { TheaterMovieList in
+            self.movies = TheaterMovieList
             self.tableView.reloadData()
         }
         
@@ -54,17 +37,15 @@ class BookingViewController: UIViewController {
         }
         
         //상영관 상세 정보 받아오기
-        TicketManager.singleton.ticketFilter(moviePk: 1, location: nil, time: nil){ movieinfo in
-            
+        TicketManager.singleton.ticketFilter(moviePk: moviePk, location: nil, time: nil) { (TheaterInfo) in
+            self.theaterInfo = TheaterInfo
+            self.tableView.reloadData()
             
         }
-//        TheaterManager.singleton.loadTheaterDetail(moviePk) { TheaterDetails in
-//            self.theaterDetail = TheaterDetails
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("----------------[2. view did appear] ---------------")
+        //print("----------------[2. view did appear] ---------------")
 
     }
     
@@ -98,7 +79,9 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 3
         } else {
-            return 3
+//            guard let movies = self.theaterInfo else { return 1 }
+//            return movies.subLocation.count
+            return 1
         }
     }
 
@@ -131,7 +114,6 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookingDateTableViewCell", for: indexPath) as! BookingDateTableViewCell
-                cell.movieDateDetails.text = movieDateDetails
                 return cell
             default :
                 let table = UITableViewCell()
@@ -139,8 +121,8 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTheaterTableViewCell", for: indexPath) as! BookingTheaterTableViewCell
-            cell.theaterName.text = theaterName
-            cell.theaterSection.text = theaterSection
+            guard let time = self.theaterInfo else { return cell }
+            cell.model = BookingTheaterModel.init(time.subLocation[indexPath.row])
             
             return cell
         }
@@ -192,10 +174,10 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         case 0:
             guard let movies = self.movies else { return 1 }
             return movies.count
-        case 1:
+        case 1: //요일
             return 7
-        case 2:
-            return 5
+        case 2: //상영시간
+            return 1
         default:
             return 1
         }
@@ -214,30 +196,34 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             
 
             //print(movies.index(of: moviePk))
-            if firstScrollEnable == true {
-                for i in 0...20 {
-                    if movies[i].pk == moviePk {
-                        collectionView.selectItem(at: [0, i], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
-                        firstScrollEnable = false
-                    }
-                }
-            }
+//            if firstScrollEnable == true {
+//                for i in 0...200 {
+//                    if movies[i].pk == moviePk {
+//                        collectionView.selectItem(at: [0, i], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+//                        firstScrollEnable = false
+//                    }
+//                }
+//            }
             
             return cell
         
         //예약 가능 날짜
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingDateCollectionViewCell", for: indexPath) as! BookingDateCollectionViewCell
-            guard let movieDate = movies else {print("movieDate nil"); return cell }
-//            cell.model = BookingDateModel.init(movieDate[indexPath.row])
-            
+            guard let movieDate = theaterInfo else {print("movieDate nil"); return cell }
+            cell.model = BookingDateModel.init(movieDate.date[indexPath.row])
+            if cell.show == false {
+                cell.movieDate.textColor = .gray
+            } else {
+                cell.movieDate.textColor = .white
+            }
             return cell
             
         //상영시간 및 예약 가능 자석 표시
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingTheaterCollectionViewCell", for: indexPath) as! BookingTheaterCollectionViewCell
-            cell.theaterTimeTable.setTitle(theaterTimeTable[0], for: .normal)
-            cell.theaterSeat.text = theaterSeat
+            guard let time = theaterInfo else { return cell }
+            cell.model = BookingTheaterModel.init((time.subLocation.first?.screenTime[indexPath.row])!)
             return cell
         default:
             let a = UICollectionViewCell()
@@ -262,11 +248,17 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
                 self.movieDetails = detail
                 self.tableView.reloadRows(at: [[0, 0]], with: UITableView.RowAnimation.fade)
             }
+            
+            //상영관 상세 정보 받아오기
+            TicketManager.singleton.ticketFilter(moviePk: movies![indexPath.row].pk, location: nil, time: nil) { (TheaterInfo) in
+                self.theaterInfo = TheaterInfo
+                print("ssssssss: \(indexPath.row) : ", self.theaterInfo!.date, terminator: "\n")
+                self.tableView.reloadRows(at: [[0, 2]], with: UITableView.RowAnimation.fade)
+                self.tableView.reloadSections([1, 1], with: UITableView.RowAnimation.fade)
+            }
 
             collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
             
-            theaterTimeTable.reverse()
-            tableView.reloadSections([1, 1], with: UITableView.RowAnimation.fade)
             
         default:
             print(0)

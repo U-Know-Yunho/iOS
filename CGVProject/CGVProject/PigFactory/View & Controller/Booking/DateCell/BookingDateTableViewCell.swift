@@ -19,5 +19,6 @@ class BookingDateTableViewCell: UITableViewCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        bookingDateCollectionView.reloadData()
     }
 }
