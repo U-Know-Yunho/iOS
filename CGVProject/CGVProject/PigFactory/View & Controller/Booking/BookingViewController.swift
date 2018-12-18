@@ -62,9 +62,13 @@ class BookingViewController: UIViewController {
         }
         
         //상영관 상세 정보 받아오기
-        TheaterManager.singleton.loadTheaterDetail(moviePk) { TheaterDetails in
-            self.theaterDetail = TheaterDetails
+        TicketManager.singleton.ticketFilter(moviePk: 1, location: nil, time: nil){ movieinfo in
+            
+            
         }
+//        TheaterManager.singleton.loadTheaterDetail(moviePk) { TheaterDetails in
+//            self.theaterDetail = TheaterDetails
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

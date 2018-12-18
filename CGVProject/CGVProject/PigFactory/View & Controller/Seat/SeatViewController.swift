@@ -48,9 +48,9 @@ class SeatViewController: UIViewController {
         
         //상영관 정보 받아오기
         guard let moviePk = moviePk else {return}
-        TheaterManager.singleton.loadTheaterDetail(moviePk) { aa in
-            self.theaterDetail = aa
-        }
+//        TheaterManager.singleton.loadTheaterDetail(moviePk) { aa in
+//            self.theaterDetail = aa
+//        }
         
         
     }

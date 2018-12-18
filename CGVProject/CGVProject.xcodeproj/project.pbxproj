@@ -58,6 +58,11 @@
 		3CE29BE421B2793500CEA8AE /* SideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE29BE321B2793500CEA8AE /* SideMenu.xib */; };
 		3CE2C5A921BAD4BB007F6A4E /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2C5A721BAD4BB007F6A4E /* LoginTableViewCell.swift */; };
 		3CE2C5AA21BAD4BB007F6A4E /* LoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE2C5A821BAD4BB007F6A4E /* LoginTableViewCell.xib */; };
+		3CE5C5C521C8E778007D9C93 /* TheaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5C5C421C8E778007D9C93 /* TheaterInfo.swift */; };
+		3CE5C5C821C8E7F9007D9C93 /* TicketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5C5C721C8E7F9007D9C93 /* TicketManager.swift */; };
+		3CE5C5CA21C8F79D007D9C93 /* TheaterMovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5C5C921C8F79D007D9C93 /* TheaterMovieList.swift */; };
+		3CE5C5CC21C9073A007D9C93 /* TheaterSeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5C5CB21C9073A007D9C93 /* TheaterSeats.swift */; };
+		3CE5C5CE21C909F1007D9C93 /* TheaterReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5C5CD21C909F1007D9C93 /* TheaterReservation.swift */; };
 		3CE8DB5621B4C6AC00C9DD3B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB3C21B4C6AC00C9DD3B /* PopUpViewController.swift */; };
 		3CE8DB5721B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB3E21B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift */; };
 		3CE8DB5821B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8DB3F21B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift */; };
@@ -162,6 +167,11 @@
 		3CE29BE321B2793500CEA8AE /* SideMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenu.xib; sourceTree = "<group>"; };
 		3CE2C5A721BAD4BB007F6A4E /* LoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewCell.swift; sourceTree = "<group>"; };
 		3CE2C5A821BAD4BB007F6A4E /* LoginTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginTableViewCell.xib; sourceTree = "<group>"; };
+		3CE5C5C421C8E778007D9C93 /* TheaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterInfo.swift; sourceTree = "<group>"; };
+		3CE5C5C721C8E7F9007D9C93 /* TicketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketManager.swift; sourceTree = "<group>"; };
+		3CE5C5C921C8F79D007D9C93 /* TheaterMovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterMovieList.swift; sourceTree = "<group>"; };
+		3CE5C5CB21C9073A007D9C93 /* TheaterSeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterSeats.swift; sourceTree = "<group>"; };
+		3CE5C5CD21C909F1007D9C93 /* TheaterReservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterReservation.swift; sourceTree = "<group>"; };
 		3CE8DB3C21B4C6AC00C9DD3B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		3CE8DB3E21B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingTheaterTableViewCell.swift; sourceTree = "<group>"; };
 		3CE8DB3F21B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingTheaterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -368,6 +378,7 @@
 		3C2BBF5A21B561FB00C5DB00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3CE5C5C321C8E736007D9C93 /* Theater */,
 				3C09167421BA226500C538D9 /* User */,
 				3C09167321BA225600C538D9 /* Movie */,
 			);
@@ -380,6 +391,7 @@
 				3C2BBF6221B5768800C5DB00 /* MovieManager.swift */,
 				3C09167721BA274100C538D9 /* UserManager.swift */,
 				0803C5D121C688F9007FEF1A /* TheaterManager.swift */,
+				3CE5C5C721C8E7F9007D9C93 /* TicketManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -471,6 +483,17 @@
 				3C7E7A4B21BB9AA000A61EE6 /* NotLoginTableViewCell.xib */,
 			);
 			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		3CE5C5C321C8E736007D9C93 /* Theater */ = {
+			isa = PBXGroup;
+			children = (
+				3CE5C5C421C8E778007D9C93 /* TheaterInfo.swift */,
+				3CE5C5C921C8F79D007D9C93 /* TheaterMovieList.swift */,
+				3CE5C5CB21C9073A007D9C93 /* TheaterSeats.swift */,
+				3CE5C5CD21C909F1007D9C93 /* TheaterReservation.swift */,
+			);
+			path = Theater;
 			sourceTree = "<group>";
 		};
 		3CE8DB3921B4C6AC00C9DD3B /* View & Controller */ = {
@@ -855,12 +878,14 @@
 			files = (
 				3C03604E21C789DC00534368 /* HomeViewData.swift in Sources */,
 				3C27217921AFD38D00ABA97B /* UserInfoTableViewCell.swift in Sources */,
+				3CE5C5C521C8E778007D9C93 /* TheaterInfo.swift in Sources */,
 				3C01F40621B7BA3000B7A17B /* CustomImageView.swift in Sources */,
 				3CE8DBD421B4CCB200C9DD3B /* InfoTableViewCell.swift in Sources */,
 				3C0464BB21AE5DDC001F38BB /* TrailerTableViewCell.swift in Sources */,
 				3C0464C421AEA2DE001F38BB /* MovieCollectionViewCell.swift in Sources */,
 				3CE8DB5B21B4C6AC00C9DD3B /* BookingPosterCollectionViewCell.swift in Sources */,
 				08F7066221C7B931003728D7 /* MovieTitleModel.swift in Sources */,
+				3CE5C5CE21C909F1007D9C93 /* TheaterReservation.swift in Sources */,
 				3CE8DB5721B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift in Sources */,
 				3CE8DB6321B4C6AC00C9DD3B /* SeatCollectionViewCell.swift in Sources */,
 				3C09167621BA228300C538D9 /* User.swift in Sources */,
@@ -871,6 +896,7 @@
 				3C1AD3B521C8CE39009C550F /* AnimationViewController.swift in Sources */,
 				3C0464BF21AE7F89001F38BB /* MovieChartTableViewCell.swift in Sources */,
 				3CF2DB7B21C24FC000D908BB /* InfoFixViewController.swift in Sources */,
+				3CE5C5C821C8E7F9007D9C93 /* TicketManager.swift in Sources */,
 				3CE29BCF21B250A800CEA8AE /* MainView.swift in Sources */,
 				3CF2DB7F21C26F8100D908BB /* CancelMembershipViewController.swift in Sources */,
 				3CE8DB5E21B4C6AC00C9DD3B /* BookingTableMovieTitleCell.swift in Sources */,
@@ -904,6 +930,7 @@
 				3CE8DBD021B4CCB200C9DD3B /* CastCollectionViewCell.swift in Sources */,
 				3CD5BE0521AC495300DAA8A6 /* MYViewCell.swift in Sources */,
 				08F7066621C7B99E003728D7 /* TheaterModel.swift in Sources */,
+				3CE5C5CA21C8F79D007D9C93 /* TheaterMovieList.swift in Sources */,
 				42198AF021BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift in Sources */,
 				4212791E21C897BE00C980CE /* MovieOfficialList.swift in Sources */,
 				3CD5BE0321AC493F00DAA8A6 /* StoreViewCell.swift in Sources */,
@@ -920,6 +947,7 @@
 				3CE8DB5A21B4C6AC00C9DD3B /* BookingDateTableViewCell.swift in Sources */,
 				3CE8DB5921B4C6AC00C9DD3B /* BookingDateCollectionViewCell.swift in Sources */,
 				3CE8DBCE21B4CCB200C9DD3B /* MovieViewController.swift in Sources */,
+				3CE5C5CC21C9073A007D9C93 /* TheaterSeats.swift in Sources */,
 				3C27217D21B0F3B600ABA97B /* DefaultInfoTableViewCell.swift in Sources */,
 				3C4705BA21ABC5EF00119F53 /* MainViewController.swift in Sources */,
 				3CE8DB5D21B4C6AC00C9DD3B /* BookingViewController.swift in Sources */,

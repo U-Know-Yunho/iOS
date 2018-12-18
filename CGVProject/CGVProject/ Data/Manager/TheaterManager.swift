@@ -28,20 +28,20 @@ class TheaterManager {
         }
     }
     
-    func loadTheaterDetail(_ pk: Int, completion: @escaping ((TheaterDetail)-> Void)){
-        Alamofire.request(API.TheaterURL.theaterDetail + "\(pk)/", method: .get).responseData { (response) in
-            switch response.result{
-            case .success(let data):
-                print("loadMovieDetail")
-                do{
-                    let theaterDetail = try JSONDecoder().decode(TheaterDetail.self, from: data)
-                    completion(theaterDetail)
-                }catch{
-                    print(error.localizedDescription)
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
-        }
-    }
+//    func loadTheaterDetail(_ pk: Int, completion: @escaping ((TheaterDetail)-> Void)){
+//        Alamofire.request(API.TheaterURL.theaterDetail + "\(pk)/", method: .get).responseData { (response) in
+//            switch response.result{
+//            case .success(let data):
+//                print("loadMovieDetail")
+//                do{
+//                    let theaterDetail = try JSONDecoder().decode(TheaterDetail.self, from: data)
+//                    completion(theaterDetail)
+//                }catch{
+//                    print(error.localizedDescription)
+//                }
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+//    }
 }
