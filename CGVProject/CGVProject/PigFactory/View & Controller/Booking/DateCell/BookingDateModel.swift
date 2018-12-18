@@ -13,8 +13,8 @@ class BookingDateModel {
     var day: String?
     var date: String?
     
-//    init(_ movie: Movie) {
-//        day = movie.mainImgUrl
-//        date = movie.mainImgUrl
-//    }
+    init(_ dateElement: DateElement) {
+        day = dateElement.weekday
+        date = dateElement.date
+    }
 }
