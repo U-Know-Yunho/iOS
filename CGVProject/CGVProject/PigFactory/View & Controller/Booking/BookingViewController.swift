@@ -52,6 +52,7 @@ class BookingViewController: UIViewController {
         guard let moviePk = moviePk else {return}
         MovieManager.singleton.loadMovieDetail(moviePk) { MovieDetails in
             self.movieDetails = MovieDetails
+            self.tableView.reloadRows(at: [[0,0]], with: UITableView.RowAnimation.fade)
         }
         
         //상영관 정보 받아오기
