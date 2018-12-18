@@ -97,6 +97,7 @@ extension MYViewCell: UITableViewDataSource{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserInfo", for: indexPath) as! UserInfoTableViewCell
             cell.model = self.model
+            cell.selectionStyle = .none
             return cell
         case 1:
             let infoCell = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! SettingInfoTableViewCell
@@ -106,7 +107,6 @@ extension MYViewCell: UITableViewDataSource{
         default: break
             
         }
-        cell.selectionStyle = .none
         return cell
     }
     
