@@ -16,6 +16,7 @@ enum API{
         static let movieList = API.baseURL + "movies/"
         static let movieDetail = API.baseURL + "movies/detail/"
         static let homeViewData =  "https://www.younghoonjean.com/m/?now_open="
+        static let mobileMovieList = API.baseURL + "tickets/m/movies/"
     }
     enum AuthURL {
         static let signUp = API.baseURL + "members/signup/"
