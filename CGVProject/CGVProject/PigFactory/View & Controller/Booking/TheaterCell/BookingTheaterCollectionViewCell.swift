@@ -19,11 +19,11 @@ class BookingTheaterCollectionViewCell: UICollectionViewCell {
         theaterTimeTable.layer.borderWidth = 0.5
     }
     
-    var model: BookingTheaterModel! {
+    var model: BookingTheaterModel? {
         
         didSet {
-            theaterTimeTable.setTitle(model.times, for: UIControl.State.normal)
-            theaterSeat.text = String(model.currentSeat ?? 0)
+            theaterTimeTable.setTitle(model?.times, for: UIControl.State.normal)
+            theaterSeat.text = String(model?.currentSeat ?? 0)
         }
     }
 }

@@ -79,9 +79,8 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 3
         } else {
-//            guard let movies = self.theaterInfo else { return 1 }
-//            return movies.subLocation.count
-            return 1
+            guard let movies = self.theaterInfo else { return 1 }
+            return movies.subLocation.count
         }
     }
 
@@ -123,7 +122,6 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTheaterTableViewCell", for: indexPath) as! BookingTheaterTableViewCell
             guard let time = self.theaterInfo else { return cell }
             cell.model = BookingTheaterModel.init(time.subLocation[indexPath.row])
-            
             return cell
         }
     }
@@ -213,7 +211,7 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             guard let movieDate = theaterInfo else {print("movieDate nil"); return cell }
             cell.model = BookingDateModel.init(movieDate.date[indexPath.row])
             if cell.show == false {
-                cell.movieDate.textColor = .gray
+                cell.movieDate.textColor = .red
             } else {
                 cell.movieDate.textColor = .white
             }
@@ -246,6 +244,7 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             //1. 정보를 불러온다 > 2. { } 외부먼저 진행 > 3. { } 내부 진행
             MovieManager.singleton.loadMovieDetail(movies![indexPath.row].pk) { detail in
                 self.movieDetails = detail
+                //타이틀 리로드
                 self.tableView.reloadRows(at: [[0, 0]], with: UITableView.RowAnimation.fade)
             }
             
@@ -253,8 +252,13 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             TicketManager.singleton.ticketFilter(moviePk: movies![indexPath.row].pk, location: nil, time: nil) { (TheaterInfo) in
                 self.theaterInfo = TheaterInfo
                 print("ssssssss: \(indexPath.row) : ", self.theaterInfo!.date, terminator: "\n")
-                self.tableView.reloadRows(at: [[0, 2]], with: UITableView.RowAnimation.fade)
+                
+                //상영관 리로드
                 self.tableView.reloadSections([1, 1], with: UITableView.RowAnimation.fade)
+                //날짜 리로드
+                self.tableView.reloadRows(at: [[0, 2]], with: UITableView.RowAnimation.fade)
+                
+                
             }
 
             collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
