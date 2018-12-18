@@ -16,17 +16,19 @@ class MovieManager {
     // nowOpen에 따라 현재 상영작과 개봉 예정작을 판별해 데이터를 로드합니다.
     func loadHomeViewData(nowOpen: Bool, completion: @escaping (HomeViewData) -> Void){
         let header: HTTPHeaders = [ "Content-Type": "application/json"]
-        let pram: Parameters = [
-            "nowOpen": nowOpen
-        ]
-        Alamofire.request(API.MovieURL.homeViewData + "\(nowOpen)", method: .get, parameters: pram, encoding: JSONEncoding.default, headers: header)
+        var api = ""
+        if nowOpen {
+            api = API.MovieURL.homeViewData + "\(nowOpen)"
+        }else{
+            api = API.MovieURL.homeViewData
+        }
+        Alamofire.request(api, method: .get, encoding: JSONEncoding.default, headers: header)
             .validate()
             .responseData { (response) in
                 switch response.result{
                 case .success(let data):
                     do{
                         let movies = try JSONDecoder().decode(HomeViewData.self, from: data)
-                        print(movies)
                         completion(movies)
                     }catch{
                         print("HomeData Decode err: ",error.localizedDescription)

@@ -20,7 +20,10 @@ class MovieChartTableViewCell: UITableViewCell {
     @IBOutlet weak var movieChartCollectionView: UICollectionView!
     var movies: [HomeViewData.Movie]? {
         didSet{
+<<<<<<< HEAD
+=======
 
+>>>>>>> 45598011162716e2b343b277843e4433029d371e
             movieChartCollectionView.reloadData()
         }
     }
@@ -31,14 +34,33 @@ class MovieChartTableViewCell: UITableViewCell {
         movieChartCollectionView.delegate = self
         movieChartCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil ), forCellWithReuseIdentifier: "MovieChart")
         
+        //UIGesture
+        movieChart.isUserInteractionEnabled = true
+        notReleaseMovie.isUserInteractionEnabled = true
+        movieChart.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(movieChartDidtap)))
+        notReleaseMovie.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(notReleaseMovieDidtap)))
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-    
+    var isMovieChartBtnDIdtap = true
+    @objc func movieChartDidtap(){
+        NotificationCenter.default.post(name: NSNotification.Name("MovieChart"), object: nil)
+        movieChart.textColor = .black
+        notReleaseMovie.textColor = .lightGray
+        isMovieChartBtnDIdtap = true
+        print("movieChart")
+    }
+    @objc func notReleaseMovieDidtap(){
+        NotificationCenter.default.post(name: NSNotification.Name("NotReleaseMovie"), object: nil)
+        movieChart.textColor = .lightGray
+        notReleaseMovie.textColor = .black
+        isMovieChartBtnDIdtap = false
+        print("NotReleaseMovie")
+    }
 }
 extension MovieChartTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,7 +72,11 @@ extension MovieChartTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieChart", for: indexPath) as! MovieCollectionViewCell
         guard let movies = self.movies else {print("MovieList nil"); return cell}
         cell.model = MovieCollectionViewCellModel.init((movies[indexPath.row]))
-        cell.movieRank.text = "\(indexPath.row + 1)"
+        if isMovieChartBtnDIdtap{
+            cell.movieRank.text = "\(indexPath.row + 1)"
+        }else{
+            cell.movieRank.text = ""
+        }
         return cell
         
     }

@@ -66,6 +66,7 @@ extension SideMenu: UITableViewDataSource {
             if UserManager.singleton.hasToken {
                 let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell", for: indexPath) as! LoginTableViewCell
                 loginCell.model = model
+                loginCell.selectionStyle = .none
                 return loginCell
             }else{
                 cell = tableView.dequeueReusableCell(withIdentifier: "NotLoginTableViewCell", for: indexPath)
