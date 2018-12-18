@@ -9,20 +9,25 @@
 import UIKit
 
 class CastTableViewCell: UITableViewCell {
-    var castPhoto: [String] = ["Bryan Singer", "Rami Malek", "Lucy Boynton", "Gwilym Lee"]
-    @IBOutlet weak var castCollectionView: UICollectionView!
-    var castEnglishName: [MovieDetail.Cast]? {
+    var directors: [MovieOfficialList.director]? {
         didSet {
             self.castCollectionView.reloadData()
         }
     }
+    var actors: [MovieOfficialList.actor]? {
+        didSet {
+            self.castCollectionView.reloadData()
+        }
+    }
+    
+    @IBOutlet weak var castCollectionView: UICollectionView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         castCollectionView.dataSource = self
         castCollectionView.delegate = self
         castCollectionView.register(UINib(nibName: "CastCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CastCollectionViewCell")
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,22 +45,41 @@ extension CastTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return castEnglishName?.count ?? 0
+        return (directors?.count ?? 0) + (actors?.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCollectionViewCell", for: indexPath) as! CastCollectionViewCell
         
-        cell.castImageView.image = UIImage(named: castPhoto[indexPath.row])
         cell.castImageView.layer.cornerRadius = cell.castImageView.frame.height / 2
         cell.castImageView.layer.borderWidth = 1
         cell.castImageView.layer.borderColor = UIColor.clear.cgColor
         cell.castImageView.clipsToBounds = true
         
-        cell.castEnglishName.text = castEnglishName?[indexPath.item].actor
-        
-        
-        return cell
+        switch indexPath.row {
+        case 0:
+            let director = directors?[indexPath.item]
+            let korDirectorName = (director?.director)
+            cell.castKoreanName.text = korDirectorName
+            let engDirectName = director?.engDirector!
+            cell.castEnglishName.text = engDirectName
+            if let directorImg = director?.profileImg,
+                let url = URL(string: directorImg) {
+                cell.castImageView.kf.setImage(with: url)
+            }
+            return cell
+        default:
+            let actor = actors?[indexPath.item - 1]
+                let korActorName = actor?.actor
+                let engActorName = actor?.engActor
+                if let actorImg = actor?.profileImgUrl,
+                    let url = URL(string: actorImg) {
+                    cell.castImageView.kf.setImage(with: url)
+                }
+                cell.castKoreanName.text = korActorName
+                cell.castEnglishName.text = engActorName
+            return cell
+        }
     }
     
     // collectionViewCell 아이템 사이즈 지정 !

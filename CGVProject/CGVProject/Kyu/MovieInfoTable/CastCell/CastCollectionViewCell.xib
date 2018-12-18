@@ -26,20 +26,14 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVA-91-dRr">
                         <rect key="frame" x="100" y="10" width="270" height="80"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="roll" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dG-rW-vxe">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="30.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="korean name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRL-o6-UJr">
-                                <rect key="frame" x="0.0" y="25" width="270" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="korean name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="IRL-o6-UJr">
+                                <rect key="frame" x="0.0" y="0.0" width="270" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="English name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzU-Fi-1Ny">
-                                <rect key="frame" x="0.0" y="49.5" width="270" height="30.5"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="English name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="dzU-Fi-1Ny">
+                                <rect key="frame" x="0.0" y="37.5" width="270" height="42.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.33839607240000003" blue="0.13360706720000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -59,10 +53,9 @@
             </constraints>
             <size key="customSize" width="270" height="110"/>
             <connections>
-                <outlet property="castEnglishName" destination="IRL-o6-UJr" id="mWO-Pg-j6s"/>
+                <outlet property="castEnglishName" destination="dzU-Fi-1Ny" id="KZu-dC-Zcl"/>
                 <outlet property="castImageView" destination="ZMb-IM-FRF" id="g0l-KX-Drd"/>
-                <outlet property="castKoreanName" destination="2dG-rW-vxe" id="ehM-jj-8qm"/>
-                <outlet property="castRoll" destination="dzU-Fi-1Ny" id="OFt-70-99q"/>
+                <outlet property="castKoreanName" destination="IRL-o6-UJr" id="Oqf-pT-sKB"/>
             </connections>
             <point key="canvasLocation" x="60" y="-76.46176911544228"/>
         </collectionViewCell>
