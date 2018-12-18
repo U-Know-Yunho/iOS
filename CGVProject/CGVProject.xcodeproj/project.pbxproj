@@ -241,7 +241,6 @@
 			children = (
 				3CE8DBDB21B51B1E00C9DD3B /* Model */,
 				3C0464C221AEA2DE001F38BB /* MovieCollectionViewCell.swift */,
-				3C0464C321AEA2DE001F38BB /* MovieCollectionViewCell.xib */,
 			);
 			path = MovieChartCollectionViewCell;
 			sourceTree = "<group>";
@@ -444,6 +443,7 @@
 		3C7E7A4F21BCE7A800A61EE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C0464C321AEA2DE001F38BB /* MovieCollectionViewCell.xib */,
 				3C7E7A5021BCE7CF00A61EE6 /* TrailerTableViewCellModel.swift */,
 			);
 			path = Model;
