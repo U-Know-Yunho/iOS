@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIR-V8-FfH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dRM-Sw-QXI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,7 +43,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wer-HK-fhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="192.95352323838082"/>
+            <point key="canvasLocation" x="846" y="193"/>
         </scene>
         <!--Animation View Controller-->
         <scene sceneID="F3O-3p-jbG">
@@ -53,14 +53,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrM-xj-ELE">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrM-xj-ELE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpU-mD-u9T">
-                                        <rect key="frame" x="67" y="259" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuno1" translatesAutoresizingMaskIntoConstraints="NO" id="wpU-mD-u9T">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="600" id="SVh-vj-DVW"/>
+                                            <constraint firstAttribute="height" constant="700" id="c5d-FG-Tph"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="wpU-mD-u9T" firstAttribute="leading" secondItem="jrM-xj-ELE" secondAttribute="leading" id="K8C-Yq-3tU"/>
+                                    <constraint firstAttribute="bottom" secondItem="wpU-mD-u9T" secondAttribute="bottom" id="Nyh-tN-IJY"/>
+                                    <constraint firstAttribute="trailing" secondItem="wpU-mD-u9T" secondAttribute="trailing" id="ahr-M6-Ekf"/>
+                                    <constraint firstItem="wpU-mD-u9T" firstAttribute="top" secondItem="jrM-xj-ELE" secondAttribute="top" id="o4u-Wl-pCe"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,10 +81,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Ql-7d-nqx"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="wpU-mD-u9T" id="gSV-s8-Czm"/>
+                        <outlet property="scrollView" destination="jrM-xj-ELE" id="4ds-z3-A5X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ue-Sw-18H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9" y="193"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="yuno1" width="600" height="600"/>
+    </resources>
 </document>
