@@ -7,15 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0803C5CE21C684A6007FEF1A /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5CD21C684A6007FEF1A /* Theater.swift */; };
-		0803C5D021C68569007FEF1A /* TheaterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5CF21C68569007FEF1A /* TheaterDetail.swift */; };
-		0803C5D221C688F9007FEF1A /* TheaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803C5D121C688F9007FEF1A /* TheaterManager.swift */; };
 		0889AAE521BBA311004E2E74 /* MoviePosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0889AAE421BBA311004E2E74 /* MoviePosterModel.swift */; };
-		08F7065E21C7B78B003728D7 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7065D21C7B78B003728D7 /* Seat.swift */; };
 		08F7066021C7B7B6003728D7 /* SeatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7065F21C7B7B6003728D7 /* SeatModel.swift */; };
 		08F7066221C7B931003728D7 /* MovieTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7066121C7B931003728D7 /* MovieTitleModel.swift */; };
 		08F7066421C7B977003728D7 /* BookingDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7066321C7B977003728D7 /* BookingDateModel.swift */; };
-		08F7066621C7B99E003728D7 /* TheaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7066521C7B99E003728D7 /* TheaterModel.swift */; };
 		3C01F40621B7BA3000B7A17B /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C01F40521B7BA3000B7A17B /* CustomImageView.swift */; };
 		3C03604E21C789DC00534368 /* HomeViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C03604D21C789DC00534368 /* HomeViewData.swift */; };
 		3C0464BB21AE5DDC001F38BB /* TrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0464B921AE5DDC001F38BB /* TrailerTableViewCell.swift */; };
@@ -114,15 +109,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0803C5CD21C684A6007FEF1A /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
-		0803C5CF21C68569007FEF1A /* TheaterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterDetail.swift; sourceTree = "<group>"; };
-		0803C5D121C688F9007FEF1A /* TheaterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterManager.swift; sourceTree = "<group>"; };
 		0889AAE421BBA311004E2E74 /* MoviePosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterModel.swift; sourceTree = "<group>"; };
-		08F7065D21C7B78B003728D7 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 		08F7065F21C7B7B6003728D7 /* SeatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatModel.swift; sourceTree = "<group>"; };
 		08F7066121C7B931003728D7 /* MovieTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTitleModel.swift; sourceTree = "<group>"; };
 		08F7066321C7B977003728D7 /* BookingDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDateModel.swift; sourceTree = "<group>"; };
-		08F7066521C7B99E003728D7 /* TheaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterModel.swift; sourceTree = "<group>"; };
 		3C01F40521B7BA3000B7A17B /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		3C03604D21C789DC00534368 /* HomeViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewData.swift; sourceTree = "<group>"; };
 		3C0464B921AE5DDC001F38BB /* TrailerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerTableViewCell.swift; sourceTree = "<group>"; };
@@ -259,10 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				3C2BBF5B21B5622C00C5DB00 /* MovieDetail.swift */,
-				0803C5CD21C684A6007FEF1A /* Theater.swift */,
-				0803C5CF21C68569007FEF1A /* TheaterDetail.swift */,
 				3C03604D21C789DC00534368 /* HomeViewData.swift */,
-				08F7065D21C7B78B003728D7 /* Seat.swift */,
 				4212791D21C897BE00C980CE /* MovieOfficialList.swift */,
 			);
 			path = Movie;
@@ -390,7 +377,6 @@
 			children = (
 				3C2BBF6221B5768800C5DB00 /* MovieManager.swift */,
 				3C09167721BA274100C538D9 /* UserManager.swift */,
-				0803C5D121C688F9007FEF1A /* TheaterManager.swift */,
 				3CE5C5C721C8E7F9007D9C93 /* TicketManager.swift */,
 			);
 			path = Manager;
@@ -533,7 +519,6 @@
 			children = (
 				3CE8DB3E21B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift */,
 				3CE8DB3F21B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift */,
-				08F7066521C7B99E003728D7 /* TheaterModel.swift */,
 			);
 			path = TheaterCell;
 			sourceTree = "<group>";
@@ -908,14 +893,11 @@
 				3CC2E4D121B0FA9A007B9F59 /* SettingInfoTableViewCell.swift in Sources */,
 				3C7E7A4C21BB9AA000A61EE6 /* NotLoginTableViewCell.swift in Sources */,
 				3CE8DB6221B4C6AC00C9DD3B /* SeatViewController.swift in Sources */,
-				0803C5D021C68569007FEF1A /* TheaterDetail.swift in Sources */,
 				3CD5BDFF21AC491200DAA8A6 /* HomeViewCell.swift in Sources */,
 				3C2BBF6321B5768800C5DB00 /* MovieManager.swift in Sources */,
 				08F7066021C7B7B6003728D7 /* SeatModel.swift in Sources */,
 				3CE8DB6021B4C6AC00C9DD3B /* MoviePosterViewController.swift in Sources */,
 				3C2BBF5F21B563AB00C5DB00 /* APIEnum.swift in Sources */,
-				08F7065E21C7B78B003728D7 /* Seat.swift in Sources */,
-				0803C5D221C688F9007FEF1A /* TheaterManager.swift in Sources */,
 				3CE8DB9721B4C99600C9DD3B /* SignInViewController.swift in Sources */,
 				3CE8DBDD21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift in Sources */,
 				420AAFDC21B808570027EDF2 /* StillcutTableViewCell.swift in Sources */,
@@ -929,7 +911,6 @@
 				3CE2C5A921BAD4BB007F6A4E /* LoginTableViewCell.swift in Sources */,
 				3CE8DBD021B4CCB200C9DD3B /* CastCollectionViewCell.swift in Sources */,
 				3CD5BE0521AC495300DAA8A6 /* MYViewCell.swift in Sources */,
-				08F7066621C7B99E003728D7 /* TheaterModel.swift in Sources */,
 				3CE5C5CA21C8F79D007D9C93 /* TheaterMovieList.swift in Sources */,
 				42198AF021BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift in Sources */,
 				4212791E21C897BE00C980CE /* MovieOfficialList.swift in Sources */,
@@ -941,7 +922,6 @@
 				420AAFD321B797E50027EDF2 /* Utils.swift in Sources */,
 				3CE8DB5621B4C6AC00C9DD3B /* PopUpViewController.swift in Sources */,
 				3CD5BDF721AC03C100DAA8A6 /* MenuBar.swift in Sources */,
-				0803C5CE21C684A6007FEF1A /* Theater.swift in Sources */,
 				420AAFD721B805B10027EDF2 /* DescriptionTableViewCell.swift in Sources */,
 				3CF02B6E21C211D0003E8B73 /* PersonalInfoSettingViewController.swift in Sources */,
 				3CE8DB5A21B4C6AC00C9DD3B /* BookingDateTableViewCell.swift in Sources */,
@@ -1109,7 +1089,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G4MM77V7NH;
+				DEVELOPMENT_TEAM = 7TC98YVM4R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CGVProject/Kyu/LoginView/Framework",
@@ -1143,7 +1123,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G4MM77V7NH;
+				DEVELOPMENT_TEAM = 7TC98YVM4R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CGVProject/Kyu/LoginView/Framework",

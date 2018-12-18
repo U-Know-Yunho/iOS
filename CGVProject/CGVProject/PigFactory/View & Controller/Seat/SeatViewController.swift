@@ -30,7 +30,6 @@ class SeatViewController: UIViewController {
 
     //상영관 자세한 정보 받아오기
     var moviePk: Int?
-    var theaterDetail: TheaterDetail?
     
     override func viewDidLoad() {
         super.viewDidLoad()

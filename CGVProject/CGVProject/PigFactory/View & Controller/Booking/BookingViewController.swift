@@ -22,8 +22,6 @@ class BookingViewController: UIViewController {
     //데이터처리 #3 - 영화 정보를 담을 공간을 생성
     var movies: [HomeViewData.Movie]?
     var movieDetails: MovieDetail?
-    var theater: [Theater]?
-    var theaterDetail: TheaterDetail?
     var moviePk: Int?
     
     var a = true
@@ -53,12 +51,6 @@ class BookingViewController: UIViewController {
         MovieManager.singleton.loadMovieDetail(moviePk) { MovieDetails in
             self.movieDetails = MovieDetails
             self.tableView.reloadRows(at: [[0,0]], with: UITableView.RowAnimation.fade)
-        }
-        
-        //상영관 정보 받아오기
-        TheaterManager.singleton.loadTheaterList{ Theater in
-            self.theater = Theater
-            self.tableView.reloadData()
         }
         
         //상영관 상세 정보 받아오기
