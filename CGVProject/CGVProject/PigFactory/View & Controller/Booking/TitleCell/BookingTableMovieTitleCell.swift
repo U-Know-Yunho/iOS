@@ -26,7 +26,7 @@ class BookingTableMovieTitleCell: UITableViewCell {
     var model: MovieTitleModel! {
         didSet {
             movieTitle?.text = model.movieTitle
-            movieInfo?.text = String(model.duration)
+            movieInfo?.text = String(model.duration!)
         }
     }
     

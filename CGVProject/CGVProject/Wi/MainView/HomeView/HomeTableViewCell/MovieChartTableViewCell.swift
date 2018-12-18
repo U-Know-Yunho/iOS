@@ -20,6 +20,10 @@ class MovieChartTableViewCell: UITableViewCell {
     @IBOutlet weak var movieChartCollectionView: UICollectionView!
     var movies: [HomeViewData.Movie]? {
         didSet{
+<<<<<<< HEAD
+=======
+
+>>>>>>> 45598011162716e2b343b277843e4433029d371e
             movieChartCollectionView.reloadData()
         }
     }

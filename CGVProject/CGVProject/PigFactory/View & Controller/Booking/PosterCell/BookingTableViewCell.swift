@@ -12,14 +12,18 @@ class BookingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var posterCollectionView: UICollectionView!
     
+    var moviePk: Int?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-//        posterCollectionView.reloadData()
-
+        posterCollectionView.reloadData()
+        if moviePk == 2 {
+            posterCollectionView.selectItem(at: [0, 0], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+        }
+       
     }
     
     
