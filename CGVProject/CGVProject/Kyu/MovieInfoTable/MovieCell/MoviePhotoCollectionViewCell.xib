@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="413"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="sample1" translatesAutoresizingMaskIntoConstraints="NO" id="Ab5-gV-u7z">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab5-gV-u7z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="413"/>
                     </imageView>
                 </subviews>
@@ -38,7 +38,4 @@
             <point key="canvasLocation" x="64.799999999999997" y="46.326836581709152"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="sample1" width="727" height="405"/>
-    </resources>
 </document>

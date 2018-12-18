@@ -76,4 +76,23 @@ class MovieManager {
         }
     }
     
+    // pk 입력시 pk에 맞는 캐스트 상세정보 불러오는 함수입니다.
+    func loadMovieOfficialList(_ pk: Int, completion: @escaping ((MovieOfficialList)-> Void)) {
+        Alamofire.request(API.MovieURL.MovieOfficialList + "\(pk)/", method: .get).responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                print("loadMovieOfficialList")
+                do {
+                    let movieCast = try JSONDecoder().decode(MovieOfficialList.self, from: data)
+                    completion(movieCast)
+                } catch {
+                    print("\n------------ [ catch ] -------------\n")
+                    print(error.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
 }

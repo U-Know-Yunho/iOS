@@ -15,6 +15,7 @@ class MovieViewController: UIViewController {
     var cellIdentifier: [String] = []
     var moviePk: Int?
     var model: MovieDetail?
+    var cast: MovieOfficialList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,10 @@ class MovieViewController: UIViewController {
             self.movieInfoTableView.reloadData()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem?.tintColor = .black
+        }
+        MovieManager.singleton.loadMovieOfficialList(moviePk!) { cast in
+            self.cast = cast
+            self.movieInfoTableView.reloadData()
         }
         
         // 셀 안의 Item 사이즈에 맞춰서 셀 높이 조절
@@ -113,6 +118,8 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as! CastTableViewCell
+            cell.directors = cast?.directors
+            cell.actors = cast?.casts
             return cell
             
         case 3:
@@ -131,7 +138,6 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
             
         default:
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
             return cell
             
