@@ -61,10 +61,10 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwn-qO-Pt5" customClass="ProductCompanyView" customModule="CGVProject" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="490" width="375" height="45"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="20th_Century_Fox_logo" translatesAutoresizingMaskIntoConstraints="NO" id="5l2-2h-xCN">
-                                <rect key="frame" x="162.66666666666666" y="0.0" width="50" height="45"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5l2-2h-xCN">
+                                <rect key="frame" x="157.66666666666666" y="0.0" width="60" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Pcz-KT-w6C"/>
+                                    <constraint firstAttribute="width" secondItem="5l2-2h-xCN" secondAttribute="height" multiplier="4:3" id="vTZ-RF-Rvo"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -224,14 +224,14 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4B-fg-0no">
-                                <rect key="frame" x="172.66666666666666" y="5" width="30" height="30"/>
+                                <rect key="frame" x="167.66666666666666" y="0.0" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="DgK-4U-wvb"/>
-                                    <constraint firstAttribute="height" constant="30" id="WiT-S7-mwL"/>
+                                    <constraint firstAttribute="width" constant="40" id="DgK-4U-wvb"/>
+                                    <constraint firstAttribute="height" constant="40" id="WiT-S7-mwL"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="share"/>
+                                <state key="normal" title="Button" image="notification"/>
                                 <connections>
-                                    <action selector="shareButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aLp-yg-KbE"/>
+                                    <action selector="alarmButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lQN-27-i7I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42J-Te-AUU">
@@ -292,6 +292,7 @@
                 <outlet property="customMovieInfoButton" destination="C3w-2j-gxd" id="maw-LY-IZj"/>
                 <outlet property="customMovieNewsButton" destination="fKR-Ph-D6k" id="eCy-qf-eR7"/>
                 <outlet property="customProductCompanyView" destination="Qwn-qO-Pt5" id="Dji-NR-Z14"/>
+                <outlet property="distributionImage" destination="5l2-2h-xCN" id="YgN-Lj-P8e"/>
                 <outlet property="likeImageView" destination="EPU-a4-k0Y" id="k8C-P6-Ocf"/>
                 <outlet property="moviePhotoCollectView" destination="BUf-CD-De8" id="Cn5-NC-Zli"/>
                 <outlet property="moviePosterImageView" destination="Bev-mb-7qn" id="cFX-hn-DxJ"/>
@@ -302,12 +303,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="20th_Century_Fox_logo" width="1200" height="960"/>
         <image name="4DX-logo" width="781" height="308.6400146484375"/>
         <image name="Imax_logo" width="500" height="200"/>
         <image name="SCREENX_BLACK" width="288" height="87.120002746582031"/>
         <image name="greyheart" width="102.40000152587891" height="102.40000152587891"/>
-        <image name="share" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="notification" width="192" height="192"/>
         <image name="ticket" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
 </document>
