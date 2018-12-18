@@ -175,7 +175,8 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         case 1: //요일
             return 7
         case 2: //상영시간
-            return 1
+            guard let movies = self.theaterInfo?.subLocation.first?.screenTime else { return 1 }
+            return movies.count
         default:
             return 1
         }
