@@ -15,10 +15,10 @@ class SeatModel {
     var number: Int
     var reservationCheck: Bool
     
-    init(_ seat: Seat) {
-        pk = seat.pk!
-        row = seat.row!
-        number = seat.number!
-        reservationCheck = seat.reservationCheck!
+    init(_ seat: TheaterSeats) {
+        pk = seat.pk
+        row = seat.row
+        number = seat.number
+        reservationCheck = seat.reservationCheck
     }
 }
