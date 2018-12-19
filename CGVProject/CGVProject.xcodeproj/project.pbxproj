@@ -105,6 +105,8 @@
 		420AAFE221B808F90027EDF2 /* StillcutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AAFE021B808F90027EDF2 /* StillcutCollectionViewCell.swift */; };
 		420AAFE321B808F90027EDF2 /* StillcutCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420AAFE121B808F90027EDF2 /* StillcutCollectionViewCell.xib */; };
 		4212791E21C897BE00C980CE /* MovieOfficialList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212791D21C897BE00C980CE /* MovieOfficialList.swift */; };
+		4212794121CA1D9E00C980CE /* ReservationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4212794021CA1D9E00C980CE /* ReservationDetail.storyboard */; };
+		4212794321CA28EF00C980CE /* ReservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212794221CA28EF00C980CE /* ReservationDetailViewController.swift */; };
 		42198AF021BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42198AEF21BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift */; };
 		8992A31FE25CE408FD39EA55 /* Pods_CGVProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAD2C77789BA3D70CF1127A /* Pods_CGVProject.framework */; };
 /* End PBXBuildFile section */
@@ -211,6 +213,8 @@
 		420AAFE021B808F90027EDF2 /* StillcutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillcutCollectionViewCell.swift; sourceTree = "<group>"; };
 		420AAFE121B808F90027EDF2 /* StillcutCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StillcutCollectionViewCell.xib; sourceTree = "<group>"; };
 		4212791D21C897BE00C980CE /* MovieOfficialList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOfficialList.swift; sourceTree = "<group>"; };
+		4212794021CA1D9E00C980CE /* ReservationDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReservationDetail.storyboard; sourceTree = "<group>"; };
+		4212794221CA28EF00C980CE /* ReservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailViewController.swift; sourceTree = "<group>"; };
 		42198AEF21BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillCutCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		B1ADB969A5E1BE593DEACD57 /* Pods-CGVProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGVProject.release.xcconfig"; path = "Target Support Files/Pods-CGVProject/Pods-CGVProject.release.xcconfig"; sourceTree = "<group>"; };
 		D4295228CDF5A16227ADF0B9 /* Pods-CGVProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGVProject.debug.xcconfig"; path = "Target Support Files/Pods-CGVProject/Pods-CGVProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -595,6 +599,7 @@
 			children = (
 				3CE8DBBB21B4CCB100C9DD3B /* MovieInfoTable */,
 				3CE8DB7921B4C99600C9DD3B /* LoginView */,
+				4212793F21CA1D6D00C980CE /* ReservationDetail */,
 				420AAFD121B797CD0027EDF2 /* Utility */,
 			);
 			path = Kyu;
@@ -700,6 +705,15 @@
 			path = StillcutCell;
 			sourceTree = "<group>";
 		};
+		4212793F21CA1D6D00C980CE /* ReservationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4212794021CA1D9E00C980CE /* ReservationDetail.storyboard */,
+				4212794221CA28EF00C980CE /* ReservationDetailViewController.swift */,
+			);
+			path = ReservationDetail;
+			sourceTree = "<group>";
+		};
 		8AC88360601490D3C343DC13 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -800,6 +814,7 @@
 				3C27217E21B0F3B600ABA97B /* DefaultInfoTableViewCell.xib in Resources */,
 				3C0464BC21AE5DDC001F38BB /* TrailerTableViewCell.xib in Resources */,
 				3C0464C521AEA2DE001F38BB /* MovieCollectionViewCell.xib in Resources */,
+				4212794121CA1D9E00C980CE /* ReservationDetail.storyboard in Resources */,
 				3C0464C921AEEE09001F38BB /* EventTableViewCell.xib in Resources */,
 				3CE8DBD121B4CCB200C9DD3B /* CastCollectionViewCell.xib in Resources */,
 				3CFE5B0E21C7C92100EB6C15 /* Assets.xcassets in Resources */,
@@ -882,6 +897,7 @@
 				3CC2E4D621B107DB007B9F59 /* SideMenu.swift in Sources */,
 				0889AAE521BBA311004E2E74 /* MoviePosterModel.swift in Sources */,
 				3C1AD3B521C8CE39009C550F /* AnimationViewController.swift in Sources */,
+				4212794321CA28EF00C980CE /* ReservationDetailViewController.swift in Sources */,
 				3C0464BF21AE7F89001F38BB /* MovieChartTableViewCell.swift in Sources */,
 				3CF2DB7B21C24FC000D908BB /* InfoFixViewController.swift in Sources */,
 				3CE5C5C821C8E7F9007D9C93 /* TicketManager.swift in Sources */,
