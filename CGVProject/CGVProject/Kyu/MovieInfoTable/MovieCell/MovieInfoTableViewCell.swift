@@ -30,26 +30,9 @@ class MovieInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var distributionImage: UIImageView!
     
-//    @IBAction func alarmButton(_ sender: Any) {
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in })
-//
-//        let content = UNMutableNotificationContent()
-//        content.title = "title: 타이틀"
-//        content.subtitle = "subtitle: 서브타이틀"
-//        content.body = "body: 바디"
-//        content.badge = 1
-//        content.sound = UNNotificationSound.default
-//
-//        let date = Date(timeIntervalSinceNow: 2)
-//        var dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-//
-//        //Adding Request
-//        // MARK: - identifier가 다 달라야만 Notification Grouping이 된다
-//        let request = UNNotificationRequest(identifier: "\(index)timerdone", content: content, trigger: trigger)
-//
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-//    }
+    @IBAction func alarmButton(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("AlarmButton"), object: nil)
+    }
     
     @IBAction func bookButton(_ sender: Any) {
         MainViewController.showCurrentMobvieBookPage(moviePk: moviePk ?? 0)
@@ -131,26 +114,6 @@ extension MovieInfoTableViewCell: UICollectionViewDelegateFlowLayout {
         return collectionView.bounds.size
     }
 }
-
-//extension MovieInfoTableViewCell : UNUserNotificationCenterDelegate{
-//    //To display notifications when app is running  inforeground
-//
-//    //앱이 foreground에 있을 때. 즉 앱안에 있어도 push알림을 받게 해준다.
-//    //viewDidLoad()에 UNUserNotificationCenter.current().delegate = self를 추가해줄 것.
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        completionHandler([.alert, .sound, .badge])
-//    }
-//
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
-//        let settingsViewController = UIViewController()
-//        settingsViewController.view.backgroundColor = .gray
-//        self.present(settingsViewController, animated: true, completion: nil)
-//
-//    }
-
-//}
-
-
 
 // 중간 view border line
 private extension UIView{

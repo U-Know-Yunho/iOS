@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import UserNotifications
 
 class MovieViewController: UIViewController {
     
@@ -34,8 +35,29 @@ class MovieViewController: UIViewController {
         movieInfoTableView.rowHeight = UITableView.automaticDimension
         
         registerCell()
+        NotificationCenter.default.addObserver(self, selector: #selector(pushAlarm), name: Notification.Name("AlarmButton"), object: nil)
         
+    }
+    
+    @objc func pushAlarm() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in })
         
+        let content = UNMutableNotificationContent()
+        content.title = "title: 타이틀"
+        content.subtitle = "subtitle: 서브타이틀"
+        content.body = "body: 바디"
+        content.badge = 1
+        content.sound = UNNotificationSound.default
+        
+        let date = Date(timeIntervalSinceNow: 2)
+        var dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        //Adding Request
+        // MARK: - identifier가 다 달라야만 Notification Grouping이 된다
+        let request = UNNotificationRequest(identifier: "\(index)timerdone", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     private func registerCell() {
@@ -147,4 +169,21 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+extension MovieViewController : UNUserNotificationCenterDelegate{
+    //To display notifications when app is running  inforeground
+
+    //앱이 foreground에 있을 때. 즉 앱안에 있어도 push알림을 받게 해준다.
+    //viewDidLoad()에 UNUserNotificationCenter.current().delegate = self를 추가해줄 것.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        let settingsViewController = UIViewController()
+        settingsViewController.view.backgroundColor = .gray
+        self.present(settingsViewController, animated: true, completion: nil)
+
+    }
+
+}
 
