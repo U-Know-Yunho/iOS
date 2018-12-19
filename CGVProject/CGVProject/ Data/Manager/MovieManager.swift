@@ -17,9 +17,10 @@ class MovieManager {
     func loadHomeViewData(nowOpen: Bool, completion: @escaping (HomeViewData) -> Void){
         let header: HTTPHeaders = [ "Content-Type": "application/json"]
         let pram: Parameters = [ "now_open": nowOpen ]
-        Alamofire.request(API.MovieURL.homeViewData,method: .get ,parameters: pram,encoding: JSONEncoding.default, headers: header)
+        Alamofire.request(API.MovieURL.homeViewData,method: .get ,parameters: pram , headers: header)
             .validate()
             .responseData { (response) in
+                print("print Pram:",pram)
                 switch response.result{
                 case .success(let data):
                     do{
