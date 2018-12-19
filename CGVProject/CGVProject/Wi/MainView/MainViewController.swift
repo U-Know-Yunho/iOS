@@ -18,6 +18,7 @@ class MainViewController: UIViewController{
     let aniVC = AnimationViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
+
         present(aniVC, animated: false, completion: nil)
         print("token:",UserManager.singleton.token)
         configure()

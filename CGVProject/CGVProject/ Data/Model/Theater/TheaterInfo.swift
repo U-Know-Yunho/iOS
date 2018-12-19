@@ -37,7 +37,6 @@ struct Movie: Codable {
     let pk: Int
     let title: String
     let thumbImgUrl: String
-    
 }
 
 struct SubLocation: Codable {
