@@ -40,7 +40,6 @@ class BookingViewController: UIViewController {
         TicketManager.singleton.ticketFilter(moviePk: moviePk, location: nil, time: nil) { (TheaterInfo) in
             self.theaterInfo = TheaterInfo
             self.tableView.reloadData()
-            
         }
     }
     
