@@ -59,9 +59,10 @@ extension CastTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         switch indexPath.row {
         case 0:
             let director = directors?[indexPath.item]
-            let korDirectorName = (director?.director)
+            cell.directorLabel.text = "director"
+            let korDirectorName = director?.director
             cell.castKoreanName.text = korDirectorName
-            let engDirectName = director?.engDirector!
+            let engDirectName = director?.engDirector
             cell.castEnglishName.text = engDirectName
             if let directorImg = director?.profileImg,
                 let url = URL(string: directorImg) {

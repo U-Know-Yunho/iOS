@@ -107,6 +107,8 @@
 		4212791E21C897BE00C980CE /* MovieOfficialList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212791D21C897BE00C980CE /* MovieOfficialList.swift */; };
 		4212794121CA1D9E00C980CE /* ReservationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4212794021CA1D9E00C980CE /* ReservationDetail.storyboard */; };
 		4212794321CA28EF00C980CE /* ReservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212794221CA28EF00C980CE /* ReservationDetailViewController.swift */; };
+		4212794521CA345900C980CE /* ReservationDetailCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4212794421CA345900C980CE /* ReservationDetailCustomView.xib */; };
+		4212794721CA375800C980CE /* ReservationDetailCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212794621CA375800C980CE /* ReservationDetailCustomView.swift */; };
 		42198AF021BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42198AEF21BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift */; };
 		8992A31FE25CE408FD39EA55 /* Pods_CGVProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAD2C77789BA3D70CF1127A /* Pods_CGVProject.framework */; };
 /* End PBXBuildFile section */
@@ -215,6 +217,8 @@
 		4212791D21C897BE00C980CE /* MovieOfficialList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOfficialList.swift; sourceTree = "<group>"; };
 		4212794021CA1D9E00C980CE /* ReservationDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReservationDetail.storyboard; sourceTree = "<group>"; };
 		4212794221CA28EF00C980CE /* ReservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailViewController.swift; sourceTree = "<group>"; };
+		4212794421CA345900C980CE /* ReservationDetailCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReservationDetailCustomView.xib; sourceTree = "<group>"; };
+		4212794621CA375800C980CE /* ReservationDetailCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailCustomView.swift; sourceTree = "<group>"; };
 		42198AEF21BFDFF2008BDFD4 /* StillCutCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillCutCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		B1ADB969A5E1BE593DEACD57 /* Pods-CGVProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGVProject.release.xcconfig"; path = "Target Support Files/Pods-CGVProject/Pods-CGVProject.release.xcconfig"; sourceTree = "<group>"; };
 		D4295228CDF5A16227ADF0B9 /* Pods-CGVProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGVProject.debug.xcconfig"; path = "Target Support Files/Pods-CGVProject/Pods-CGVProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -710,6 +714,8 @@
 			children = (
 				4212794021CA1D9E00C980CE /* ReservationDetail.storyboard */,
 				4212794221CA28EF00C980CE /* ReservationDetailViewController.swift */,
+				4212794421CA345900C980CE /* ReservationDetailCustomView.xib */,
+				4212794621CA375800C980CE /* ReservationDetailCustomView.swift */,
 			);
 			path = ReservationDetail;
 			sourceTree = "<group>";
@@ -797,6 +803,7 @@
 				3CE8DBD821B4CCB200C9DD3B /* MovieInfoTableViewCell.xib in Resources */,
 				3CE2C5AA21BAD4BB007F6A4E /* LoginTableViewCell.xib in Resources */,
 				3C7E7A4D21BB9AA000A61EE6 /* NotLoginTableViewCell.xib in Resources */,
+				4212794521CA345900C980CE /* ReservationDetailCustomView.xib in Resources */,
 				3CE8DBD321B4CCB200C9DD3B /* CastTableViewCell.xib in Resources */,
 				3CE8DBD721B4CCB200C9DD3B /* MoviePhotoCollectionViewCell.xib in Resources */,
 				3C27217A21AFD38D00ABA97B /* UserInfoTableViewCell.xib in Resources */,
@@ -949,6 +956,7 @@
 				3CE8DBCE21B4CCB200C9DD3B /* MovieViewController.swift in Sources */,
 				3CE5C5CC21C9073A007D9C93 /* TheaterSeats.swift in Sources */,
 				3C27217D21B0F3B600ABA97B /* DefaultInfoTableViewCell.swift in Sources */,
+				4212794721CA375800C980CE /* ReservationDetailCustomView.swift in Sources */,
 				3C4705BA21ABC5EF00119F53 /* MainViewController.swift in Sources */,
 				3CE8DB5D21B4C6AC00C9DD3B /* BookingViewController.swift in Sources */,
 				420AAFD021B793C10027EDF2 /* SignUpViewController.swift in Sources */,

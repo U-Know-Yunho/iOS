@@ -12,6 +12,8 @@ class CastCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var castImageView: UIImageView!
     
+    @IBOutlet weak var directorLabel: UILabel!
+    
     @IBOutlet weak var castKoreanName: UILabel!
     
     @IBOutlet weak var castEnglishName: UILabel!
