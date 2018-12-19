@@ -15,7 +15,7 @@ class MainViewController: UIViewController{
     // MARK: SideMenu Instance
     let sideMenu = SideMenu()
     let sideMenuWidth: CGFloat = 300
-    let aniVC = AnimationViewController()
+//    let aniVC = AnimationViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         

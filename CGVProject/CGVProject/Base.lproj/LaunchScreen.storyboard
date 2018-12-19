@@ -19,6 +19,10 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cgvLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5ou-sN-tte">
                                 <rect key="frame" x="124" y="133" width="126" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="2nP-hU-13a"/>
+                                    <constraint firstAttribute="width" constant="126" id="B4U-rp-PIj"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
