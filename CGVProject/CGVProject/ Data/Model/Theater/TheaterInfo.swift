@@ -13,7 +13,7 @@ struct TheaterInfo: Codable {
     let movie: [Movie]
     let location: [Location]
     let subLocation: [SubLocation]
-    let date: [[DateElement]]
+    let date: [DateElement]
 }
 
 struct DateElement: Codable {
@@ -42,6 +42,7 @@ struct Movie: Codable {
 struct SubLocation: Codable {
     let subLocation: String
     let screenTime: [ScreenTime]
+    
 }
 
 struct ScreenTime: Codable {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0889AAE521BBA311004E2E74 /* MoviePosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0889AAE421BBA311004E2E74 /* MoviePosterModel.swift */; };
+		089B08A021C95B1500AB2057 /* BookingTheaterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089B089F21C95B1500AB2057 /* BookingTheaterModel.swift */; };
 		08F7066021C7B7B6003728D7 /* SeatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7065F21C7B7B6003728D7 /* SeatModel.swift */; };
 		08F7066221C7B931003728D7 /* MovieTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7066121C7B931003728D7 /* MovieTitleModel.swift */; };
 		08F7066421C7B977003728D7 /* BookingDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7066321C7B977003728D7 /* BookingDateModel.swift */; };
@@ -110,6 +111,7 @@
 
 /* Begin PBXFileReference section */
 		0889AAE421BBA311004E2E74 /* MoviePosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterModel.swift; sourceTree = "<group>"; };
+		089B089F21C95B1500AB2057 /* BookingTheaterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTheaterModel.swift; sourceTree = "<group>"; };
 		08F7065F21C7B7B6003728D7 /* SeatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatModel.swift; sourceTree = "<group>"; };
 		08F7066121C7B931003728D7 /* MovieTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTitleModel.swift; sourceTree = "<group>"; };
 		08F7066321C7B977003728D7 /* BookingDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDateModel.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 			children = (
 				3CE8DB3E21B4C6AC00C9DD3B /* BookingTheaterTableViewCell.swift */,
 				3CE8DB3F21B4C6AC00C9DD3B /* BookingTheaterCollectionViewCell.swift */,
+				089B089F21C95B1500AB2057 /* BookingTheaterModel.swift */,
 			);
 			path = TheaterCell;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				08F7066021C7B7B6003728D7 /* SeatModel.swift in Sources */,
 				3CE8DB6021B4C6AC00C9DD3B /* MoviePosterViewController.swift in Sources */,
 				3C2BBF5F21B563AB00C5DB00 /* APIEnum.swift in Sources */,
+				089B08A021C95B1500AB2057 /* BookingTheaterModel.swift in Sources */,
 				3CE8DB9721B4C99600C9DD3B /* SignInViewController.swift in Sources */,
 				3CE8DBDD21B51B6600C9DD3B /* MovieCollectionViewCellModel.swift in Sources */,
 				420AAFDC21B808570027EDF2 /* StillcutTableViewCell.swift in Sources */,

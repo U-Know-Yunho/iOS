@@ -12,9 +12,11 @@ import Foundation
 class BookingDateModel {
     var day: String?
     var date: String?
+    var show: Bool?
     
     init(_ dateElement: DateElement) {
         day = dateElement.weekday
         date = dateElement.date
+        show = dateElement.show
     }
 }

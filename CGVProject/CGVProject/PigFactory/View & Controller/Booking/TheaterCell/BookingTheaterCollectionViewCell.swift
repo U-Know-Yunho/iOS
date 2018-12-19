@@ -18,4 +18,12 @@ class BookingTheaterCollectionViewCell: UICollectionViewCell {
         theaterTimeTable.layer.cornerRadius = theaterTimeTable.frame.height / 4
         theaterTimeTable.layer.borderWidth = 0.5
     }
+    
+    var model: BookingTheaterModel? {
+        
+        didSet {
+            theaterTimeTable.setTitle(model?.times, for: UIControl.State.normal)
+            theaterSeat.text = String(model?.currentSeat ?? 0)
+        }
+    }
 }

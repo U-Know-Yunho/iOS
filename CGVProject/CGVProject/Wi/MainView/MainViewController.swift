@@ -18,8 +18,7 @@ class MainViewController: UIViewController{
     let aniVC = AnimationViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        present(aniVC, animated: false, completion: nil)
+        
         print("token:",UserManager.singleton.token)
         configure()
         let leftNaviButton = UIBarButtonItem(image: UIImage(named: "cgvLogo"), style: .plain, target: self, action: #selector(cgvBtnDidTap))
@@ -30,7 +29,7 @@ class MainViewController: UIViewController{
         navigationItem.backBarButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem?.tintColor = .black
 //        self.navigationItem.backBarButtonItem = backNaviButton
-        
+//        present(aniVC, animated: false, completion: nil)
     }
     var isSidemenuOpen = false
     override func viewWillAppear(_ animated: Bool) {

@@ -17,11 +17,6 @@ class MoviePosterCollectionViewCell: UICollectionViewCell {
         
         didSet {
             posterView.kf.setImage(with: URL(string: model.moviePosterImageUrl))
-            
-//            posterView.kf.setImage(
-//                with: url,
-//                options: [.processor(ResizingImageProcessor(referenceSize: CGSize(width: 100, height: 100)))]
-//            )
         }
     }
     
