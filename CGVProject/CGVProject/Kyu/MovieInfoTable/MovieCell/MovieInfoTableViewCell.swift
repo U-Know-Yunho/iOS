@@ -62,7 +62,6 @@ class MovieInfoTableViewCell: UITableViewCell {
         movieTitleLabel.adjustsFontSizeToFitWidth = true
         
         distributionImage.image = UIImage(named: distributionCompany.randomElement() ?? "")
-//        UNUserNotificationCenter.current().delegate = self
     }
     
     @objc func likeImageTap(_ sender: UITapGestureRecognizer) {

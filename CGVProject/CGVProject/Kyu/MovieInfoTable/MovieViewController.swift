@@ -35,6 +35,7 @@ class MovieViewController: UIViewController {
         movieInfoTableView.rowHeight = UITableView.automaticDimension
         
         registerCell()
+        UNUserNotificationCenter.current().delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(pushAlarm), name: Notification.Name("AlarmButton"), object: nil)
         
     }
@@ -49,7 +50,7 @@ class MovieViewController: UIViewController {
         content.badge = 1
         content.sound = UNNotificationSound.default
         
-        let date = Date(timeIntervalSinceNow: 2)
+        let date = Date(timeIntervalSinceNow: 5)
         var dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
