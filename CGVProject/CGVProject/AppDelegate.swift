@@ -78,10 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboardID = KOSession.shared().isOpen() ? "MainViewController" : "MainViewController"
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardID)
         navigationController.viewControllers = [vc]
-        animationVC.completion = {
-            self.window?.rootViewController = navigationController
-        }
-        window?.rootViewController = animationVC
+        navigationController.show(animationVC, sender: nil)
+        window?.rootViewController = navigationController
+        
         
         
         

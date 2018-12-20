@@ -17,13 +17,43 @@
                     <view key="view" contentMode="scaleToFill" id="MrC-IZ-n2U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWs-b1-L3V">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuno1" translatesAutoresizingMaskIntoConstraints="NO" id="Roz-iI-35s">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="600" id="qzp-fp-VJa"/>
+                                            <constraint firstAttribute="height" constant="700" id="ugO-ie-vkb"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Roz-iI-35s" secondAttribute="bottom" id="0PK-8C-6VT"/>
+                                    <constraint firstItem="Roz-iI-35s" firstAttribute="top" secondItem="mWs-b1-L3V" secondAttribute="top" id="4yq-lt-tGE"/>
+                                    <constraint firstItem="Roz-iI-35s" firstAttribute="leading" secondItem="mWs-b1-L3V" secondAttribute="leading" id="cfv-L4-sIY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Roz-iI-35s" secondAttribute="trailing" id="zmO-Z6-BHB"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EYi-8Z-ol4" firstAttribute="trailing" secondItem="mWs-b1-L3V" secondAttribute="trailing" id="DXC-mB-LGb"/>
+                            <constraint firstItem="EYi-8Z-ol4" firstAttribute="bottom" secondItem="mWs-b1-L3V" secondAttribute="bottom" id="WjA-eW-1nQ"/>
+                            <constraint firstItem="mWs-b1-L3V" firstAttribute="leading" secondItem="EYi-8Z-ol4" secondAttribute="leading" id="Z06-qj-4cA"/>
+                            <constraint firstItem="mWs-b1-L3V" firstAttribute="top" secondItem="EYi-8Z-ol4" secondAttribute="top" id="nra-jF-rCq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EYi-8Z-ol4"/>
                     </view>
                     <navigationItem key="navigationItem" id="zqQ-dc-j6D"/>
+                    <connections>
+                        <outlet property="imageView" destination="Roz-iI-35s" id="lj4-97-d4h"/>
+                        <outlet property="scrollView" destination="mWs-b1-L3V" id="G9N-91-azP"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1639" y="651"/>
+            <point key="canvasLocation" x="143" y="331"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="24L-ub-viq">
@@ -62,4 +92,7 @@
             <point key="canvasLocation" x="846" y="193"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="yuno1" width="600" height="600"/>
+    </resources>
 </document>
