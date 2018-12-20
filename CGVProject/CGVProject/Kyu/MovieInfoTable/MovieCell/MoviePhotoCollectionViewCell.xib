@@ -25,9 +25,9 @@
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Ab5-gV-u7z" secondAttribute="bottom" id="2Gh-1W-Uh4"/>
-                <constraint firstAttribute="trailing" secondItem="Ab5-gV-u7z" secondAttribute="trailing" id="G68-vA-UGb"/>
+                <constraint firstItem="Ab5-gV-u7z" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="9A0-rL-KuN"/>
+                <constraint firstAttribute="trailing" secondItem="Ab5-gV-u7z" secondAttribute="trailing" id="Alv-Iq-T3o"/>
                 <constraint firstItem="Ab5-gV-u7z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="P6j-qj-K0M"/>
-                <constraint firstItem="Ab5-gV-u7z" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="RYN-c8-Ril"/>
                 <constraint firstItem="Ab5-gV-u7z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="z5L-ax-rZn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>

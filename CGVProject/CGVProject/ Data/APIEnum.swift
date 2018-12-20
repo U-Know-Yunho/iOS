@@ -30,6 +30,7 @@ enum API{
     enum UserURL {
         static let userProfile = API.baseURL + "members/profile/"
         static let userDelete = API.baseURL + "members/user-delete/"
+        static let userReservation = API.baseURL + "members/reservations/"
         
     }
     

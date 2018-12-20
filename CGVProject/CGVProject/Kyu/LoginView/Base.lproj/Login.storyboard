@@ -114,7 +114,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="CJ_CGV_logo"/>
                                 <connections>
-                                    <segue destination="3oL-eX-pyq" kind="show" id="KrR-1y-4Er"/>
+                                    <segue destination="gDa-NF-Yjx" kind="unwind" unwindAction="unwindToMainViewController:" id="XlW-AZ-cIf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -147,6 +147,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="gDa-NF-Yjx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1736.8" y="26.600985221674879"/>
         </scene>
