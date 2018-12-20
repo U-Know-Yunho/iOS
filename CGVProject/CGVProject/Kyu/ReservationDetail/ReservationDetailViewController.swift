@@ -35,6 +35,7 @@ class ReservationDetailViewController: UIViewController {
 
         setReservationInfo()
         closeReservationView()
+        bookCancelButtonDidTap()
     }
     
     
@@ -61,6 +62,20 @@ class ReservationDetailViewController: UIViewController {
     @objc func showMainView() {
     dismiss(animated: false)
         MainViewController.showMainViewController()
+    }
+    
+    func bookCancelButtonDidTap() {
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteReservation), name: NSNotification.Name(rawValue: "BookCancel"), object: nil)
+    }
+    
+    @objc func deleteReservation() {
+        guard let pk = self.bookPk else { return }
+        print("\n------------ [ printPk ] -------------\n")
+        print(pk)
+        TicketManager.singleton.userReservationDelete(reservationPk: pk) {_ in
+            self.dismiss(animated: false)
+            MainViewController.showMainViewController()
+        }
     }
     
 }

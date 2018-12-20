@@ -26,6 +26,7 @@ class ReservationDetailCustomView: UIView {
     
     
     @IBAction func bookCancelButton(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("BookCancel"), object: nil)
     }
     
     

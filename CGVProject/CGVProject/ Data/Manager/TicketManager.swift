@@ -127,15 +127,15 @@ class TicketManager{
         }
         
     }
-    func userReservationDelete(reservationPk: Int,completion: @escaping (([TheaterReservation])-> Void)){
+    func userReservationDelete(reservationPk: Int,completion: @escaping ((TheaterReservation)-> Void)){
         
-        Alamofire.request(API.UserURL.userReservation + "\(reservationPk)", method: .patch, encoding: JSONEncoding.default, headers: header)
+        Alamofire.request(API.UserURL.userReservation + "\(reservationPk)/", method: .patch, encoding: JSONEncoding.default, headers: header)
             .validate()
             .responseData { (response) in
                 switch response.result{
                 case .success(let value):
                     do {
-                        let userReservations = try JSONDecoder().decode([TheaterReservation].self, from: value)
+                        let userReservations = try JSONDecoder().decode(TheaterReservation.self, from: value)
                         completion(userReservations)
                     }catch{
                         print("userReservations decode :", error)
