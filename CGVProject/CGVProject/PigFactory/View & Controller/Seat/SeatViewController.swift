@@ -36,27 +36,15 @@ class SeatViewController: UIViewController {
         buttonRoundCorners(item: topButton, cornerRadius: 20)
         viewRoundCorners(item: bottomView, cornerRadius: 20)
         
-        //데이터 처리 #2
-        //예약된 좌석 정보 불러오기
-        var model: SeatModel! {
-            didSet {
-                reservedSeats.append(model.row)
-            }
-        }
-
-        print(reservedSeats)
-        
         //좌석 정보 받아오기
         guard let pk = pk else {return}
         TicketManager.singleton.selectSeats(screenTimePk: pk) { TheaterSeats in
             self.theaterSeat = TheaterSeats
+            self.aa.reloadData()
+            
         }
-//        TheaterManager.singleton.loadTheaterDetail(moviePk) { aa in
-//            self.theaterDetail = aa
-//        }
-        
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         print("좌석데이터 넘어왔다2 성공입니다:", self.pk)
         alert()
@@ -141,48 +129,69 @@ class SeatViewController: UIViewController {
         alert.addAction(OKButton)
         present(alert, animated: true)
     }
+    
+    
+    @IBAction func payment(_ sender: UIButton) {
+        if reservedSeats.count >= 1 {
+            print(self.pk!,self.reservedSeats)
+            TicketManager.singleton.createReservations(screenTimePk: self.pk!, seatsPks: self.reservedSeats) { (theaterReservation) in
+                
+                print(theaterReservation)
+            }
+        }
+    }
+    
+    
 }
 
 extension SeatViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 10
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeatCollectionViewCell", for: indexPath) as! SeatCollectionViewCell
-        cell.backgroundColor = .lightGray
+            guard let theaterSeat = self.theaterSeat?[indexPath.row] else { return cell }
+        cell.model = SeatModel(theaterSeat)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let color = collectionView.cellForItem(at: indexPath)?.backgroundColor
         
-        let color = collectionView.cellForItem(at: indexPath)?.backgroundColor
-        if normalCounting != 0 {
-            if checkingChooseSeats.count < normalCounting {
-                if color == .lightGray {
-                    // 3자리 동시 예약 적용
-                    //                    for i in 0..<normalCounting {
-                    //                        checkingChooseSeats.append([indexPath.section, indexPath.item + i])
-                    //                        collectionView.cellForItem(at: [indexPath.section, indexPath.item + i])?.backgroundColor = .red
-                    //                    }
-                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .red
-                    checkingChooseSeats.append(indexPath)
-                } else {
-                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
-                    checkingChooseSeats.remove(at: checkingChooseSeats.index(of: indexPath)!)
-                }
-            } else if checkingChooseSeats.count == normalCounting {
-                if color == .red {
-                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
-                    checkingChooseSeats.remove(at: checkingChooseSeats.index(of: indexPath)!)
-                }
-            }
+        
+        if reservedSeats.contains(self.theaterSeat![indexPath.row].pk) {
+            self.reservedSeats.remove(at: reservedSeats.index(of: self.theaterSeat![indexPath.row].pk)!)
+            collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
+        } else {
+            self.reservedSeats.append(self.theaterSeat![indexPath.row].pk)
+            collectionView.cellForItem(at: indexPath)?.backgroundColor = .red
         }
+        print(reservedSeats)
+//        if normalCounting != 0 {
+//            if checkingChooseSeats.count < normalCounting {
+//
+//                if color == .lightGray {
+//                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .red
+//                    checkingChooseSeats.append(indexPath)
+//                } else {
+//                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
+////                    checkingChooseSeats.remove(at: checkingChooseSeats.index(of: indexPath)!)
+//                }
+//            } else if checkingChooseSeats.count == normalCounting {
+//                if color == .red {
+//                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
+////                    checkingChooseSeats.remove(at: checkingChooseSeats.index(of: indexPath)!)
+//                }
+//            }
+//        }
+    
     }
 }

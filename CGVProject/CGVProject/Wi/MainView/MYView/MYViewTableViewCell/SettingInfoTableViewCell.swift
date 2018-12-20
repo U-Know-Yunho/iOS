@@ -51,6 +51,7 @@ extension SettingInfoTableViewCell: UITableViewDelegate{
         switch indexPath.row {
         case 0:
             print("예매내역 클릭")
+            MainViewController.showReservationPage()
         case 1:
             print("결제내역조회 클릭")
         case 2:

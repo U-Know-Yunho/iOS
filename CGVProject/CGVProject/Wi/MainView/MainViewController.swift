@@ -66,6 +66,15 @@ class MainViewController: UIViewController{
     }
     
     // MARK: static func
+    static func showReservationPage(){
+        
+        print("showReservationDetail")
+        let reservationDetailStoryboard = UIStoryboard(name: "ReservationDetail", bundle: nil)
+        guard let reserVC = reservationDetailStoryboard.instantiateViewController(withIdentifier: "ReservationDetailViewController") as? ReservationDetailViewController  else {
+            return print("ReservationDetail faild")
+        }
+        UIApplication.shared.delegate?.window!!.rootViewController?.present(reserVC, animated: false)
+    }
     static func showMainViewController(){
         print("showMainViewController")
         let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)

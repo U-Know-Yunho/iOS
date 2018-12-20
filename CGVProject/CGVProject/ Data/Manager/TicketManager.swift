@@ -13,6 +13,7 @@ class TicketManager{
     static let singleton = TicketManager()
     let token = UserManager.singleton.token
     let header: HTTPHeaders = [
+        "Content-Type": "application/json",
         "Authorization": UserManager.singleton.token ?? ""
     ]
     // MARK: 티켓리스트
@@ -86,7 +87,7 @@ class TicketManager{
             "screen": screenTimePk,
             "seats": seatsPks
         ]
-        Alamofire.request(API.TheaterURL.reservations, method: .get, parameters: prams, headers: header)
+        Alamofire.request(API.TheaterURL.reservations, method: .post, parameters: prams, encoding: JSONEncoding.default, headers: header)
         .validate()
             .responseData { (response) in
                 switch response.result{
@@ -107,7 +108,8 @@ class TicketManager{
     
     func loadUserReservations(completion: @escaping (([TheaterReservation])-> Void)){
         
-        Alamofire.request(API.UserURL.userReservation, method: .get, encoding: JSONEncoding.default, headers: header)
+        print(UserManager.singleton.token)
+        Alamofire.request(API.UserURL.userReservation + "\(33)/", method: .get,encoding: JSONEncoding.default,  headers: header)
         .validate()
             .responseData { (response) in
                 switch response.result{
