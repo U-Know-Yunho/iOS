@@ -14,7 +14,6 @@ class AnimationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.contentMode = .left
         self.navigationController?.isNavigationBarHidden = true
         UIView.animate(withDuration: 2, animations: {
             self.scrollView.contentOffset.x += 300
