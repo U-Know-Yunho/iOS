@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - App Life Cycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //유효하지 않은 토큰 삭제용
-        //UserManager.singleton.token = nil
+//        UserManager.singleton.token = nil
         initializeApp()
         return true
     }

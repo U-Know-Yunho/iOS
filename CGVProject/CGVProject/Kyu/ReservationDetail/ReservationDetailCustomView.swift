@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ReservationDetailCustomView: UIView {
 
     private let xibName = "ReservationDetailCustomView"
     
     @IBAction func closeButton(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("CloseButton"), object: nil)
     }
     
     @IBOutlet weak var bookMoviePosterImageView: UIImageView!
@@ -20,6 +22,8 @@ class ReservationDetailCustomView: UIView {
     @IBOutlet weak var bookMovieTheaterLabel: UILabel!
     @IBOutlet weak var bookMovieScreenLabel: UILabel!
     @IBOutlet weak var bookMovieTimeLabel: UILabel!
+    @IBOutlet weak var bookNumberOfSeats: UILabel!
+    
     
     @IBAction func bookCancelButton(_ sender: Any) {
     }
