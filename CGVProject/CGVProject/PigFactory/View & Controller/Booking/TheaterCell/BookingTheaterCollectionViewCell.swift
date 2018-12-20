@@ -21,7 +21,6 @@ class BookingTheaterCollectionViewCell: UICollectionViewCell {
             for i in model?.times ?? "0" {
                 b += 1
                 a.append(i)
-                print(a)
                 if b == 5 {
                     break
                 }

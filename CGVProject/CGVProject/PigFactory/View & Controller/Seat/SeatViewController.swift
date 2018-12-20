@@ -20,7 +20,8 @@ class SeatViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var theaterInfo: UILabel!
     @IBOutlet weak var price: UILabel!
-    
+    var priceCount = 0
+
     
     @IBOutlet weak var aa: UICollectionView!
     
@@ -29,6 +30,7 @@ class SeatViewController: UIViewController {
     var reservedSeats: [Int] = []
     //좌석 정보 받아오기
     var pk: Int?
+    var moviePk: Int?
     var theaterSeat: [TheaterSeats]?
     
     override func viewDidLoad() {
@@ -43,6 +45,7 @@ class SeatViewController: UIViewController {
             self.aa.reloadData()
             
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,34 +167,19 @@ extension SeatViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let color = collectionView.cellForItem(at: indexPath)?.backgroundColor
-        
         
         if reservedSeats.contains(self.theaterSeat![indexPath.row].pk) {
             self.reservedSeats.remove(at: reservedSeats.index(of: self.theaterSeat![indexPath.row].pk)!)
+//            self.checkingChooseSeats.remove(at: checkingChooseSeats.index(of: indexPath)!)
             collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
+            priceCount -= 1
         } else {
             self.reservedSeats.append(self.theaterSeat![indexPath.row].pk)
+//            self.checkingChooseSeats.append(indexPath)
             collectionView.cellForItem(at: indexPath)?.backgroundColor = .red
+            priceCount += 1
         }
+        price.text = "\(priceCount * 10000)원"
         print(reservedSeats)
-//        if normalCounting != 0 {
-//            if checkingChooseSeats.count < normalCounting {
-//
-//                if color == .lightGray {
-//                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .red
-//                    checkingChooseSeats.append(indexPath)
-//                } else {
-//                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
-////                    checkingChooseSeats.remove(at: checkingChooseSeats.index(of: indexPath)!)
-//                }
-//            } else if checkingChooseSeats.count == normalCounting {
-//                if color == .red {
-//                    collectionView.cellForItem(at: indexPath)?.backgroundColor = .lightGray
-////                    checkingChooseSeats.remove(at: checkingChooseSeats.index(of: indexPath)!)
-//                }
-//            }
-//        }
-    
     }
 }

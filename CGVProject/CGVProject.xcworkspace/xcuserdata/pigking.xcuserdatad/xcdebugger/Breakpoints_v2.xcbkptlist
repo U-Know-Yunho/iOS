@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CGVProject/PigFactory/View &amp; Controller/Booking/BookingViewController.swift"
-            timestampString = "566982288.326816"
+            timestampString = "566986007.842317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CGVProject/PigFactory/View &amp; Controller/Booking/BookingViewController.swift"
-            timestampString = "566982288.327297"
+            timestampString = "566986007.843002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "273"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CGVProject/PigFactory/View &amp; Controller/Booking/BookingViewController.swift"
-            timestampString = "566982288.327678"
+            timestampString = "566986007.843538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CGVProject/PigFactory/View &amp; Controller/Booking/BookingViewController.swift"
-            timestampString = "566982288.328032"
+            timestampString = "566986007.844043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "227"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CGVProject/PigFactory/View &amp; Controller/Booking/BookingViewController.swift"
-            timestampString = "566982288.328397"
+            timestampString = "566986007.844588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
@@ -186,28 +186,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CGVProject/PigFactory/View &amp; Controller/Booking/BookingViewController.swift"
-            timestampString = "566982288.3288291"
+            timestampString = "566986007.845216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "230"
             endingLineNumber = "230"
             landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CGVProject/PigFactory/View &amp; Controller/Booking/PosterCell/BookingTableViewCell.swift"
-            timestampString = "566982288.329338"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "setSelected(_:animated:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
