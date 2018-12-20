@@ -9,11 +9,12 @@
 import Foundation
 
 struct TheaterReservation : Codable {
-    let pk: Int
+    let pk: Int // 예약번호
     let screeningSet: ScreeningSet
-    let num: Int
+    let num: Int    // 인원수
     let seatsReserved: [SeatsReserved]
     let isActive: Bool
+    
 }
 
 struct ScreeningSet: Codable {
