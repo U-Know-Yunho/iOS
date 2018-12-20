@@ -10,7 +10,7 @@ import UIKit
 
 class ReservationDetailViewController: UIViewController {
 
-    var moviePk: Int?
+    var bookPk: Int?
     var book: [TheaterReservation]?
     var screen: ScreeningSet?
     var seat: [SeatsReserved]?
@@ -28,6 +28,7 @@ class ReservationDetailViewController: UIViewController {
             self.book = book
             self.screen = book.first?.screeningSet
             self.seat = book.first?.seatsReserved
+            self.bookPk = book.first?.pk
             self.setReservationInfo()
 
         }
@@ -58,7 +59,8 @@ class ReservationDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(showMainView), name: Notification.Name("CloseButton"), object: nil)
     }
     @objc func showMainView() {
-    MainViewController.showMainViewController()
+    dismiss(animated: false)
+        MainViewController.showMainViewController()
     }
     
 }
