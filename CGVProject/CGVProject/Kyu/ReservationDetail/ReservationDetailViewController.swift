@@ -28,7 +28,7 @@ class ReservationDetailViewController: UIViewController {
             self.seat = book.first?.seatsReserved
         }
         setReservationInfo()
-        
+        closeReservationView()
     }
     
     
@@ -39,6 +39,13 @@ class ReservationDetailViewController: UIViewController {
         reservation.bookMovieTheaterLabel.text = self.screen?.theater
         reservation.bookMovieTimeLabel.text = self.screen?.time
         reservation.bookMovieScreenLabel.text = self.seat?.first?.seatName
+    }
+    
+    func closeReservationView() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showMainView), name: Notification.Name("CloseButton"), object: nil)
+    }
+    @objc func showMainView() {
+    MainViewController.showMainViewController()
     }
     
 }
