@@ -114,7 +114,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="CJ_CGV_logo"/>
                                 <connections>
-                                    <segue destination="gDa-NF-Yjx" kind="unwind" unwindAction="unwindToMainViewController:" id="XlW-AZ-cIf"/>
+                                    <segue destination="gDa-NF-Yjx" kind="unwind" unwindAction="unwindToMainViewController:" id="yIr-46-r5s"/>
                                 </connections>
                             </button>
                         </subviews>

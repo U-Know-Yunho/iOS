@@ -11,7 +11,9 @@ import UIKit
 class ReservationDetailViewController: UIViewController {
 
     var moviePk: Int?
-    var book: TheaterReservation?
+    var book: [TheaterReservation]?
+    var screen: ScreeningSet?
+    var seat: [SeatsReserved]?
     @IBOutlet weak var reservationDetailView: ReservationDetailCustomView!
     
 
@@ -20,7 +22,23 @@ class ReservationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        TicketManager.singleton.loadUserReservations { book in
+            self.book = book
+            self.screen = book.first?.screeningSet
+            self.seat = book.first?.seatsReserved
+        }
+        setReservationInfo()
         
+    }
+    
+    
+    func setReservationInfo() {
+       
+        guard let reservation = self.reservationDetailView else { return }
+    reservation.bookMovieTitleLabel.text = self.screen?.title
+        reservation.bookMovieTheaterLabel.text = self.screen?.theater
+        reservation.bookMovieTimeLabel.text = self.screen?.time
+        reservation.bookMovieScreenLabel.text = self.seat?.first?.seatName
     }
     
 }
