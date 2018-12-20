@@ -13,12 +13,11 @@ class TicketManager{
     static let singleton = TicketManager()
     let token = UserManager.singleton.token
     let header: HTTPHeaders = [
-        "Content-Type": "application/json",
         "Authorization": UserManager.singleton.token ?? ""
     ]
     // MARK: 티켓리스트
-    func ticketLoadMovieList(completion: @escaping (([TheaterMovieList]) -> Void)){
-        Alamofire.request(API.TheaterURL.theaterList, method: .get, encoding: JSONEncoding.default, headers: header)
+    func ticketLoadMovieList(completion: @escaping (([TheaterMovieList]) -> Void)){    
+        Alamofire.request(API.TheaterURL.theaterList, method: .get, headers: header)
         .validate()
             .responseData { (response) in
                 switch response.result{
@@ -43,7 +42,7 @@ class TicketManager{
             "time" : time ?? ""
         ]
 
-        Alamofire.request(API.TheaterURL.theaterFilter + "\(moviePk)/", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header)
+        Alamofire.request(API.TheaterURL.theaterFilter + "\(moviePk)/", method: .get, parameters: nil, headers: header)
         .validate()
             .responseData { (response) in
                 switch response.result{
@@ -64,7 +63,7 @@ class TicketManager{
     
     func selectSeats(screenTimePk: Int,completion: @escaping (([TheaterSeats]) -> Void)){
         
-        Alamofire.request(API.TheaterURL.seats + "\(screenTimePk)/", method: .get, encoding: JSONEncoding.default, headers: header)
+        Alamofire.request(API.TheaterURL.seats + "\(screenTimePk)/", method: .get, headers: header)
         .validate()
             .responseData { (response) in
                 switch response.result{
@@ -87,7 +86,7 @@ class TicketManager{
             "screen": screenTimePk,
             "seats": seatsPks
         ]
-        Alamofire.request(API.TheaterURL.reservations, method: .get, parameters: prams, encoding: JSONEncoding.default, headers: header)
+        Alamofire.request(API.TheaterURL.reservations, method: .get, parameters: prams, headers: header)
         .validate()
             .responseData { (response) in
                 switch response.result{
