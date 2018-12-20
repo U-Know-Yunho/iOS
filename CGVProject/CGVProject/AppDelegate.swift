@@ -73,13 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupRootViewController() {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-        
-        
+        let navigationController = storyboard.instantiateViewController(withIdentifier: "HomeViewNaviController") as! HomeViewNaviController
+        let animationVC = storyboard.instantiateViewController(withIdentifier: "AnimationViewController") as! AnimationViewController
         let storyboardID = KOSession.shared().isOpen() ? "MainViewController" : "MainViewController"
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardID)
         navigationController.viewControllers = [vc]
-        window?.rootViewController = navigationController
+        animationVC.completion = {
+            self.window?.rootViewController = navigationController
+        }
+        window?.rootViewController = animationVC
+        
         
         
     }

@@ -9,6 +9,7 @@
 import UIKit
 
 class AnimationViewController: UIViewController {
+    var completion: (() -> Void) = {}
     let imageView = UIImageView()
     let scrollView = UIScrollView()
     
@@ -39,6 +40,7 @@ class AnimationViewController: UIViewController {
         }) { (isFinish) in
             if isFinish{
                 self.dismiss(animated: false, completion: nil)
+                self.completion()
             }
         }
         // Do any additional setup after loading the view.
