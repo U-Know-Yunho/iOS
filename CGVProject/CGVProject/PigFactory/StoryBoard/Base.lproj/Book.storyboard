@@ -608,7 +608,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="mXP-wT-UIw"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="RhK-GN-uGv">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="6" minimumInteritemSpacing="4" id="RhK-GN-uGv">
                                     <size key="itemSize" width="25" height="25"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -621,8 +621,22 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-iD-DLY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                </view>
+                                            </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="K5e-iD-DLY" firstAttribute="leading" secondItem="r6X-ps-a5F" secondAttribute="leading" id="85u-n4-1mG"/>
+                                            <constraint firstItem="K5e-iD-DLY" firstAttribute="top" secondItem="r6X-ps-a5F" secondAttribute="top" id="Gga-bp-luM"/>
+                                            <constraint firstAttribute="bottom" secondItem="K5e-iD-DLY" secondAttribute="bottom" id="HBc-pW-efB"/>
+                                            <constraint firstAttribute="trailing" secondItem="K5e-iD-DLY" secondAttribute="trailing" id="d0j-ay-kXf"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="seatView" destination="K5e-iD-DLY" id="9aA-Dz-13J"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -642,6 +656,9 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="결제"/>
+                                        <connections>
+                                            <action selector="payment:" destination="FMN-Zy-mH5" eventType="touchUpInside" id="TLt-sg-pex"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaL-FL-OeU">
                                         <rect key="frame" x="20" y="8" width="42" height="21"/>
