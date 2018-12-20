@@ -12,9 +12,22 @@ class BookingTheaterCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var theaterTimeTable: UILabel!
     @IBOutlet weak var theaterSeat: UILabel!
+    
     var model: BookingTheaterModel! {
         didSet {
-            theaterTimeTable.text = model.times
+            
+            var a = ""
+            var b = 0
+            for i in model?.times ?? "0" {
+                b += 1
+                a.append(i)
+                print(a)
+                if b == 5 {
+                    break
+                }
+            }
+            
+            theaterTimeTable.text = a
             theaterSeat.text = String(model.currentSeat ?? 0)
         }
     }

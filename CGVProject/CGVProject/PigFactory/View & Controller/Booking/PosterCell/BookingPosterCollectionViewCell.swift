@@ -18,8 +18,6 @@ class BookingPosterCollectionViewCell: UICollectionViewCell {
     var model: MoviePosterCollectionViewCellModel! {
         didSet {
             bookingPosterView.kf.setImage(with: URL(string: model.moviePosterImageUrl))
-//            a.append(model.pk)
-//            print("aaaaaaaa:", a)
         }
     }
     
