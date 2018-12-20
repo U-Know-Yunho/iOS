@@ -10,20 +10,24 @@ import UIKit
 
 class BookingTheaterCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var theaterTimeTable: UIButton!
+    @IBOutlet weak var theaterTimeTable: UILabel!
     @IBOutlet weak var theaterSeat: UILabel!
-    
+    var model: BookingTheaterModel! {
+        didSet {
+            theaterTimeTable.text = model.times
+            theaterSeat.text = String(model.currentSeat ?? 0)
+        }
+    }
     
     override func awakeFromNib() {
+        theaterTimeTable.isUserInteractionEnabled = true
+        theaterTimeTable.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(theaterTimeTableDidtap)))
         theaterTimeTable.layer.cornerRadius = theaterTimeTable.frame.height / 4
         theaterTimeTable.layer.borderWidth = 0.5
     }
     
-    var model: BookingTheaterModel? {
-        
-        didSet {
-            theaterTimeTable.setTitle(model?.times, for: UIControl.State.normal)
-            theaterSeat.text = String(model?.currentSeat ?? 0)
-        }
+    @objc private func theaterTimeTableDidtap(){
+        let dic = ["pk": model.pk]
+        NotificationCenter.default.post(name: NSNotification.Name("theaterTimeTableDidTap"), object: nil, userInfo: dic)
     }
 }

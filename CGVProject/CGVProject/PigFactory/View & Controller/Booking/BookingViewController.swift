@@ -13,8 +13,9 @@ class BookingViewController: UIViewController {
     var movieDetails: MovieDetail?
     var theaterInfo: TheaterInfo?
     var moviePk: Int?
-    
+    var screentimePk: Int?
     var a = true
+    var b: Int?
     
     @IBAction func unwindToBooking(_ unwindSegue: UIStoryboardSegue) {
     }
@@ -41,7 +42,23 @@ class BookingViewController: UIViewController {
             self.theaterInfo = TheaterInfo
             self.tableView.reloadData()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(theaterTimeTableDidTap(_:)), name: NSNotification.Name("theaterTimeTableDidTap"), object: nil)
     }
+    
+    @objc private func theaterTimeTableDidTap(_ noti: Notification){
+        guard let userInfo = noti.userInfo as? [String: Int?], let pk = userInfo["pk"] else {print("NotiPk err"); return}
+        self.screentimePk = pk
+        print("좌석데이터 넘어왔다. pk:",pk)
+        let bookStoryboard = UIStoryboard(name: "Book", bundle: nil)
+        guard let popVC = bookStoryboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController  else {
+            return print("Bookstoryborad faild")
+        }
+        
+       popVC.scPk = pk
+        UIApplication.shared.delegate?.window!!.rootViewController?.present(popVC, animated: true)
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         //print("----------------[2. view did appear] ---------------")
@@ -119,25 +136,15 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTheaterTableViewCell", for: indexPath) as! BookingTheaterTableViewCell
+            print("----------------[tableview \(indexPath)] ---------------")
+
             guard let time = self.theaterInfo else { return cell }
             cell.model = BookingTheaterModel.init(time.subLocation[indexPath.row])
+            b = indexPath.row
+            print("-------------", b)
             return cell
         }
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        //print("----------------[3. will display] ---------------")
-//
-//        if indexPath.section == 0 {
-//            switch indexPath.row {
-//            case 1:
-//                //print("kkkkk")
-//                (cell as? BookingTableViewCell)?.posterCollectionView.reloadData()
-//            default:
-//                break
-//            }
-//        }
-//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
@@ -155,6 +162,20 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             return 110
         }
     }
+    
+    //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    //        //print("----------------[3. will display] ---------------")
+    //
+    //        if indexPath.section == 0 {
+    //            switch indexPath.row {
+    //            case 1:
+    //                //print("kkkkk")
+    //                (cell as? BookingTableViewCell)?.posterCollectionView.reloadData()
+    //            default:
+    //                break
+    //            }
+    //        }
+    //    }
 }
 
 extension BookingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -174,7 +195,7 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         case 1: //요일
             return 7
         case 2: //상영시간
-            guard let movies = self.theaterInfo?.subLocation.first?.screenTime else { return 1 }
+            guard let movies = self.theaterInfo?.subLocation[b ?? 0].screenTime else { return 1 }
             return movies.count
         default:
             return 1
@@ -195,7 +216,7 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
 
             //print(movies.index(of: moviePk))
 //            if firstScrollEnable == true {
-//                for i in 0...200 {
+//                for i in 0...20 {
 //                    if movies[i].pk == moviePk {
 //                        collectionView.selectItem(at: [0, i], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
 //                        firstScrollEnable = false
@@ -220,8 +241,11 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         //상영시간 및 예약 가능 자석 표시
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingTheaterCollectionViewCell", for: indexPath) as! BookingTheaterCollectionViewCell
+            print("----------------[collection \(indexPath)] ---------------")
+
             guard let time = theaterInfo else { return cell }
-            cell.model = BookingTheaterModel.init((time.subLocation.first?.screenTime[indexPath.row])!)
+            cell.model = BookingTheaterModel.init(time.subLocation[b ?? 0].screenTime[indexPath.row])
+//            cell.model = BookingTheaterModel.init((time.subLocation.first?.screenTime[indexPath.row])!)
             return cell
         default:
             let a = UICollectionViewCell()
@@ -257,13 +281,17 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
                 self.tableView.reloadSections([1, 1], with: UITableView.RowAnimation.fade)
                 //날짜 리로드
                 self.tableView.reloadRows(at: [[0, 2]], with: UITableView.RowAnimation.fade)
-                
-                
             }
 
             collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
-            
-            
+        
+        case 1:
+            print("date")
+        
+        //time table collection cell
+        case 2:
+            print("time")
+
         default:
             print(0)
         }

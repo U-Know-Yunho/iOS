@@ -27,9 +27,9 @@ class SeatViewController: UIViewController {
     var normalCounting = 0
     var checkingChooseSeats: [IndexPath] = []
     var reservedSeats: [Int] = []
-
-    //상영관 자세한 정보 받아오기
-    var moviePk: Int?
+    //좌석 정보 받아오기
+    var pk: Int?
+    var theaterSeat: [TheaterSeats]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +43,22 @@ class SeatViewController: UIViewController {
                 reservedSeats.append(model.row)
             }
         }
+
         print(reservedSeats)
         
-        //상영관 정보 받아오기
-        guard let moviePk = moviePk else {return}
+        //좌석 정보 받아오기
+        guard let pk = pk else {return}
+        TicketManager.singleton.selectSeats(screenTimePk: pk) { TheaterSeats in
+            self.theaterSeat = TheaterSeats
+        }
 //        TheaterManager.singleton.loadTheaterDetail(moviePk) { aa in
 //            self.theaterDetail = aa
 //        }
         
         
     }
-    
     override func viewWillAppear(_ animated: Bool) {
+        print("좌석데이터 넘어왔다2 성공입니다:", self.pk)
         alert()
     }
     
