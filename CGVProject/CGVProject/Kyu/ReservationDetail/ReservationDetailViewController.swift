@@ -44,6 +44,14 @@ class ReservationDetailViewController: UIViewController {
         reservation.bookMovieTheaterLabel.text = self.screen?.theater
         reservation.bookMovieTimeLabel.text = self.screen?.time
         reservation.bookMovieScreenLabel.text = self.seat?.first?.seatName
+        guard let number = self.book?.first?.num else { return }
+        reservation.bookNumberOfSeats.text = String(number)
+        if let urlString = self.screen?.thumbImgUrl,
+            let url = URL(string: urlString) {
+            reservation.bookMoviePosterImageView.kf.setImage(with: url)
+        }
+        
+        
     }
     
     func closeReservationView() {
