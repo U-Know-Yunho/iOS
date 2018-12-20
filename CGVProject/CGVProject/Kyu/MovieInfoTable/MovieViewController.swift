@@ -37,21 +37,29 @@ class MovieViewController: UIViewController {
         registerCell()
         UNUserNotificationCenter.current().delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(pushAlarm), name: Notification.Name("AlarmButton"), object: nil)
-        
     }
     
     @objc func pushAlarm() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in })
         
         let content = UNMutableNotificationContent()
-        content.title = "title: 타이틀"
-        content.subtitle = "subtitle: 서브타이틀"
-        content.body = "body: 바디"
+        content.title = "영화 개봉일 알람"
+        content.subtitle = "Title: \(model?.title ?? "")"
+        content.body = "개봉일: \(model?.openingDate ?? "")"
         content.badge = 1
         content.sound = UNNotificationSound.default
         
+        // 영화 상영일 알림
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let movieDate = model?.openingDate
+        let md = dateFormatter.date(from: movieDate ?? "")
+        let movidDateComponents = Calendar.current.dateComponents([.year, .month, .day, ], from: md!)
+      
+// 현재 시간 +5초 후 알림
         let date = Date(timeIntervalSinceNow: 5)
-        var dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         //Adding Request
@@ -60,7 +68,6 @@ class MovieViewController: UIViewController {
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
-    
     private func registerCell() {
         movieInfoTableView.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieInfoTableViewCell")
         cellIdentifier.append("MovieInfoTableViewCell")
@@ -112,6 +119,7 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
             cell.moviePosterImageView.kf.setImage(with: URL(string: model?.mainImgUrl ?? ""))
             cell.stillcutURL = model?.stillcuts
             cell.moviePk = moviePk
+            
             return cell
             
         case 1:
