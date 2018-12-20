@@ -212,15 +212,14 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             
 
             //print(movies.index(of: moviePk))
-//            if firstScrollEnable == true {
-//                for i in 0...20 {
-//                    if movies[i].pk == moviePk {
-//                        collectionView.selectItem(at: [0, i], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
-//                        firstScrollEnable = false
-//                    }
-//                }
-//            }
-            
+            if firstScrollEnable == true {
+                for i in 0...20 {
+                    if movies[i].pk == moviePk {
+                        collectionView.selectItem(at: [0, i], animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+                    }
+                }
+            }
+
             return cell
         
         //예약 가능 날짜
@@ -256,6 +255,9 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        firstScrollEnable = false
+        
         switch collectionView.tag {
         case 0:
             
@@ -264,7 +266,7 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
             MovieManager.singleton.loadMovieDetail(movies![indexPath.row].pk) { detail in
                 self.movieDetails = detail
                 //타이틀 리로드
-                self.tableView.reloadRows(at: [[0, 0]], with: UITableView.RowAnimation.fade)
+                self.tableView.reloadRows(at: [[0, 0]], with: UITableView.RowAnimation.none)
             }
             
             //상영관 상세 정보 받아오기
@@ -273,9 +275,9 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
                 print("ssssssss: \(indexPath.row) : ", self.theaterInfo!.date, terminator: "\n")
                 
                 //상영관 리로드
-                self.tableView.reloadSections([1, 1], with: UITableView.RowAnimation.fade)
+                self.tableView.reloadSections([1, 1], with: UITableView.RowAnimation.none)
                 //날짜 리로드
-                self.tableView.reloadRows(at: [[0, 2]], with: UITableView.RowAnimation.fade)
+                self.tableView.reloadRows(at: [[0, 2]], with: UITableView.RowAnimation.none)
             }
 
             collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
