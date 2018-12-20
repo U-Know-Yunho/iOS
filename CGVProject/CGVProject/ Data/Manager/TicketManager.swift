@@ -18,7 +18,6 @@ class TicketManager{
     ]
     // MARK: 티켓리스트
     func ticketLoadMovieList(completion: @escaping (([TheaterMovieList]) -> Void)){
-    
         Alamofire.request(API.TheaterURL.theaterList, method: .get, encoding: JSONEncoding.default, headers: header)
         .validate()
             .responseData { (response) in
@@ -83,7 +82,6 @@ class TicketManager{
         }
         
     }
-    
     func createReservations(screenTimePk: Int,seatsPks: [Int], completion: @escaping ((TheaterReservation) -> Void)){
         let prams: Parameters = [
             "screen": screenTimePk,
@@ -106,7 +104,46 @@ class TicketManager{
                     print("reservationData Network err:",err.localizedDescription)
                 }
         }
+    }
+    
+    func loadUserReservations(completion: @escaping (([TheaterReservation])-> Void)){
         
+        Alamofire.request(API.UserURL.userReservation, method: .get, encoding: JSONEncoding.default, headers: header)
+        .validate()
+            .responseData { (response) in
+                switch response.result{
+                case .success(let value):
+                    do {
+                         let userReservations = try JSONDecoder().decode([TheaterReservation].self, from: value)
+                        completion(userReservations)
+                    }catch{
+                        print("userReservations decode :", error)
+                    }
+                   
+                case .failure(let err):
+                    print("loadUserReservations NetworkErr:",err.localizedDescription)
+                }
+        }
+        
+    }
+    func userReservationDelete(reservationPk: Int,completion: @escaping (([TheaterReservation])-> Void)){
+        
+        Alamofire.request(API.UserURL.userReservation + "\(reservationPk)", method: .patch, encoding: JSONEncoding.default, headers: header)
+            .validate()
+            .responseData { (response) in
+                switch response.result{
+                case .success(let value):
+                    do {
+                        let userReservations = try JSONDecoder().decode([TheaterReservation].self, from: value)
+                        completion(userReservations)
+                    }catch{
+                        print("userReservations decode :", error)
+                    }
+                    
+                case .failure(let err):
+                    print("loadUserReservations NetworkErr:",err.localizedDescription)
+                }
+        }
     }
     
 }
