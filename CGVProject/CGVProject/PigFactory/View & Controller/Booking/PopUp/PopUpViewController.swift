@@ -12,7 +12,7 @@ class PopUpViewController: UIViewController {
 
     @IBOutlet weak var baseWindow: UIView!
     
-    
+    var scPk: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         baseWindow.layer.cornerRadius = 10
@@ -23,4 +23,14 @@ class PopUpViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func selectSeat(_ sender: Any) {
+        let bookStoryboard = UIStoryboard(name: "Book", bundle: nil)
+        guard let seatVC = bookStoryboard.instantiateViewController(withIdentifier: "Seat") as? SeatViewController  else {
+            return print("Bookstoryborad faild")
+        }
+        seatVC.pk = self.scPk
+        dismiss(animated: true) {
+            UIApplication.shared.delegate?.window!!.rootViewController?.present(seatVC, animated: false)
+        }
+    }
 }

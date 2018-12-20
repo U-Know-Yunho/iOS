@@ -57,7 +57,7 @@ class HomeViewCell: UICollectionViewCell {
         }
     }
     @objc private func notReleaseMovieDidTap(){
-        MovieManager.singleton.loadHomeViewData(nowOpen: false) { (homeViewData) in
+        MovieManager.singleton.loadHomeViewData(nowOpen: nil) { (homeViewData) in
             self.model = homeViewData
             self.homeTableView.reloadData()
         }
