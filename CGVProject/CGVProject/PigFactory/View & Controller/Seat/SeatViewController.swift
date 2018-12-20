@@ -139,9 +139,19 @@ class SeatViewController: UIViewController {
             print(self.pk!,self.reservedSeats)
             TicketManager.singleton.createReservations(screenTimePk: self.pk!, seatsPks: self.reservedSeats) { (theaterReservation) in
                 
+                self.dismiss(animated: true)
+                
+                print("showReservationDetail")
+                let reservationDetailStoryboard = UIStoryboard(name: "ReservationDetail", bundle: nil)
+                guard let reserVC = reservationDetailStoryboard.instantiateViewController(withIdentifier: "ReservationDetailViewController") as? ReservationDetailViewController  else {
+                    return print("ReservationDetail faild")
+                }
+                UIApplication.shared.delegate?.window!!.rootViewController?.present(reserVC, animated: false)
+                
                 print(theaterReservation)
             }
         }
+        
     }
     
     
