@@ -136,12 +136,9 @@ extension BookingViewController: UITableViewDelegate, UITableViewDataSource {
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BookingTheaterTableViewCell", for: indexPath) as! BookingTheaterTableViewCell
-            print("----------------[tableview \(indexPath)] ---------------")
-
             guard let time = self.theaterInfo else { return cell }
             cell.model = BookingTheaterModel.init(time.subLocation[indexPath.row])
             b = indexPath.row
-            print("-------------", b)
             return cell
         }
     }
@@ -241,8 +238,6 @@ extension BookingViewController: UICollectionViewDataSource, UICollectionViewDel
         //상영시간 및 예약 가능 자석 표시
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookingTheaterCollectionViewCell", for: indexPath) as! BookingTheaterCollectionViewCell
-            print("----------------[collection \(indexPath)] ---------------")
-
             guard let time = theaterInfo else { return cell }
             cell.model = BookingTheaterModel.init(time.subLocation[b ?? 0].screenTime[indexPath.row])
 //            cell.model = BookingTheaterModel.init((time.subLocation.first?.screenTime[indexPath.row])!)

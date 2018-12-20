@@ -13,12 +13,14 @@ class SeatModel {
     var pk: Int
     var row: Int
     var number: Int
+    var seatName: String?
     var reservationCheck: Bool
     
     init(_ seat: TheaterSeats) {
         pk = seat.pk
         row = seat.row
         number = seat.number
+        seatName = seat.seatName
         reservationCheck = seat.reservationCheck
     }
 }

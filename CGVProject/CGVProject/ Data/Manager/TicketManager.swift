@@ -89,7 +89,7 @@ class TicketManager{
             "screen": screenTimePk,
             "seats": seatsPks
         ]
-        Alamofire.request(API.TheaterURL.reservations, method: .get, parameters: prams, encoding: JSONEncoding.default, headers: header)
+        Alamofire.request(API.TheaterURL.reservations, method: .post, parameters: prams, encoding: JSONEncoding.default, headers: header)
         .validate()
             .responseData { (response) in
                 switch response.result{
