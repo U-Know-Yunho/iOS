@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cgvLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5ou-sN-tte">
-                                <rect key="frame" x="124" y="133" width="126" height="58"/>
+                                <rect key="frame" x="124" y="133" width="126" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="2nP-hU-13a"/>
                                     <constraint firstAttribute="width" constant="126" id="B4U-rp-PIj"/>
@@ -28,7 +28,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5ou-sN-tte" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="113" id="EoJ-ky-Zga"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5ou-sN-tte" secondAttribute="bottom" constant="476" id="Mbs-VL-jzo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5ou-sN-tte" secondAttribute="bottom" constant="500" id="Mbs-VL-jzo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5ou-sN-tte" secondAttribute="trailing" constant="125" id="OSn-g1-b6z"/>
                             <constraint firstItem="5ou-sN-tte" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="TBC-w2-uGd"/>
                         </constraints>

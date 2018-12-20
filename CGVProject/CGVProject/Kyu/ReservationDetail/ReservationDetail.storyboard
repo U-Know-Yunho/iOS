@@ -12,7 +12,7 @@
         <!--Reservation Detail View Controller-->
         <scene sceneID="ahD-Xs-3oq">
             <objects>
-                <viewController storyboardIdentifier="eservationDetailViewController" id="kFl-BX-BM4" customClass="ReservationDetailViewController" customModule="CGVProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReservationDetailViewController" id="kFl-BX-BM4" customClass="ReservationDetailViewController" customModule="CGVProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ftz-Bz-xso">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

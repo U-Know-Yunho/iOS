@@ -22,11 +22,16 @@ class ReservationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
         TicketManager.singleton.loadUserReservations { book in
             self.book = book
             self.screen = book.first?.screeningSet
             self.seat = book.first?.seatsReserved
+            self.setReservationInfo()
+
         }
+
         setReservationInfo()
         closeReservationView()
     }
